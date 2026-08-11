@@ -53,6 +53,199 @@ _DEFAULT_TRIGGER_NAME = "Audio Trigger"
 _FRAME_DURATION_MS = 20  # 20 ms chunks — standard for WebRTC pacing
 
 
+class AudioTrigger:
+    """Pre-connects and streams a trigger WAV file into a LiveKit room."""
+    
+    def __init__(
+        self,
+        room_name: str,
+        wav_file_path: str | os.PathLike,
+        *,
+        livekit_url: str | None = None,
+        api_key: str | None = None,
+        api_secret: str | None = None,
+        participant_identity: str = _DEFAULT_TRIGGER_IDENTITY,
+        participant_name: str = _DEFAULT_TRIGGER_NAME,
+        settle_delay: float = 0.2,
+    ) -> None:
+        self.room_name = room_name
+        self.wav_file_path = Path(wav_file_path)
+        self.url = livekit_url or os.getenv("LIVEKIT_URL")
+        self.key = api_key or os.getenv("LIVEKIT_API_KEY")
+        self.secret = api_secret or os.getenv("LIVEKIT_API_SECRET")
+        self.participant_identity = participant_identity
+        self.participant_name = participant_name
+        self.settle_delay = settle_delay
+
+        if not self.url or not self.key or not self.secret:
+            raise EnvironmentError(
+                "LiveKit connection details are required. Set LIVEKIT_URL, "
+                "LIVEKIT_API_KEY, and LIVEKIT_API_SECRET."
+            )
+
+        if not self.wav_file_path.is_file():
+            raise FileNotFoundError(f"WAV file not found: {self.wav_file_path}")
+
+        self.trigger_room = rtc.Room()
+        self.source = None
+        self.mute_task = None
+        self.raw_audio = b""
+        self.sample_rate = 0
+        self.num_channels = 0
+        self.sample_width = 0
+
+    async def start(self) -> None:
+        """Connects the temporary participant and publishes the audio track."""
+        # ── 1. Read and validate the WAV file ──────────────────────────────
+        with wave.open(str(self.wav_file_path), "rb") as wav:
+            self.sample_rate = wav.getframerate()
+            self.num_channels = wav.getnchannels()
+            self.sample_width = wav.getsampwidth()
+
+            if self.sample_width != 2:
+                raise ValueError(
+                    f"WAV file must be 16-bit PCM (sampwidth=2), "
+                    f"got sampwidth={self.sample_width}.  Re-encode the file with: "
+                    f"ffmpeg -i {self.wav_file_path.name} -ar 48000 -ac 1 -sample_fmt s16 output.wav"
+                )
+
+            # Read all frames up-front
+            self.raw_audio = wav.readframes(wav.getnframes())
+            total_frames = wav.getnframes()
+
+        logger.info(
+            "audio_trigger: loaded %s — %d Hz, %d ch, %.2f s",
+            self.wav_file_path.name,
+            self.sample_rate,
+            self.num_channels,
+            total_frames / self.sample_rate,
+        )
+
+        # ── 2. Mint a short-lived access token for the trigger bot ─────────
+        token = (
+            api.AccessToken(self.key, self.secret)
+            .with_identity(self.participant_identity)
+            .with_name(self.participant_name)
+            .with_grants(
+                api.VideoGrants(
+                    room_join=True,
+                    room=self.room_name,
+                    can_publish=True,
+                    can_subscribe=False,
+                )
+            )
+            .to_jwt()
+        )
+
+        # ── 3. Connect the temporary participant ───────────────────────────
+        await self.trigger_room.connect(
+            self.url,
+            token,
+            options=rtc.RoomOptions(auto_subscribe=False),
+        )
+        logger.info(
+            "audio_trigger: connected to room '%s' as '%s'",
+            self.room_name,
+            self.participant_identity,
+        )
+
+        # ── 4. Create audio source & publish track ─────────────────────
+        self.source = rtc.AudioSource(self.sample_rate, self.num_channels)
+        track = rtc.LocalAudioTrack.create_audio_track("trigger-audio", self.source)
+        publish_options = rtc.TrackPublishOptions(
+            source=rtc.TrackSource.SOURCE_MICROPHONE,
+        )
+        publication = await self.trigger_room.local_participant.publish_track(
+            track, publish_options
+        )
+        logger.info("audio_trigger: published track %s", publication.sid)
+
+        # ── 5. Mute the trigger track for all real users ───────────────
+        self.mute_task = asyncio.create_task(
+            _mute_trigger_for_users(
+                url=self.url,
+                api_key=self.key,
+                api_secret=self.secret,
+                room_name=self.room_name,
+                trigger_track_sid=publication.sid,
+                trigger_identity=self.participant_identity,
+            )
+        )
+
+    async def trigger(self, agent_session: "livekit.agents.AgentSession") -> None:
+        """Wires the trigger bot into the agent's pipeline and streams audio."""
+        try:
+            # ── 6. Wire the trigger bot into the agent's audio pipeline ────
+            original_linked_participant = agent_session.room_io.linked_participant
+            original_identity = (
+                original_linked_participant.identity
+                if original_linked_participant
+                else None
+            )
+            agent_session.room_io.set_participant(self.participant_identity)
+            logger.info(
+                "audio_trigger: switched AgentSession input from %s to %s",
+                original_identity,
+                self.participant_identity,
+            )
+
+            await asyncio.sleep(self.settle_delay)
+            if self.mute_task:
+                await self.mute_task
+
+            # ── 7. Stream frames at real-time pace ─────────────────────────
+            samples_per_chunk = self.sample_rate * _FRAME_DURATION_MS // 1000
+            bytes_per_sample = self.sample_width * self.num_channels
+            chunk_bytes = samples_per_chunk * bytes_per_sample
+            sleep_duration = _FRAME_DURATION_MS / 1000.0
+
+            offset = 0
+            while offset < len(self.raw_audio):
+                end = min(offset + chunk_bytes, len(self.raw_audio))
+                chunk = self.raw_audio[offset:end]
+
+                if len(chunk) < chunk_bytes:
+                    chunk += b"\x00" * (chunk_bytes - len(chunk))
+
+                frame = rtc.AudioFrame(
+                    data=chunk,
+                    sample_rate=self.sample_rate,
+                    num_channels=self.num_channels,
+                    samples_per_channel=samples_per_chunk,
+                )
+                await self.source.capture_frame(frame)
+                await asyncio.sleep(sleep_duration)
+                offset = end
+
+            # Small trailing silence
+            silence = b"\x00" * chunk_bytes
+            for _ in range(10):
+                frame = rtc.AudioFrame(
+                    data=silence,
+                    sample_rate=self.sample_rate,
+                    num_channels=self.num_channels,
+                    samples_per_channel=samples_per_chunk,
+                )
+                await self.source.capture_frame(frame)
+                await asyncio.sleep(sleep_duration)
+
+            logger.info("audio_trigger: finished streaming audio")
+
+            await asyncio.sleep(0.5)
+
+            # ── 8. Restore the original user in the agent's pipeline ───────
+            agent_session.room_io.set_participant(original_identity)
+            logger.info(
+                "audio_trigger: restored AgentSession input back to %s",
+                original_identity,
+            )
+
+        finally:
+            # ── 9. Clean up — disconnect the temporary participant ─────────
+            await self.trigger_room.disconnect()
+            logger.info("audio_trigger: disconnected trigger participant")
+
+
 async def trigger_agent_with_audio(
     agent_session: "livekit.agents.AgentSession",
     room_name: str,
@@ -65,207 +258,19 @@ async def trigger_agent_with_audio(
     participant_name: str = _DEFAULT_TRIGGER_NAME,
     settle_delay: float = 0.2,
 ) -> None:
-    """Connect a temporary participant and stream a WAV file into the room.
-
-    Only the agent hears the audio — all other participants (the real
-    user, egress recorders, etc.) are automatically unsubscribed from the
-    trigger track via the LiveKit Server API before streaming begins.
-    From the user's perspective the agent simply starts talking on its own.
-
-    Parameters
-    ----------
-    room_name:
-        Name of the LiveKit room the agent is already in.
-    wav_file_path:
-        Path to a **16-bit PCM** WAV file (mono or stereo).
-    livekit_url:
-        LiveKit server URL.  Falls back to ``LIVEKIT_URL`` env var.
-    api_key / api_secret:
-        LiveKit credentials.  Fall back to ``LIVEKIT_API_KEY`` /
-        ``LIVEKIT_API_SECRET`` env vars.
-    participant_identity:
-        Identity string for the temporary participant.
-    participant_name:
-        Display name for the temporary participant.
-    settle_delay:
-        Seconds to wait after connecting before streaming, giving the
-        agent time to notice the new participant's audio track.
-    """
-
-    wav_path = Path(wav_file_path)
-    if not wav_path.is_file():
-        raise FileNotFoundError(f"WAV file not found: {wav_path}")
-
-    url = livekit_url or os.getenv("LIVEKIT_URL")
-    key = api_key or os.getenv("LIVEKIT_API_KEY")
-    secret = api_secret or os.getenv("LIVEKIT_API_SECRET")
-
-    if not url or not key or not secret:
-        raise EnvironmentError(
-            "LiveKit connection details are required.  Set LIVEKIT_URL, "
-            "LIVEKIT_API_KEY, and LIVEKIT_API_SECRET environment variables "
-            "or pass them explicitly."
-        )
-
-    # ── 1. Read and validate the WAV file ──────────────────────────────
-    with wave.open(str(wav_path), "rb") as wav:
-        sample_rate = wav.getframerate()
-        num_channels = wav.getnchannels()
-        sample_width = wav.getsampwidth()
-
-        if sample_width != 2:
-            raise ValueError(
-                f"WAV file must be 16-bit PCM (sampwidth=2), "
-                f"got sampwidth={sample_width}.  Re-encode the file with: "
-                f"ffmpeg -i {wav_path.name} -ar 48000 -ac 1 -sample_fmt s16 output.wav"
-            )
-
-        # Read all frames up-front (the file is tiny — a few seconds max)
-        raw_audio = wav.readframes(wav.getnframes())
-        total_frames = wav.getnframes()
-
-    logger.info(
-        "audio_trigger: loaded %s — %d Hz, %d ch, %.2f s",
-        wav_path.name,
-        sample_rate,
-        num_channels,
-        total_frames / sample_rate,
+    """Connect a temporary participant and stream a WAV file into the room."""
+    trigger_obj = AudioTrigger(
+        room_name=room_name,
+        wav_file_path=wav_file_path,
+        livekit_url=livekit_url,
+        api_key=api_key,
+        api_secret=api_secret,
+        participant_identity=participant_identity,
+        participant_name=participant_name,
+        settle_delay=settle_delay,
     )
-
-    # ── 2. Mint a short-lived access token for the trigger bot ─────────
-    token = (
-        api.AccessToken(key, secret)
-        .with_identity(participant_identity)
-        .with_name(participant_name)
-        .with_grants(
-            api.VideoGrants(
-                room_join=True,
-                room=room_name,
-                can_publish=True,
-                can_subscribe=False,  # we only publish, never subscribe
-            )
-        )
-        .to_jwt()
-    )
-
-    # ── 3. Connect the temporary participant ───────────────────────────
-    trigger_room = rtc.Room()
-
-    try:
-        await trigger_room.connect(
-            url,
-            token,
-            options=rtc.RoomOptions(auto_subscribe=False),
-        )
-        logger.info(
-            "audio_trigger: connected to room '%s' as '%s'",
-            room_name,
-            participant_identity,
-        )
-
-        # ── 4. Create audio source & publish track ─────────────────────
-        source = rtc.AudioSource(sample_rate, num_channels)
-        track = rtc.LocalAudioTrack.create_audio_track(
-            "trigger-audio", source
-        )
-        publish_options = rtc.TrackPublishOptions(
-            source=rtc.TrackSource.SOURCE_MICROPHONE,
-        )
-        publication = await trigger_room.local_participant.publish_track(
-            track, publish_options
-        )
-        logger.info("audio_trigger: published track %s", publication.sid)
-
-        # ── 5. Mute the trigger track for all real users ───────────────
-        # We start the API call to unsubscribe users, but we don't await it
-        # immediately so we can overlap it with the settle_delay.
-        mute_task = asyncio.create_task(
-            _mute_trigger_for_users(
-                url=url,
-                api_key=key,
-                api_secret=secret,
-                room_name=room_name,
-                trigger_track_sid=publication.sid,
-                trigger_identity=participant_identity,
-            )
-        )
-
-        # ── 6. Wire the trigger bot into the agent's audio pipeline ────
-        # The AgentSession normally locks onto the first participant it sees
-        # (the real user). We temporarily force it to listen to our bot.
-        original_linked_participant = agent_session.room_io.linked_participant
-        original_identity = (
-            original_linked_participant.identity
-            if original_linked_participant
-            else None
-        )
-        agent_session.room_io.set_participant(participant_identity)
-        logger.info(
-            "audio_trigger: switched AgentSession input from %s to %s",
-            original_identity,
-            participant_identity,
-        )
-
-        # Give the agent a moment to subscribe to the new participant's
-        # audio track before we start streaming.
-        await asyncio.sleep(settle_delay)
-        
-        # Ensure the mute API call completed before we stream
-        await mute_task
-
-        # ── 7. Stream frames at real-time pace ─────────────────────────
-        samples_per_chunk = sample_rate * _FRAME_DURATION_MS // 1000
-        bytes_per_sample = sample_width * num_channels
-        chunk_bytes = samples_per_chunk * bytes_per_sample
-        sleep_duration = _FRAME_DURATION_MS / 1000.0
-
-        offset = 0
-        while offset < len(raw_audio):
-            end = min(offset + chunk_bytes, len(raw_audio))
-            chunk = raw_audio[offset:end]
-
-            # Pad the final chunk to a full frame if needed
-            if len(chunk) < chunk_bytes:
-                chunk += b"\x00" * (chunk_bytes - len(chunk))
-
-            frame = rtc.AudioFrame(
-                data=chunk,
-                sample_rate=sample_rate,
-                num_channels=num_channels,
-                samples_per_channel=samples_per_chunk,
-            )
-            await source.capture_frame(frame)
-            await asyncio.sleep(sleep_duration)
-            offset = end
-
-        # Small trailing silence so the agent's VAD registers end-of-speech
-        silence = b"\x00" * chunk_bytes
-        for _ in range(10):  # 200 ms of silence
-            frame = rtc.AudioFrame(
-                data=silence,
-                sample_rate=sample_rate,
-                num_channels=num_channels,
-                samples_per_channel=samples_per_chunk,
-            )
-            await source.capture_frame(frame)
-            await asyncio.sleep(sleep_duration)
-
-        logger.info("audio_trigger: finished streaming audio")
-
-        # Brief pause to let the last frames propagate through WebRTC
-        await asyncio.sleep(0.5)
-
-        # ── 8. Restore the original user in the agent's pipeline ───────
-        agent_session.room_io.set_participant(original_identity)
-        logger.info(
-            "audio_trigger: restored AgentSession input back to %s",
-            original_identity,
-        )
-
-    finally:
-        # ── 9. Clean up — disconnect the temporary participant ─────────
-        await trigger_room.disconnect()
-        logger.info("audio_trigger: disconnected trigger participant")
+    await trigger_obj.start()
+    await trigger_obj.trigger(agent_session)
 
 
 # ── Helpers ─────────────────────────────────────────────────────────────

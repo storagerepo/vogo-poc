@@ -21,6 +21,7 @@ Model notes (Section 7 of the plan):
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from pathlib import Path
 
@@ -39,7 +40,7 @@ from livekit.agents import (
 )
 from livekit.plugins import google, noise_cancellation
 
-from agent.audio_trigger import trigger_agent_with_audio
+from agent.audio_trigger import AudioTrigger
 from agent.instructions import ARIA_INSTRUCTIONS
 from agent.tools import ALL_TOOLS
 
@@ -80,6 +81,13 @@ def prewarm(proc: JobProcess) -> None:
 
 
 async def entrypoint(ctx: JobContext) -> None:
+    # Kick off the trigger connection concurrently to save 3-5 seconds of startup time
+    audio_trigger = AudioTrigger(
+        room_name=ctx.room.name,
+        wav_file_path=TRIGGER_WAV_PATH,
+    )
+    trigger_prepare_task = asyncio.create_task(audio_trigger.start())
+
     await ctx.connect()
 
     session = AgentSession(
@@ -128,11 +136,8 @@ async def entrypoint(ctx: JobContext) -> None:
     # Gemini 3.1 ignores generate_reply() mid-session, so we trigger the
     # greeting by streaming a short "Hey" audio clip into the room from a
     # temporary participant.  The agent hears it as real speech and responds.
-    await trigger_agent_with_audio(
-        agent_session=session,
-        room_name=ctx.room.name,
-        wav_file_path=TRIGGER_WAV_PATH,
-    )
+    await trigger_prepare_task
+    await audio_trigger.trigger(agent_session=session)
 
 
 if __name__ == "__main__":
