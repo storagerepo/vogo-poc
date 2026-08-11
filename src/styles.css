@@ -1,0 +1,199 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * VOGO design system — warm ivory, deep charcoal, cobalt accent.
+ * Display: Cormorant Garamond (serif). Body: Jost (modern sans).
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ivory: var(--ivory);
+  --color-ivory-dim: var(--ivory-dim);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-soft: var(--charcoal-soft);
+  --color-cobalt: var(--cobalt);
+  --color-sand: var(--sand);
+  --color-vogo: var(--vogo);
+  --color-vogo-deep: var(--vogo-deep);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.125rem;
+
+  --ivory: oklch(0.968 0.011 91.5);
+  --ivory-dim: oklch(0.932 0.014 89);
+  --charcoal: oklch(0.205 0.008 250);
+  --charcoal-soft: oklch(0.34 0.008 250);
+  --cobalt: oklch(0.32 0.07 258);
+  --sand: oklch(0.79 0.038 78);
+
+  /* Vogo brand */
+  --vogo: oklch(0.887 0.183 96.2); /* #FFD400 */
+  --vogo-deep: oklch(0.83 0.17 92);
+  --navy: oklch(0.283 0.048 262); /* #17243D */
+  --navy-soft: oklch(0.38 0.05 262);
+
+
+  --background: var(--ivory);
+  --foreground: var(--charcoal);
+  --card: oklch(0.985 0.008 91.5);
+  --card-foreground: var(--charcoal);
+  --popover: var(--ivory);
+  --popover-foreground: var(--charcoal);
+  --primary: var(--charcoal);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--ivory-dim);
+  --secondary-foreground: var(--charcoal);
+  --muted: var(--ivory-dim);
+  --muted-foreground: oklch(0.52 0.012 250);
+  --accent: var(--cobalt);
+  --accent-foreground: var(--ivory);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: var(--ivory);
+  --border: oklch(0.88 0.012 89);
+  --input: oklch(0.88 0.012 89);
+  --ring: var(--cobalt);
+}
+
+.dark {
+  --background: var(--charcoal);
+  --foreground: var(--ivory);
+  --card: oklch(0.25 0.008 250);
+  --card-foreground: var(--ivory);
+  --popover: var(--charcoal);
+  --popover-foreground: var(--ivory);
+  --primary: var(--ivory);
+  --primary-foreground: var(--charcoal);
+  --secondary: oklch(0.28 0.008 250);
+  --secondary-foreground: var(--ivory);
+  --muted: oklch(0.28 0.008 250);
+  --muted-foreground: oklch(0.72 0.01 250);
+  --accent: var(--cobalt);
+  --accent-foreground: var(--ivory);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+  }
+
+  h1,
+  h2,
+  h3,
+  blockquote {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--cobalt);
+    color: var(--ivory);
+  }
+}
+
+/* Editorial eyebrow label */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Film-grain + vignette overlay for cinematic frames */
+@utility film {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+      ellipse at center,
+      transparent 45%,
+      color-mix(in oklab, var(--charcoal) 55%, transparent) 130%
+    );
+    opacity: 0.85;
+  }
+}
+
+/* Slow cinematic drift for still footage used as ambient video */
+@utility ken-burns {
+  animation: ken-burns 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1.06) translate3d(-1%, 1%, 0);
+  }
+  to {
+    transform: scale(1.18) translate3d(1.5%, -1.5%, 0);
+  }
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
