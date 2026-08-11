@@ -53,9 +53,6 @@ export function SiteNav() {
         </ul>
 
         <div className="hidden shrink-0 items-center justify-end gap-8 lg:flex">
-          <a href="#search" className="eyebrow opacity-80 transition-opacity hover:opacity-100">
-            Search
-          </a>
           <a
             href="#search"
             className="eyebrow rounded-full bg-vogo px-5 py-2.5 text-navy transition-colors duration-300 hover:bg-navy hover:text-ivory"

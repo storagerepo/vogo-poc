@@ -109,31 +109,41 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 w-full max-w-5xl rounded-3xl border border-ivory/20 bg-ivory p-2 text-charcoal shadow-[0_24px_60px_-24px_rgba(0,0,0,0.55)] lg:rounded-full"
+          className="mt-8 w-full max-w-[950px] rounded-3xl bg-ivory p-2 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] lg:rounded-full"
         >
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="grid grid-cols-1 divide-y divide-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-[1.3fr_1fr_1fr_0.9fr_auto]"
+            className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:flex lg:flex-row lg:items-center"
           >
-            {SEARCH_FIELDS.map((f) => (
-              <label key={f.label} className="block min-w-0 px-5 py-3.5">
-                <span className="eyebrow text-muted-foreground">{f.label}</span>
-                <input
-                  defaultValue={f.value}
-                  aria-label={f.label}
-                  className="mt-1 w-full truncate bg-transparent font-display text-lg text-charcoal outline-none placeholder:text-muted-foreground"
-                />
-              </label>
-            ))}
-            <MagneticButton
-              strength={8}
-              onClick={() =>
-                document.getElementById("stays")?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="eyebrow flex items-center justify-center gap-3 rounded-2xl bg-vogo px-9 py-4 text-navy transition-colors duration-300 hover:bg-navy hover:text-ivory sm:col-span-2 lg:col-span-1 lg:rounded-full"
-            >
-              Search <span aria-hidden>→</span>
-            </MagneticButton>
+            <div className="grid grid-cols-1 sm:grid-cols-2 sm:col-span-2 lg:flex lg:flex-1 lg:gap-0">
+              {SEARCH_FIELDS.map((f, i) => (
+                <div key={f.label} className={`relative flex ${i === 0 ? "lg:flex-[1.3]" : i === 3 ? "lg:flex-[0.9]" : "lg:flex-1"}`}>
+                  <label className="group flex w-full min-w-0 cursor-pointer flex-col justify-center rounded-2xl px-6 py-3 transition-colors hover:bg-black/5 lg:rounded-full">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-charcoal/60">{f.label}</span>
+                    <input
+                      defaultValue={f.value}
+                      aria-label={f.label}
+                      className="mt-1 w-full truncate bg-transparent text-[16px] font-medium text-charcoal outline-none placeholder:text-charcoal/40"
+                    />
+                  </label>
+                  {i < SEARCH_FIELDS.length - 1 && (
+                    <div className="absolute right-0 top-1/2 hidden h-8 -translate-y-1/2 w-[1px] bg-charcoal/15 lg:block" />
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            <div className="sm:col-span-2 lg:ml-2 lg:flex-shrink-0">
+              <MagneticButton
+                strength={8}
+                onClick={() =>
+                  document.getElementById("stays")?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="flex h-[56px] w-full items-center justify-center rounded-2xl lg:rounded-full bg-vogo px-10 text-[13px] font-bold uppercase tracking-wider text-navy transition-all duration-300 hover:bg-navy hover:text-ivory lg:w-auto"
+              >
+                Search
+              </MagneticButton>
+            </div>
           </form>
         </motion.div>
 
