@@ -17,7 +17,7 @@ from livekit.agents import (
 )
 from livekit.plugins import google, noise_cancellation
 
-from agent.audio_trigger import AudioTrigger
+# from agent.audio_trigger import AudioTrigger
 from agent.instructions import ARIA_INSTRUCTIONS
 from agent.tools import ALL_TOOLS
 
@@ -47,10 +47,10 @@ def prewarm(proc: JobProcess) -> None:
 
 
 async def entrypoint(ctx: JobContext) -> None:
-    audio_trigger = AudioTrigger(
-        room_name=ctx.room.name,
-    )
-    trigger_prepare_task = asyncio.create_task(audio_trigger.start())
+    # audio_trigger = AudioTrigger(
+    #     room_name=ctx.room.name,
+    # )
+    # trigger_prepare_task = asyncio.create_task(audio_trigger.start())
 
     await ctx.connect()
 
@@ -62,7 +62,6 @@ async def entrypoint(ctx: JobContext) -> None:
         ),
     )
 
-    # --- Observability (Section 12): log every tool call and usage metrics ---
     @session.on("function_tools_executed")
     def _on_tools_executed(event) -> None:
         for call, output in zip(event.function_calls, event.function_call_outputs):
@@ -97,8 +96,8 @@ async def entrypoint(ctx: JobContext) -> None:
         ),
     )
 
-    await trigger_prepare_task
-    await audio_trigger.trigger(agent_session=session)
+    # await trigger_prepare_task
+    # await audio_trigger.trigger(agent_session=session)
 
 
 if __name__ == "__main__":
