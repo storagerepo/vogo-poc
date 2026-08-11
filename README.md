@@ -146,7 +146,6 @@ tools layer:
 9. **Abuse handling** — one boundary-setting response, then session ends on continued abuse
 10. **Latency/failure fallback** — natural filler instead of dead air; asks to repeat on ASR failure
 11. **Consent/recording notice** — stated in the opening line every session
-12. **Session bounds** — soft ~10 min cap for demo cost/scope control (`SESSION_TIME_LIMIT_SECONDS` in `agent/main.py`)
 
 Run a manual red-team pass against `eval/test_conversations.md`
 (Section C — Guardrail / Edge Cases) before any stakeholder demo.

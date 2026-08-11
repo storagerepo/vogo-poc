@@ -59,7 +59,7 @@ class AudioTrigger:
     def __init__(
         self,
         room_name: str,
-        wav_file_path: str | os.PathLike,
+        wav_file_path: str | os.PathLike | None = None,
         *,
         livekit_url: str | None = None,
         api_key: str | None = None,
@@ -69,7 +69,7 @@ class AudioTrigger:
         settle_delay: float = 0.2,
     ) -> None:
         self.room_name = room_name
-        self.wav_file_path = Path(wav_file_path)
+        self.wav_file_path = Path(wav_file_path) if wav_file_path else Path(__file__).parent / "hey.wav"
         self.url = livekit_url or os.getenv("LIVEKIT_URL")
         self.key = api_key or os.getenv("LIVEKIT_API_KEY")
         self.secret = api_secret or os.getenv("LIVEKIT_API_SECRET")
@@ -249,7 +249,7 @@ class AudioTrigger:
 async def trigger_agent_with_audio(
     agent_session: "livekit.agents.AgentSession",
     room_name: str,
-    wav_file_path: str | os.PathLike,
+    wav_file_path: str | os.PathLike | None = None,
     *,
     livekit_url: str | None = None,
     api_key: str | None = None,
