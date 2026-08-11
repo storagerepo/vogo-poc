@@ -112,7 +112,7 @@ def check_availability(
     available = rng.random() > 0.12  # ~88% available, occasionally sold out for realism
 
     nights = _nights_between(check_in, check_out)
-    total = prop["price_per_night_inr"] * max(nights, 1) if nights else None
+    total = prop["price_per_night_usd"] * max(nights, 1) if nights else None
 
     return {
         "available": available,
@@ -120,8 +120,8 @@ def check_availability(
         "check_in": check_in,
         "check_out": check_out,
         "nights": nights,
-        "price_per_night_inr": prop["price_per_night_inr"],
-        "price_total_inr": total,
+        "price_per_night_usd": prop["price_per_night_usd"],
+        "price_total_usd": total,
         "reason": None if available else "No rooms left for those dates in this mock inventory",
     }
 
@@ -176,7 +176,7 @@ def create_booking(
             "nights": avail["nights"],
             "guests": guests,
             "status": "confirmed",
-            "price_total_inr": avail["price_total_inr"],
+            "price_total_usd": avail["price_total_usd"],
             "has_open_issue": False,
             "issue_notes": None,
         }
@@ -272,3 +272,50 @@ def escalate_to_human(reason: str, urgency: str = "normal", booking_id: str | No
         _save(TICKETS_PATH, tickets)
 
     return {"success": True, "escalation_id": escalation_id}
+
+
+# ---------------------------------------------------------------------------
+# Mock OTP verification (POC only — no real SMS/email)
+# ---------------------------------------------------------------------------
+
+_otp_store: dict[str, dict[str, Any]] = {}  # keyed by contact
+
+
+def send_mock_otp(contact: str) -> dict[str, Any]:
+    """Generate a 4-digit OTP, store it against *contact* with a 5-min expiry,
+    and print it to the console for POC testing. No real SMS/email is sent."""
+    from datetime import timedelta
+
+    otp = "1234"
+    _otp_store[contact] = {
+        "otp": otp,
+        "expires_at": datetime.utcnow() + timedelta(minutes=5),
+        "attempts": 0,
+    }
+    print(f"[MOCK OTP] {contact} -> {otp}")
+    return {"success": True, "message": f"OTP sent to {contact}"}
+
+
+def verify_mock_otp(contact: str, otp: str) -> dict[str, Any]:
+    """Check the OTP the user read back. Returns verified: true/false.
+    Max 3 incorrect attempts; expires after 5 minutes."""
+    entry = _otp_store.get(contact)
+
+    if entry is None:
+        return {"verified": False, "reason": "No OTP found for this contact. Please request a new one."}
+
+    if datetime.utcnow() > entry["expires_at"]:
+        del _otp_store[contact]
+        return {"verified": False, "reason": "OTP has expired. Please request a new one."}
+
+    if entry["attempts"] >= 3:
+        del _otp_store[contact]
+        return {"verified": False, "reason": "Too many incorrect attempts. Please request a new OTP."}
+
+    if otp.strip() == entry["otp"]:
+        del _otp_store[contact]
+        return {"verified": True}
+
+    entry["attempts"] += 1
+    remaining = 3 - entry["attempts"]
+    return {"verified": False, "reason": f"Incorrect OTP. {remaining} attempt(s) remaining."}
