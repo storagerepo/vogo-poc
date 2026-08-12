@@ -12,3 +12,5 @@ services:
       - LIVEKIT_API_KEY=${LIVEKIT_API_KEY}
       - LIVEKIT_API_SECRET=${LIVEKIT_API_SECRET}
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - ./mock_data:/app/mock_data
