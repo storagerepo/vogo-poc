@@ -1,9 +1,6 @@
 import asyncio
 import logging
 from pathlib import Path
-
-from dotenv import load_dotenv
-
 from livekit.agents import (
     Agent,
     AgentSession,
@@ -17,11 +14,9 @@ from livekit.agents import (
 )
 from livekit.plugins import google, noise_cancellation
 
-# from agent.audio_trigger import AudioTrigger
+from agent.audio_trigger import trigger_agent_with_audio
 from agent.instructions import ARIA_INSTRUCTIONS
 from agent.tools import ALL_TOOLS
-
-load_dotenv()
 
 logger = logging.getLogger("vogo-voice-agent")
 logger.setLevel(logging.INFO)
@@ -47,11 +42,6 @@ def prewarm(proc: JobProcess) -> None:
 
 
 async def entrypoint(ctx: JobContext) -> None:
-    # audio_trigger = AudioTrigger(
-    #     room_name=ctx.room.name,
-    # )
-    # trigger_prepare_task = asyncio.create_task(audio_trigger.start())
-
     await ctx.connect()
 
     session = AgentSession(
@@ -85,8 +75,10 @@ async def entrypoint(ctx: JobContext) -> None:
 
     ctx.add_shutdown_callback(log_session_summary)
 
+    aria_agent = AriaAgent()
+
     await session.start(
-        agent=AriaAgent(),
+        agent=aria_agent,
         room=ctx.room,
         room_input_options=RoomInputOptions(
             noise_cancellation=noise_cancellation.BVC(),
@@ -96,8 +88,10 @@ async def entrypoint(ctx: JobContext) -> None:
         ),
     )
 
-    # await trigger_prepare_task
-    # await audio_trigger.trigger(agent_session=session)
+    await trigger_agent_with_audio(
+        aria_agent.realtime_llm_session,
+        wav_file_path=str(Path(__file__).parent / "audio_trigger" / "hey.wav"),
+    )
 
 
 if __name__ == "__main__":
