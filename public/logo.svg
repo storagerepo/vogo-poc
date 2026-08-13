@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#080808"/>
+  <text x="100" y="48" font-family="'Archivo', 'Inter', 'Helvetica Neue', sans-serif" font-weight="800" font-size="21" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">SANTO</text>
+  <text x="100" y="80" font-family="'Archivo', 'Inter', 'Helvetica Neue', sans-serif" font-weight="800" font-size="21" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">DOMINGO</text>
+  <text x="100" y="112" font-family="'Archivo', 'Inter', 'Helvetica Neue', sans-serif" font-weight="800" font-size="21" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">MOTORS</text>
+  <!-- Wavy yellow lines -->
+  <path d="M 30,138 Q 47.5,128 65,138 T 100,138 T 135,138 T 170,138" fill="none" stroke="#FFC72C" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M 30,150 Q 47.5,140 65,150 T 100,150 T 135,150 T 170,150" fill="none" stroke="#FFC72C" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M 30,162 Q 47.5,152 65,162 T 100,162 T 135,162 T 170,162" fill="none" stroke="#FFC72C" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M 30,174 Q 47.5,164 65,174 T 100,174 T 135,174 T 170,174" fill="none" stroke="#FFC72C" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

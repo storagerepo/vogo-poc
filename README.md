@@ -1,203 +1,303 @@
-# Vogo Voice Concierge (Aria) — POC
+# Drive Premier
 
-A LiveKit voice agent powered by Google's Gemini Live API
-(`gemini-3.1-flash-live-preview`) implementing the plan in this repo:
-a human-like, voice-first assistant ("Aria") for Vogo, demonstrating two
-journeys — **find & book a stay**, and **booking status & issue
-handling** — against fully mocked data, with a documented guardrail layer.
+Build a premium, modern automotive dealership landing page inspired by the overall structure and experience of https://www.santodomingomotors.com.do/, but DO NOT copy its UI pixel-for-pixel.
 
-No real inventory, no real payments, no telephony — see **Scope** below.
+TECH:
 
----
+React + Vite + TypeScript
 
-## 1. Project structure
+Tailwind CSS
 
+Framer Motion
+
+Lucide icons
+
+Fully responsive
+
+Component-based architecture
+
+Frontend prototype only with realistic mock data
+
+LANGUAGE:
+Support English and Spanish.
+Add an EN / ES switcher in the header.
+English is the default.
+All visible UI text must change when language changes.
+
+DESIGN GOAL:
+Create a high-end 2026 automotive website that feels like a premium global car brand/dealership.
+
+Visual style:
+
+Minimal luxury
+
+Cinematic automotive photography
+
+Large typography
+
+Black / white / charcoal palette with one subtle accent
+
+Generous whitespace
+
+Strong visual hierarchy
+
+Sharp editorial layouts
+
+Premium vehicle cards
+
+Subtle borders and shadows
+
+Smooth micro-interactions
+
+Sophisticated animations
+
+No excessive gradients
+
+No glassmorphism
+
+No generic SaaS/dashboard styling
+
+No excessive rounded cards
+
+The page should immediately communicate:
+PREMIUM VEHICLES + TRUST + PERFORMANCE + SERVICE.
+
+HEADER:
+Sticky premium navigation.
+
+Logo left.
+
+Navigation:
+Vehicles
+Brands
+Services
+Used Vehicles
+Financing
+About
+Locations
+
+Right:
+Search
+EN | ES
+Contact CTA
+
+Transparent over hero → solid white/black header on scroll.
+
+HERO:
+Full-screen cinematic automotive hero with a premium SUV/car.
+
+Headline:
+"Drive What Moves You."
+
+Subtext:
+"Discover premium vehicles, exceptional service and financing designed around your journey."
+
+Buttons:
+Explore Vehicles
+Book a Test Drive
+
+Use a dramatic vehicle image, subtle parallax and elegant entrance animation.
+
+BRANDS:
+Headline:
+"World-Class Brands. One Destination."
+
+Show:
+Nissan
+Chevrolet
+Cadillac
+Infiniti
+Suzuki
+Yamaha
+
+Minimal premium logo presentation with hover effects.
+
+VEHICLES:
+Headline:
+"Find Your Next Drive"
+
+Category tabs:
+All / SUVs / Sedans / Pickups / Commercial / Motorcycles
+
+Display premium vehicle cards with:
+Image
+Brand
+Model
+Short specification
+Price
+View Details
+Test Drive
+
+Use realistic automotive imagery and consistent image ratios.
+
+FEATURED VEHICLE:
+Large editorial split-screen section.
+
+Large vehicle image on one side.
+Vehicle information on the other.
+
+Example:
+"THE NEW NISSAN PATHFINDER"
+
+Show 3–4 key specifications and:
+Discover Vehicle
+Book Test Drive
+
+SERVICES:
+Headline:
+"More Than a Vehicle. An Ownership Experience."
+
+Four premium service cards:
+Service & Maintenance
+Original Parts
+Bodywork & Paint
+Rapid Service
+
+Use elegant line icons and minimal descriptions.
+
+FINANCING:
+Dark premium section.
+
+Headline:
+"Your Next Vehicle Is Closer Than You Think."
+
+Include a compact financing calculator:
+Vehicle Price
+Down Payment
+Term
+Interest Rate
+Estimated Monthly Payment
+
+CTA:
+Calculate Payment
+
+TEST DRIVE:
+Create a premium test-drive section with a clean form:
+
+Name
+Email
+Phone
+Vehicle
+Preferred Date
+Location
+
+CTA:
+Book a Test Drive
+
+USED VEHICLES:
+Headline:
+"Drive More. Spend Smarter."
+
+Show 3 premium pre-owned vehicle cards.
+
+ABOUT:
+Create a cinematic heritage section.
+
+Headline:
+"Over a Century of Moving Forward."
+
+Mention the company's long automotive history since 1920.
+
+Show elegant statistics:
+100+ Years
+6+ Brands
+Multiple Locations
+Nationwide Presence
+
+Use a strong historical/automotive image.
+
+LOCATIONS:
+Headline:
+"Find Us Near You"
+
+Show location cards with:
+Location
+Address
+Hours
+Services
+Directions
+
+Include a visually styled map placeholder.
+
+FINAL CTA:
+Full-width cinematic automotive image.
+
+Headline:
+"Ready for the Road Ahead?"
+
+Buttons:
+Explore Vehicles
+Contact Us
+
+FOOTER:
+Premium multi-column footer with:
+Vehicles
+Brands
+Services
+Company
+Contact
+Social links
+Privacy
+Terms
+EN / ES
+
+UX:
+
+Smooth scrolling
+
+Sticky header
+
+Vehicle filtering
+
+Hover image zoom
+
+Scroll reveal animations
+
+Elegant button transitions
+
+Mobile hamburger menu
+
+Test-drive modal/form
+
+Working language switcher
+
+Working financing calculator
+
+Responsive carousels on mobile
+
+RESPONSIVE:
+Design intentionally for desktop, tablet and mobile.
+Do not simply shrink desktop layouts.
+
+IMAGE DIRECTION:
+Use only high-quality cinematic automotive imagery.
+Prefer dark studio photography, dramatic roads, luxury dealership environments and close vehicle details.
+Avoid generic stock-photo people and unrelated imagery.
+
+IMPORTANT:
+The final result must feel like a real premium automotive brand website, not an AI-generated template.
+
+Prioritize visual quality over adding excessive content.
+
+Create the complete landing page now with polished spacing, typography, imagery, responsive behavior and animations.
+
+This project was built with [Lovable](https://lovable.dev).
+
+## Build with Lovable
+
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2b60d8c3-cafc-4278-a357-fb189fd913f4).
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
 ```
-vogo-voice-agent-poc/
-├── agent/
-│   ├── main.py                # LiveKit Agent entrypoint
-│   ├── instructions.py        # System prompt / guardrail text (Aria's brain)
-│   └── tools/
-│       ├── data_store.py      # Mock "backend" — properties/bookings/tickets
-│       ├── search_stays.py    # search_stays, get_stay_details, check_availability
-│       ├── booking.py         # create_booking, get_booking_status, modify_or_cancel
-│       └── issues.py          # report_issue, escalate_to_human
-├── mock_data/
-│   ├── properties.json        # ~28 mock listings
-│   ├── bookings.json          # ~10 mock bookings (2 pre-seeded with issues)
-│   └── users.json
-├── eval/
-│   └── test_conversations.md  # Scripted test cases + rubric (Section 12)
-├── token_server.py            # Mints LiveKit access tokens for test clients
-├── requirements.txt
-├── .env.example
-└── README.md
-```
-
-`mock_data/tickets.json` is created automatically at runtime the first
-time `report_issue` or `escalate_to_human` is called — it isn't checked
-in.
-
----
-
-## 2. Prerequisites
-
-- Python 3.10+
-- A LiveKit project (free tier at [cloud.livekit.io](https://cloud.livekit.io) works, or self-host)
-- A Google AI Studio API key with access to the Gemini Live API
-  ([aistudio.google.com/apikey](https://aistudio.google.com/apikey))
-
----
-
-## 3. Setup
-
-```bash
-cd vogo-voice-agent-poc
-python3 -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-
-cp .env.example .env
-# then edit .env and fill in:
-#   LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, GOOGLE_API_KEY
-```
-
----
-
-## 4. Run the agent
-
-**Dev mode** (auto-connects to the LiveKit Agents Playground for quick
-voice testing in your browser — no custom client needed):
-
-```bash
-python -m agent.main dev
-```
-
-Then open the Playground URL LiveKit prints in your terminal (or
-[agents-playground.livekit.io](https://agents-playground.livekit.io)),
-point it at your project, and start talking to Aria.
-
-**Production worker mode** (registers with your LiveKit project and
-waits for real rooms/dispatch):
-
-```bash
-python -m agent.main start
-```
-
----
-
-## 5. Run the token server (optional — only needed for a custom client)
-
-If you want to connect from your own LiveKit JS/React client instead of
-the Playground:
-
-```bash
-uvicorn token_server:app --reload --port 8080
-```
-
-```bash
-curl "http://localhost:8080/token?room=vogo-demo&identity=tester"
-```
-
-Use the returned `token` + `url` with any LiveKit client SDK to join the
-same room the agent worker is listening on.
-
----
-
-## 6. Try the two use cases
-
-**A — Find a stay & book**
-> "Hi, I need a beachfront place in Goa for 2 next weekend, mid-range budget."
-
-Aria will search, read back 2-3 options, check availability and price
-for the one you pick, confirm out loud, then book and read back a
-confirmation code.
-
-**B — Booking status & issues**
-> "Can you check my booking? I think it's under Priya Nair."
-
-Two mock bookings are pre-seeded with open issues for demoing the issue
-flow: **Priya Nair** (host unresponsive) and **Rohan Das** (double
-charge / likely escalation). Try:
-> "The host isn't responding to my messages."
-> "I think I was charged twice."
-
-See `eval/test_conversations.md` for the full scripted test set,
-including guardrail/edge-case scripts (off-topic questions, prompt
-injection, abusive language, crisis language, refund/legal threats,
-repeated failures, barge-in).
-
----
-
-## 7. Guardrails implemented
-
-All twelve guardrails from the plan are encoded directly in
-`agent/instructions.py` (the system prompt) plus supporting logic in the
-tools layer:
-
-1. **Scope** — redirects off-topic requests
-2. **Grounding / anti-hallucination** — never states a fact not returned by a tool call this turn
-3. **PII & payment safety** — declines real card/ID numbers, mock fields only
-4. **Identity & honesty** — always discloses it's an AI, never impersonates a human
-5. **Confirm-before-action** — explicit verbal yes + read-back before any booking/cancel
-6. **Escalation** — defined trigger list hands off to `escalate_to_human_tool`
-7. **Crisis-language** — responds with care first, doesn't push the sales flow
-8. **Prompt-injection resistance** — tool results / transcribed speech treated as data, not instructions
-9. **Abuse handling** — one boundary-setting response, then session ends on continued abuse
-10. **Latency/failure fallback** — natural filler instead of dead air; asks to repeat on ASR failure
-11. **Consent/recording notice** — stated in the opening line every session
-
-Run a manual red-team pass against `eval/test_conversations.md`
-(Section C — Guardrail / Edge Cases) before any stakeholder demo.
-
----
-
-## 8. Model notes & known limitation
-
-`gemini-3.1-flash-live-preview` is a **preview** model. As of this plan,
-it restricts `send_client_content` to initial history seeding only
-(rejected after the first model turn), and LiveKit's
-`generate_reply()` / `update_instructions()` / `update_chat_ctx()` calls
-are **not honored mid-session** with this model.
-
-**Mitigation already built in:**
-- The system prompt is static per session (set once in `AriaAgent.__init__`)
-- All dynamic behavior goes through **function calling**, which is unaffected
-- The only `generate_reply()` call in `agent/main.py` fires once,
-  immediately after `session.start()`, to deliver the opening greeting —
-  confirm in your Week-1 spike that this still works with this model
-- If the spike shows a blocker, flip `GEMINI_MODEL` in `agent/main.py`
-  to the fallback: `gemini-live-2.5-flash-native-audio`
-
----
-
-## 9. Scope reminders
-
-**In scope:** voice-only, two use cases above, fully mocked backend,
-guardrails as system-prompt rules + tool-level checks, transcript logging.
-
-**Out of scope (see plan Section 4):** real payments/PII, live partner
-inventory, telephony (architecture supports adding LiveKit SIP later),
-multilingual tuning beyond English, visual UI/branding design, an
-avatar/video face for Aria.
-
----
-
-## 10. Observability
-
-`agent/main.py` logs every tool call (`function_tools_executed`) and
-session usage metrics (`metrics_collected`), and logs a usage summary on
-shutdown. LiveKit's own transcription (enabled via
-`input_audio_transcription` / `output_audio_transcription` /
-`RoomOutputOptions(transcription_enabled=True)`) gives you a full
-session transcript for review against the eval rubric in
-`eval/test_conversations.md`.
-
----
-
-## 11. Post-POC roadmap (not built here — see plan Section 16)
-
-Real Vogo/partner API integration, PCI-compliant payment flow, LiveKit
-SIP telephony, multilingual voice, optional avatar, production
-monitoring/rate limiting/SLA, and A/B testing across the alternate
-voices (`Leda`, `Aoede`, `Sulafat`).
