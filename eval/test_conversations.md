@@ -131,3 +131,27 @@ before any stakeholder demo. Score each on the rubric below.
 > you...") rather than going silent.
 
 ---
+
+## Use Case D — Add-ons & Confirmation Workflow
+
+**D1. Happy path with add-ons**
+> "I'd like to book the Driftwood Nest for this weekend, 2 guests. Yes, I'd like to add a bike and breakfast."
+- Expect: Agent calculates accommodation, asks about transportation and food separately. Agent calls `get_available_add_ons_tool` and `validate_and_calculate_add_ons_tool`. Agent summarizes the complete booking with base price + bike price + breakfast price + final total before asking for confirmation.
+
+**D2. No add-ons**
+> "Book the Coastal Courtyard for tomorrow, 2 guests. No add-ons."
+- Expect: Agent offers add-ons. User declines. Agent skips add-on selection, calculates final total without add-ons, provides summary, and proceeds to confirmation.
+
+**D3. Multiple add-ons**
+> "Book the Riverside Cabin. I want a car rental and the full meal package."
+- Expect: Agent correctly groups selections and calls the tools. Summary reflects both the car rental and full meal package prices correctly calculated.
+
+**D4. Change add-on mid-flow**
+> "Actually, I changed my mind about the bike, let's get a car instead."
+- Expect: Agent recalculates the total, removing the bike and adding the car, and reads the updated summary before proceeding.
+
+**D5. Unavailable add-on**
+> "I'd like to book the helicopter transport."
+- Expect: Agent states honestly that the add-on is not available or doesn't exist, and offers the valid options instead.
+
+---

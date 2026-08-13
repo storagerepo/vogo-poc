@@ -458,5 +458,49 @@
     ],
     "description": "A budget a-frame in Folly Beach, Charleston with direct beach access, comfortably sleeping up to 2 guests.",
     "country": "US"
+  },
+  {
+    "property_id": "PROP021",
+    "name": "Golden Gate Loft",
+    "type": "Loft",
+    "city": "SAN_FRANCISCO",
+    "area": "MARINA_DISTRICT",
+    "beachfront": false,
+    "price_tier": "luxury",
+    "price_per_night_usd": 420,
+    "rating": 4.8,
+    "review_count": 315,
+    "max_guests": 4,
+    "amenities": [
+      "free wifi",
+      "ocean view",
+      "workspace",
+      "gym access",
+      "air conditioning"
+    ],
+    "description": "A luxury loft in the Marina District, San Francisco, with stunning views of the bay, comfortably sleeping up to 4 guests.",
+    "country": "US"
+  },
+  {
+    "property_id": "PROP022",
+    "name": "Fog City Apartment",
+    "type": "Condo",
+    "city": "SAN_FRANCISCO",
+    "area": "SOMA",
+    "beachfront": false,
+    "price_tier": "mid-range",
+    "price_per_night_usd": 210,
+    "rating": 4.1,
+    "review_count": 182,
+    "max_guests": 8,
+    "amenities": [
+      "free wifi",
+      "gym access",
+      "parking",
+      "workspace",
+      "pool"
+    ],
+    "description": "A mid-range modern condo in SoMa, San Francisco, conveniently located for business or leisure, comfortably sleeping up to 2 guests.",
+    "country": "US"
   }
 ]

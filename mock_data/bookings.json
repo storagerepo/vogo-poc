@@ -52,5 +52,134 @@
     "price_total_usd": 288,
     "has_open_issue": false,
     "issue_notes": null
+  },
+  {
+    "booking_id": "BK0004-4535",
+    "confirmation_code": "VG34033",
+    "guest_name": "Harish",
+    "email": "702040",
+    "property_id": "PROP016",
+    "property_name": "Coastal Cabin",
+    "city": "SAN_FRANCISCO",
+    "check_in": "2026-08-17",
+    "nights": 2,
+    "guests": 2,
+    "status": "confirmed",
+    "price_total_usd": 368,
+    "has_open_issue": false,
+    "issue_notes": null
+  },
+  {
+    "booking_id": "BK0005-7ADC",
+    "confirmation_code": "BK-20260813-4TZVSQ",
+    "guest_name": "Jim",
+    "email": "9123456789",
+    "property_id": "PROP004",
+    "property_name": "Riverside Cabin",
+    "city": "DENVER",
+    "check_in": "2026-08-17",
+    "check_out": "2026-08-21",
+    "nights": 4,
+    "guests": 2,
+    "status": "confirmed",
+    "accommodation_total_usd": 1316,
+    "selected_add_ons": [
+      {
+        "add_on_id": "addon_full_meal_001",
+        "name": "Full Meal Package",
+        "category": "food_dining",
+        "price": 25,
+        "pricing_type": "per_guest_per_day",
+        "nights": 4,
+        "guests": 2,
+        "calculated_total": 200
+      }
+    ],
+    "add_ons_total_usd": 200.0,
+    "price_total_usd": 1516.0,
+    "has_open_issue": false,
+    "issue_notes": null
+  },
+  {
+    "booking_id": "BK0006-F051",
+    "confirmation_code": "VG03015",
+    "guest_name": "Sabina",
+    "email": "sabina@example.com",
+    "property_id": "PROP004",
+    "property_name": "Riverside Cabin",
+    "city": "DENVER",
+    "check_in": "2026-08-14",
+    "check_out": "2026-08-17",
+    "nights": 3,
+    "guests": 4,
+    "status": "confirmed",
+    "accommodation_total_usd": 987,
+    "selected_add_ons": [
+      {
+        "add_on_id": "addon_car_001",
+        "name": "Car Rental",
+        "category": "transportation",
+        "price": 50,
+        "pricing_type": "per_day",
+        "nights": 3,
+        "guests": 4,
+        "calculated_total": 150
+      },
+      {
+        "add_on_id": "addon_dinner_001",
+        "name": "Dinner",
+        "category": "food_dining",
+        "price": 15,
+        "pricing_type": "per_guest_per_day",
+        "nights": 3,
+        "guests": 4,
+        "calculated_total": 180
+      }
+    ],
+    "add_ons_total_usd": 330.0,
+    "price_total_usd": 1317.0,
+    "has_open_issue": false,
+    "issue_notes": null
+  },
+  {
+    "booking_id": "BK0007-0E15",
+    "confirmation_code": "VG12085",
+    "guest_name": "James",
+    "email": "james@gmail.com",
+    "property_id": "PROP008",
+    "property_name": "Azure Suites",
+    "city": "SAN_FRANCISCO",
+    "check_in": "2026-08-15",
+    "check_out": "2026-08-17",
+    "nights": 2,
+    "guests": 4,
+    "status": "confirmed",
+    "accommodation_total_usd": 1100,
+    "selected_add_ons": [
+      {
+        "add_on_id": "addon_car_001",
+        "name": "Car Rental",
+        "category": "transportation",
+        "price": 50,
+        "pricing_type": "per_day",
+        "nights": 2,
+        "guests": 4,
+        "calculated_total": 100
+      },
+      {
+        "add_on_id": "addon_full_meal_001",
+        "name": "Full Meal Package",
+        "category": "food_dining",
+        "price": 25,
+        "pricing_type": "per_guest_per_day",
+        "nights": 2,
+        "guests": 4,
+        "calculated_total": 200
+      }
+    ],
+    "add_ons_total_usd": 300.0,
+    "price_total_usd": 1400.0,
+    "has_open_issue": false,
+    "issue_notes": null
   }
 ]

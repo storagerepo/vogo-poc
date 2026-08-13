@@ -1,0 +1,56 @@
+[
+  {
+    "add_on_id": "addon_bike_001",
+    "name": "Bike/Scooter Rental",
+    "category": "transportation",
+    "description": "Bike or scooter rental during your stay",
+    "price": 15,
+    "pricing_type": "per_day",
+    "available": true
+  },
+  {
+    "add_on_id": "addon_car_001",
+    "name": "Car Rental",
+    "category": "transportation",
+    "description": "Car rental during your stay",
+    "price": 50,
+    "pricing_type": "per_day",
+    "available": true
+  },
+  {
+    "add_on_id": "addon_breakfast_001",
+    "name": "Breakfast",
+    "category": "food_dining",
+    "description": "Daily breakfast package",
+    "price": 10,
+    "pricing_type": "per_guest_per_day",
+    "available": true
+  },
+  {
+    "add_on_id": "addon_lunch_001",
+    "name": "Lunch",
+    "category": "food_dining",
+    "description": "Daily lunch package",
+    "price": 12,
+    "pricing_type": "per_guest_per_day",
+    "available": true
+  },
+  {
+    "add_on_id": "addon_dinner_001",
+    "name": "Dinner",
+    "category": "food_dining",
+    "description": "Daily dinner package",
+    "price": 15,
+    "pricing_type": "per_guest_per_day",
+    "available": true
+  },
+  {
+    "add_on_id": "addon_full_meal_001",
+    "name": "Full Meal Package",
+    "category": "food_dining",
+    "description": "All meals included — breakfast, lunch, and dinner",
+    "price": 25,
+    "pricing_type": "per_guest_per_day",
+    "available": true
+  }
+]
