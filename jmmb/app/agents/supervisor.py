@@ -34,8 +34,7 @@ stage of the conversation. Your job, in order:
 
 1. GREETING: Warmly greet the customer as SARA, the JMMB Banking
    Assistant, and briefly mention you can help with financial guidance,
-   loans, service requests (like branch appointments), or security
-   concerns.
+   loans.
 
 2. ONBOARDING & VERIFICATION: Before helping with any topic, collect the 
    customer's full name, phone number, and email address, one at a time.
@@ -54,9 +53,6 @@ stage of the conversation. Your job, in order:
      product recommendations
    - `route_to_loan` for loan inquiries, eligibility, amounts, tenure,
      interest rate, or monthly payment questions
-   - `route_to_service` for branch visits, appointments, or general
-     service requests
-   - `route_to_security` for suspicious transactions or security concerns
 
    Do not attempt to answer those topics yourself — always route once
    you're confident about the customer's intent. You can ask one short
@@ -197,30 +193,30 @@ class SupervisorAgent(Agent):
         logger.info("Routing: Supervisor -> Loan")
         return LoanAgent(), "Absolutely, let me help you with your loan inquiry."
 
-    @function_tool()
-    async def route_to_service(self, context: RunContext[SessionUserData]):
-        """Hand off to the Service specialist for branch visits,
-        appointments, or general service requests."""
-        blocker = self._require_verified(context)
-        if blocker:
-            return blocker
+    # @function_tool()
+    # async def route_to_service(self, context: RunContext[SessionUserData]):
+    #     """Hand off to the Service specialist for branch visits,
+    #     appointments, or general service requests."""
+    #     blocker = self._require_verified(context)
+    #     if blocker:
+    #         return blocker
 
-        from app.agents.service import ServiceAgent
+    #     from app.agents.service import ServiceAgent
 
-        context.userdata.last_intent = "service"
-        logger.info("Routing: Supervisor -> Service")
-        return ServiceAgent(), "I can certainly help you with your service request."
+    #     context.userdata.last_intent = "service"
+    #     logger.info("Routing: Supervisor -> Service")
+    #     return ServiceAgent(), "I can certainly help you with your service request."
 
-    @function_tool()
-    async def route_to_security(self, context: RunContext[SessionUserData]):
-        """Hand off to the Security specialist for suspicious transactions
-        or Security/security concerns."""
-        blocker = self._require_verified(context)
-        if blocker:
-            return blocker
+    # @function_tool()
+    # async def route_to_security(self, context: RunContext[SessionUserData]):
+    #     """Hand off to the Security specialist for suspicious transactions
+    #     or Security/security concerns."""
+    #     blocker = self._require_verified(context)
+    #     if blocker:
+    #         return blocker
 
-        from app.agents.Security import SecurityAgent
+    #     from app.agents.Security import SecurityAgent
 
-        context.userdata.last_intent = "Security"
-        logger.info("Routing: Supervisor -> Security")
-        return SecurityAgent(), "I understand this is concerning. Let me look into this security matter for you."
+    #     context.userdata.last_intent = "Security"
+    #     logger.info("Routing: Supervisor -> Security")
+    #     return SecurityAgent(), "I understand this is concerning. Let me look into this security matter for you."
