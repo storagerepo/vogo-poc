@@ -1,0 +1,24 @@
+[
+  {
+    "appointment_id": "745888c0",
+    "customer_id": "CUST-9AD38C",
+    "customer_name": "Alex H",
+    "advisor_role": "Wealth Advisor",
+    "date": "2026-08-27",
+    "time": "10:00 AM",
+    "topic": "Discussing JMMB Balanced Mutual Fund for long-term savings",
+    "status": "scheduled"
+  },
+  {
+    "appointment_id": "APPT-9FC5C0D2",
+    "customer_id": "CUST-CB7E4F",
+    "customer_name": "Sarish",
+    "branch_id": "BR-KGN01",
+    "branch_name": "JMMB New Kingston",
+    "date": "2026-08-20",
+    "time": "09:00",
+    "service_type": "card services",
+    "status": "confirmed",
+    "created_at": "2026-08-21T05:08:36.677955+00:00"
+  }
+]

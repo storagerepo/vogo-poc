@@ -1,0 +1,355 @@
+[
+  {
+    "vehicle_id": "veh_001",
+    "brand": "Cadillac",
+    "model": "Escalade",
+    "type": "SUV",
+    "year": 2026,
+    "price": 158900,
+    "seating_capacity": 7,
+    "fuel_type": "Gasoline",
+    "transmission": "Automatic",
+    "engine": "6.2L V8",
+    "features": [
+      "360 Camera",
+      "Magnetic Ride Control",
+      "Adaptive Cruise Control",
+      "Panoramic Display",
+      "Premium Audio"
+    ],
+    "safety_features": [
+      "Blind Spot Alert",
+      "Forward Collision Alert",
+      "Rear Cross Traffic Alert",
+      "Lane Keep Assist",
+      "Pedestrian Detection"
+    ],
+    "performance": {
+      "horsepower": 425
+    },
+    "colors": [
+      "Black",
+      "Platinum White",
+      "Cosmo Gray",
+      "Radiant Red",
+      "Asphalt Gray",
+      "Titanium"
+    ],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_002",
+    "brand": "Chevrolet",
+    "model": "Groove",
+    "type": "SUV",
+    "year": 2026,
+    "price": 24900,
+    "seating_capacity": 5,
+    "fuel_type": "Gasoline",
+    "transmission": "CVT",
+    "engine": "1.5L 4-Cylinder",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "Rear Camera",
+      "Touchscreen Display"
+    ],
+    "safety_features": [
+      "ABS",
+      "EBD",
+      "StabiliTrak",
+      "Rear Camera"
+    ],
+    "performance": {
+      "horsepower": 110
+    },
+    "colors": [
+      "Metallic Silver",
+      "Polar White"
+    ],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_003",
+    "brand": "Chevrolet",
+    "model": "Tracker",
+    "type": "SUV",
+    "year": 2026,
+    "price": 29900,
+    "seating_capacity": 5,
+    "fuel_type": "Gasoline",
+    "transmission": "Automatic",
+    "engine": "1.2L Turbo",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "Rear Camera",
+      "Touchscreen Display"
+    ],
+    "safety_features": [
+      "ABS",
+      "Electronic Stability Control",
+      "Rear Camera"
+    ],
+    "performance": {},
+    "colors": [],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_004",
+    "brand": "Infiniti",
+    "model": "QX50",
+    "type": "SUV",
+    "year": 2026,
+    "price": 69900,
+    "seating_capacity": 5,
+    "fuel_type": "Gasoline",
+    "transmission": "X-Tronic CVT",
+    "engine": "2.0L Turbo 4-Cylinder VC-T",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "Wireless Phone Charger",
+      "Bose Premium Audio",
+      "Panoramic Sunroof",
+      "360 Camera"
+    ],
+    "safety_features": [
+      "Blind Spot Warning",
+      "Forward Collision Warning",
+      "Lane Departure Warning",
+      "Rear Cross Traffic Alert",
+      "Intelligent Emergency Braking"
+    ],
+    "performance": {
+      "horsepower": 268
+    },
+    "colors": [
+      "Hermosa Blue",
+      "Aspen White",
+      "Slate Gray",
+      "Mineral Black",
+      "Dynamic Sunstone Red",
+      "Gray"
+    ],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_005",
+    "brand": "Infiniti",
+    "model": "QX60",
+    "type": "SUV",
+    "year": 2026,
+    "price": 79900,
+    "seating_capacity": 7,
+    "fuel_type": "Gasoline",
+    "transmission": "Automatic",
+    "engine": "3.5L V6",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "Panoramic Sunroof",
+      "Leather Interior",
+      "Wireless Charging"
+    ],
+    "safety_features": [
+      "Blind Spot Warning",
+      "Forward Collision Warning",
+      "Lane Departure Warning",
+      "Rear Cross Traffic Alert",
+      "Intelligent Emergency Braking"
+    ],
+    "performance": {},
+    "colors": [],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_006",
+    "brand": "Nissan",
+    "model": "Kicks",
+    "type": "SUV",
+    "year": 2026,
+    "price": 32900,
+    "seating_capacity": 5,
+    "fuel_type": "Gasoline",
+    "transmission": "Xtronic CVT",
+    "engine": "2.0L 4-Cylinder",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "Rear Camera",
+      "Intelligent Cruise Control",
+      "Touchscreen Display"
+    ],
+    "safety_features": [
+      "Lane Departure Warning",
+      "Forward Collision Warning",
+      "Lane Keep Assist",
+      "Intelligent Emergency Braking",
+      "360 Camera",
+      "Rear Parking Sensors"
+    ],
+    "performance": {
+      "horsepower": 142
+    },
+    "colors": [
+      "Pearl White",
+      "Black",
+      "Gray",
+      "Burgundy Red",
+      "Pearl White Two-Tone"
+    ],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_007",
+    "brand": "Nissan",
+    "model": "X-TRAIL",
+    "type": "SUV",
+    "year": 2026,
+    "price": 39900,
+    "seating_capacity": 5,
+    "fuel_type": "Gasoline",
+    "transmission": "CVT",
+    "engine": "2.5L 4-Cylinder",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "Panoramic Sunroof",
+      "Rear Camera",
+      "Touchscreen Display"
+    ],
+    "safety_features": [
+      "Forward Collision Warning",
+      "Blind Spot Warning",
+      "Lane Departure Warning",
+      "Rear Cross Traffic Alert"
+    ],
+    "performance": {},
+    "colors": [],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_008",
+    "brand": "Suzuki",
+    "model": "Swift Hybrid",
+    "type": "Hatchback",
+    "year": 2026,
+    "price": 22900,
+    "seating_capacity": 5,
+    "fuel_type": "Gasoline Hybrid",
+    "transmission": "Automatic CVT",
+    "engine": "1.2L 3-Cylinder",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "9-inch Touchscreen",
+      "Cruise Control",
+      "Rear Camera"
+    ],
+    "safety_features": [
+      "Lane Keep Assist",
+      "Blind Spot Alert",
+      "Rear Cross Traffic Alert",
+      "Pedestrian Detection",
+      "6 Airbags",
+      "ISOFIX"
+    ],
+    "performance": {
+      "horsepower": 81
+    },
+    "colors": [
+      "Silver",
+      "Gray",
+      "White",
+      "Blue",
+      "Black",
+      "Red",
+      "White Two-Tone",
+      "Red Two-Tone",
+      "Blue Two-Tone"
+    ],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_009",
+    "brand": "Suzuki",
+    "model": "Jimny",
+    "type": "SUV",
+    "year": 2026,
+    "price": 27900,
+    "seating_capacity": 4,
+    "fuel_type": "Gasoline",
+    "transmission": "Automatic",
+    "engine": "1.5L 4-Cylinder",
+    "features": [
+      "Touchscreen Display",
+      "Apple CarPlay",
+      "Android Auto",
+      "4WD"
+    ],
+    "safety_features": [
+      "ABS",
+      "Electronic Stability Control",
+      "Hill Hold Assist",
+      "Dual Airbags"
+    ],
+    "performance": {},
+    "colors": [],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_010",
+    "brand": "Yamaha",
+    "model": "MT03",
+    "type": "Motorcycle",
+    "year": 2026,
+    "price": 8370,
+    "seating_capacity": 2,
+    "fuel_type": "Gasoline",
+    "transmission": "6-Speed Manual",
+    "engine": "321cc 2-Cylinder",
+    "features": [
+      "Liquid Cooling",
+      "Fuel Injection",
+      "Electric Start",
+      "LED Lighting"
+    ],
+    "safety_features": [
+      "ABS",
+      "Front Disc Brake",
+      "Rear Disc Brake"
+    ],
+    "performance": {},
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "in_stock": true
+  },
+  {
+    "vehicle_id": "veh_011",
+    "brand": "Yamaha",
+    "model": "Ténéré 700",
+    "type": "Adventure Motorcycle",
+    "year": 2026,
+    "price": null,
+    "seating_capacity": 2,
+    "fuel_type": "Gasoline",
+    "transmission": "6-Speed Manual",
+    "engine": "689cc 2-Cylinder",
+    "features": [
+      "Liquid Cooling",
+      "Fuel Injection",
+      "Electric Start",
+      "Adventure Suspension"
+    ],
+    "safety_features": [
+      "ABS",
+      "Disc Brakes"
+    ],
+    "performance": {},
+    "colors": [],
+    "in_stock": true
+  }
+]

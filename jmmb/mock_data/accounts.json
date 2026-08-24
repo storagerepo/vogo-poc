@@ -1,0 +1,30 @@
+[
+  {
+    "account_number": "JM0011223344",
+    "customer_id": "CUST-1001",
+    "customer_name": "Andrea Campbell",
+    "account_type": "Savings",
+    "balance": 452300.55,
+    "currency": "JMD",
+    "status": "active",
+    "recent_transactions": [
+      {"date": "2026-08-15", "description": "POS Purchase - Hi-Lo Supermarket", "amount": -4520.00},
+      {"date": "2026-08-16", "description": "Salary Deposit", "amount": 185000.00},
+      {"date": "2026-08-18", "description": "ATM Withdrawal - Half Way Tree", "amount": -10000.00},
+      {"date": "2026-08-19", "description": "Online Purchase - Unknown Merchant XZ992", "amount": -38750.00}
+    ]
+  },
+  {
+    "account_number": "JM0099887766",
+    "customer_id": "CUST-1002",
+    "customer_name": "Marcus Reid",
+    "account_type": "Chequing",
+    "balance": 128900.00,
+    "currency": "JMD",
+    "status": "active",
+    "recent_transactions": [
+      {"date": "2026-08-17", "description": "Bill Payment - JPS", "amount": -9800.00},
+      {"date": "2026-08-18", "description": "Transfer In", "amount": 25000.00}
+    ]
+  }
+]

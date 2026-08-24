@@ -1,0 +1,18 @@
+[
+  {
+    "lead_id": "LEAD-1786613770-01094",
+    "customer_name": "Harish",
+    "phone": "123456",
+    "email": "harish@gmail.com",
+    "interested_vehicle": "Nissan Kicks",
+    "customer_requirement": "Interested in Nissan Kicks after test drive.",
+    "test_drive_interest": true,
+    "preferred_location": null,
+    "preferred_branch_id": "santiago",
+    "preferred_branch_name": null,
+    "customer_city": null,
+    "preferred_datetime": null,
+    "lead_source": "AI Voice Agent",
+    "lead_status": "New"
+  }
+]

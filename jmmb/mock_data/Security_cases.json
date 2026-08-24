@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "Security-AE0B34A2",
+    "customer_id": "CUST-F39CDC",
+    "customer_name": "James",
+    "phone": "8397281210",
+    "account_number": null,
+    "issue_type": "lost card",
+    "description": "Customer reported credit card lost. Wants to close associated account.",
+    "status": "escalated",
+    "priority": "high",
+    "created_at": "2026-08-20T10:23:15.644266+00:00"
+  }
+]

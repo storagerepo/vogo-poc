@@ -1,0 +1,37 @@
+[
+  {
+    "goal_id": "G-001",
+    "name": "Create an emergency fund",
+    "category": "savings",
+    "description": "Financial planning starts by turning your discipline into a shield: your savings for unforeseen events can generate returns without sacrificing availability.",
+    "related_products": ["FP-001"]
+  },
+  {
+    "goal_id": "G-002",
+    "name": "Acquire a vehicle",
+    "category": "acquisition",
+    "description": "A car can significantly accelerate your journey toward other life goals, while helping you focus your energy on what really matters: growing and enjoying the ride.",
+    "related_products": ["FP-001", "FP-002"]
+  },
+  {
+    "goal_id": "G-003",
+    "name": "Acquire a home",
+    "category": "acquisition",
+    "description": "You deserve that your financial planning efforts lead you to your dream home. At JMMB we support you in every step towards your new home, from saving for your down payment to your mortgage loan.",
+    "related_products": ["FP-002", "FP-003"]
+  },
+  {
+    "goal_id": "G-004",
+    "name": "Plan your wedding",
+    "category": "event",
+    "description": "A wedding is a special event that requires careful financial planning.",
+    "related_products": ["FP-001", "FP-002"]
+  },
+  {
+    "goal_id": "G-005",
+    "name": "Plan children's education",
+    "category": "education",
+    "description": "Can you imagine your children being able to dedicate their entire lives to what they are most passionate about, without financial worries? There is no greater gift than the opportunity to be whatever they want.",
+    "related_products": ["FP-005"]
+  }
+]

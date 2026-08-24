@@ -1,0 +1,181 @@
+{
+  "currency": "DOP",
+  "usd_to_dop_exchange_rate": 56.50,
+  "initial_payment_percent": 15,
+  "_rate_disclaimer": "ALL interest rates in this file are POC/mock rates for development purposes only. Replace with verified, officially approved bank rates before any customer-facing deployment.",
+  "banks": [
+    {
+      "bank_id": "motor_credit",
+      "bank_name": "Motor Credit",
+      "plans": [
+        {
+          "term_months": 24,
+          "term_years": 2,
+          "interest_rate": 13.45,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 36,
+          "term_years": 3,
+          "interest_rate": 14.45,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        }
+      ]
+    },
+    {
+      "bank_id": "banco_popular",
+      "bank_name": "Banco Popular",
+      "plans": [
+        {
+          "term_months": 24,
+          "term_years": 2,
+          "interest_rate": 12.95,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 36,
+          "term_years": 3,
+          "interest_rate": 13.95,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 48,
+          "term_years": 4,
+          "interest_rate": 14.50,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        }
+      ]
+    },
+    {
+      "bank_id": "scotiabank",
+      "bank_name": "Scotiabank",
+      "plans": [
+        {
+          "term_months": 24,
+          "term_years": 2,
+          "interest_rate": 13.00,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 36,
+          "term_years": 3,
+          "interest_rate": 13.75,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 60,
+          "term_years": 5,
+          "interest_rate": 14.95,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        }
+      ]
+    },
+    {
+      "bank_id": "banreservas",
+      "bank_name": "BanReservas",
+      "plans": [
+        {
+          "term_months": 24,
+          "term_years": 2,
+          "interest_rate": 12.50,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 36,
+          "term_years": 3,
+          "interest_rate": 13.25,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 48,
+          "term_years": 4,
+          "interest_rate": 13.95,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        }
+      ]
+    },
+    {
+      "bank_id": "santa_cruz",
+      "bank_name": "Santa Cruz",
+      "plans": [
+        {
+          "term_months": 24,
+          "term_years": 2,
+          "interest_rate": 13.75,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 36,
+          "term_years": 3,
+          "interest_rate": 14.25,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        }
+      ]
+    },
+    {
+      "bank_id": "bhd_bank",
+      "bank_name": "BHD Bank",
+      "plans": [
+        {
+          "term_months": 24,
+          "term_years": 2,
+          "interest_rate": 12.75,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 36,
+          "term_years": 3,
+          "interest_rate": 13.50,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 48,
+          "term_years": 4,
+          "interest_rate": 14.00,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        },
+        {
+          "term_months": 60,
+          "term_years": 5,
+          "interest_rate": 14.75,
+          "rate_type": "fixed",
+          "vehicle_type": "new",
+          "usage": "personal"
+        }
+      ]
+    }
+  ],
+  "disclaimer": "This is an estimated financing calculation for reference only. The final interest rate, financing terms and approval are subject to the financing institution's conditions. All rates shown are POC/mock rates and must be replaced with officially approved rates before production use."
+}

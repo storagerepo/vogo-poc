@@ -1,0 +1,29 @@
+{
+  "base_interest_rate": 7.5,
+  "interest_rate_by_term": {
+    "24": 5.9,
+    "36": 6.5,
+    "48": 7.2,
+    "60": 7.9,
+    "72": 8.6
+  },
+  "min_down_payment_percent": 10,
+  "eligibility_rules": {
+    "min_income_annual": 18000,
+    "employment_types_allowed": ["Full-Time", "Self-Employed", "Part-Time"]
+  },
+  "required_documents": [
+    "Valid government-issued ID",
+    "Proof of income (last 3 pay slips or bank statements)",
+    "Proof of address (utility bill, not older than 3 months)",
+    "Down payment confirmation"
+  ],
+  "financing_process_steps": [
+    "Preliminary eligibility check (this call)",
+    "Document submission",
+    "Credit review by finance team",
+    "Final approval and offer",
+    "Contract signing and vehicle delivery"
+  ],
+  "disclaimer": "All figures provided by the voice agent are estimates only and do not constitute a final financing offer or approval. Final terms are subject to credit review by the Santo Domingo Motors finance team."
+}

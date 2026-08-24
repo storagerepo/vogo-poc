@@ -1,0 +1,39 @@
+[
+  {
+    "appointment_id": "APT-1786537197-84973",
+    "customer_name": "James",
+    "phone": "123456",
+    "vehicle": "SUV Plate 8000",
+    "service_type": "Oil Change",
+    "location": "L1",
+    "date": "2026-08-13",
+    "time": "15:30",
+    "status": "Confirmed"
+  },
+  {
+    "appointment_id": "APT-1787048116-23694",
+    "customer_name": "John Doe",
+    "phone": "739728210",
+    "vehicle": "Nissan Kicks",
+    "service_type": "Oil Change",
+    "location": "kennedy",
+    "branch_id": "kennedy",
+    "branch_name": null,
+    "date": "2026-08-19",
+    "time": "16:00",
+    "status": "Confirmed"
+  },
+  {
+    "appointment_id": "APT-1787049112-64734",
+    "customer_name": "John Doe",
+    "phone": "8095551234",
+    "vehicle": "Volvo XC60",
+    "service_type": "Oil Change",
+    "location": "kennedy",
+    "branch_id": "kennedy",
+    "branch_name": null,
+    "date": "2026-08-21",
+    "time": "09:00",
+    "status": "Confirmed"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "product_id": "FP-001",
+    "name": "Bonus Saver Savings Account",
+    "category": "savings",
+    "risk_level": "low",
+    "min_investment": 1000,
+    "description": "Allows you to keep your savings safe and available for when you need it. Ideal for building an emergency fund.",
+    "best_for": ["emergency fund", "short-term savings", "first-time savers", "acquire vehicle", "wedding planning"]
+  },
+  {
+    "product_id": "FP-002",
+    "name": "Certificate of Deposit",
+    "category": "fixed_income",
+    "risk_level": "low",
+    "min_investment": 50000,
+    "description": "Put your money to grow with fixed interest rates so you can reach all your goals faster.",
+    "best_for": ["capital preservation", "predictable returns", "medium-term goals", "acquire vehicle", "acquire home", "wedding planning"]
+  },
+  {
+    "product_id": "FP-003",
+    "name": "JMMB Money Market Mutual Fund",
+    "category": "mutual_fund",
+    "risk_level": "low",
+    "min_investment": 10000,
+    "description": "An open-ended, short-term investment fund that allows investors to make contributions and withdrawals simply and quickly.",
+    "best_for": ["balanced growth", "medium to long-term investors", "diversification", "acquire home", "retirement planning", "wealth building", "5+ year horizon"]
+  },
+  {
+    "product_id": "FP-004",
+    "name": "JMMB Development Closed Investment Fund",
+    "category": "equity_fund",
+    "risk_level": "medium",
+    "min_investment": 50000,
+    "description": "A fund dedicated to investing in projects that allow you to diversify your portfolio and contribute to the country's development, while generating attractive returns.",
+    "best_for": ["aggressive growth", "long-term investors", "10+ year horizon"]
+  },
+  {
+    "product_id": "FP-005",
+    "name": "Sure Investor",
+    "category": "goal_based",
+    "risk_level": "low",
+    "min_investment": 5000,
+    "description": "An investment solution from JMMB Brokerage to see specific results in the short to medium term.",
+    "best_for": ["education planning", "parents", "goal-based saving"]
+  }
+]

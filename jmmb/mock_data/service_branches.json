@@ -1,0 +1,102 @@
+[
+  {
+    "branch_id": "BR-SD01",
+    "name": "Oficina Corporativa Piantini",
+    "city": "Santo Domingo",
+    "address": "Edificio Corporativo 2010, Av. Gustavo Mejía Ricart No. 102, esq. Av. Abraham Lincoln",
+    "hours": "Mon-Fri 8:30am-5:30pm",
+    "services": [
+      "account opening",
+      "card services",
+      "loan consultation",
+      "general inquiry",
+      "investment advice"
+    ],
+    "available_slots": {
+      "2026-08-20": ["10:30", "13:00", "15:00"],
+      "2026-08-21": ["09:30", "11:00", "14:00"]
+    }
+  },
+  {
+    "branch_id": "BR-SD02",
+    "name": "Sucursal Bella Vista Mall",
+    "city": "Santo Domingo",
+    "address": "Av. Sarasota No. 62, local 42-A, primer nivel",
+    "hours": "Mon-Fri 8:30am-5:30pm",
+    "services": [
+      "account opening",
+      "card services",
+      "general inquiry"
+    ],
+    "available_slots": {
+      "2026-08-20": ["10:00", "11:30"],
+      "2026-08-21": ["09:00", "13:30", "15:30"]
+    }
+  },
+  {
+    "branch_id": "BR-SD03",
+    "name": "Sucursal Megacentro",
+    "city": "Santo Domingo",
+    "address": "Av. San Vicente de Paúl No. 321, local 46-A, Pasillo La Fauna, Santo Domingo Este",
+    "hours": "Mon-Fri 8:30am-5:30pm",
+    "services": [
+      "account opening",
+      "loan consultation",
+      "general inquiry"
+    ],
+    "available_slots": {
+      "2026-08-20": ["09:30", "12:00"],
+      "2026-08-21": ["10:00", "14:00"]
+    }
+  },
+  {
+    "branch_id": "BR-SD04",
+    "name": "Unicentro Plaza",
+    "city": "Santo Domingo",
+    "address": "Unicentro Plaza, Santo Domingo",
+    "hours": "Mon-Fri 8:30am-5:30pm",
+    "services": [
+      "account opening",
+      "card services",
+      "general inquiry"
+    ],
+    "available_slots": {
+      "2026-08-20": ["11:00", "14:00"],
+      "2026-08-21": ["10:30", "12:30", "16:00"]
+    }
+  },
+  {
+    "branch_id": "BR-STGO01",
+    "name": "Oficina de Atención al Cliente Santiago",
+    "city": "Santiago",
+    "address": "Plaza Portal del Norte, Av. 27 de Febrero esquina Erick Ekman",
+    "hours": "Mon-Fri 8:30am-5:30pm",
+    "services": [
+      "account opening",
+      "card services",
+      "loan consultation",
+      "general inquiry",
+      "investment advice"
+    ],
+    "available_slots": {
+      "2026-08-20": ["09:00", "11:00", "14:30"],
+      "2026-08-21": ["10:00", "13:00", "15:00"]
+    }
+  },
+  {
+    "branch_id": "BR-PC01",
+    "name": "Oficina Punta Cana",
+    "city": "Punta Cana",
+    "address": "Punta Cana Village",
+    "hours": "Mon-Fri 8:30am-5:30pm",
+    "services": [
+      "account opening",
+      "loan consultation",
+      "general inquiry"
+    ],
+    "available_slots": {
+      "2026-08-20": ["10:00", "13:30"],
+      "2026-08-21": ["11:30", "15:30"]
+    }
+  }
+]

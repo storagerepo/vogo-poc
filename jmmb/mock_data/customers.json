@@ -1,0 +1,86 @@
+[
+  {
+    "customer_id": "CUST-1001",
+    "name": "Andrea Campbell",
+    "phone": "+18765550101",
+    "email": "andrea.campbell@example.com",
+    "created_at": "2026-01-15T09:30:00Z"
+  },
+  {
+    "customer_id": "CUST-1002",
+    "name": "Marcus Reid",
+    "phone": "+18765550102",
+    "email": "marcus.reid@example.com",
+    "created_at": "2026-02-02T14:12:00Z"
+  },
+  {
+    "customer_id": "CUST-0CEE51",
+    "name": "Harish",
+    "phone": "9500008286",
+    "email": "harish@gmail.com",
+    "created_at": "2026-08-20T06:05:17.874676+00:00"
+  },
+  {
+    "customer_id": "CUST-79A416",
+    "name": "Alex",
+    "phone": "7397281210",
+    "email": "alex@gmail.com",
+    "created_at": "2026-08-20T09:42:13.813581+00:00"
+  },
+  {
+    "customer_id": "CUST-9AD38C",
+    "name": "Alex H",
+    "phone": "71397281210",
+    "email": "alexh@gmail.com",
+    "created_at": "2026-08-20T09:49:27.948565+00:00"
+  },
+  {
+    "customer_id": "CUST-F39CDC",
+    "name": "James",
+    "phone": "8397281210",
+    "email": "jamesrji@gmail.com",
+    "created_at": "2026-08-20T10:19:07.634041+00:00"
+  },
+  {
+    "customer_id": "CUST-5C7635",
+    "name": "Sarah Cole",
+    "phone": "56789034",
+    "email": "sarah@gmail.com",
+    "created_at": "2026-08-20T10:33:23.304432+00:00"
+  },
+  {
+    "customer_id": "CUST-171C88",
+    "name": "Avinash",
+    "phone": "34567812190",
+    "email": "avinash@gmail.com",
+    "created_at": "2026-08-20T11:00:48.657081+00:00"
+  },
+  {
+    "customer_id": "CUST-C59635",
+    "name": "Ilayaraja",
+    "phone": "33456789",
+    "email": "ilayaraja@gmail.com",
+    "created_at": "2026-08-20T11:09:25.923199+00:00"
+  },
+  {
+    "customer_id": "CUST-80D064",
+    "name": "Abhinash",
+    "phone": "78945621",
+    "email": "abhinash@gmail.com",
+    "created_at": "2026-08-20T11:20:27.716098+00:00"
+  },
+  {
+    "customer_id": "CUST-ED1C0D",
+    "name": "James",
+    "phone": "2222456",
+    "email": "james@gmail.com",
+    "created_at": "2026-08-20T12:54:35.552884+00:00"
+  },
+  {
+    "customer_id": "CUST-CB7E4F",
+    "name": "Sarish",
+    "phone": "876210210",
+    "email": "sarish@jmmb.com",
+    "created_at": "2026-08-21T05:05:36.727818+00:00"
+  }
+]

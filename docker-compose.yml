@@ -1,16 +1,67 @@
+# =============================================================================
+# Docker Compose — Dominican Republic Voice Agents
+# =============================================================================
+#
+# Orchestrates three fully independent LiveKit voice agents.
+# Each service builds its OWN Docker image from its OWN Dockerfile and loads
+# its OWN .env file.  No images, dependencies, or secrets are shared.
+#
+# Usage:
+#   Build & start all agents:   docker compose up --build
+#   Build & start one agent:      docker compose up --build vogo
+#                                 docker compose up --build santo_domingo_motors
+#                                 docker compose up --build jmmb
+
+#   Stop one agent:                 docker compose stop jmmb
+#   Start one agent:                 docker compose start jmmb
+#   Restart one agent:               docker compose restart jmmb
+#   Restart all agents:              docker compose restart
+#   Stop all:                        docker compose down
+# =============================================================================
+
 services:
-  agent:
+
+  # ---------------------------------------------------------------------------
+  # Vogo — AI voice concierge for vacation rentals
+  # Image: vogo-agent  |  Dockerfile: vogo/Dockerfile
+  # Entrypoint: python -m agent.main start
+  # ---------------------------------------------------------------------------
+  vogo:
     build:
-      context: .
+      context: ./vogo
       dockerfile: Dockerfile
-    container_name: vogo-voice-agent
-    restart: unless-stopped
-    env_file:
-      - .env
-    environment:
-      - LIVEKIT_URL=${LIVEKIT_URL}
-      - LIVEKIT_API_KEY=${LIVEKIT_API_KEY}
-      - LIVEKIT_API_SECRET=${LIVEKIT_API_SECRET}
-      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    image: vogo-agent
+    env_file: .env.vogo
     volumes:
-      - ./mock_data:/app/mock_data
+      - ./vogo/mock_data:/app/mock_data
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Santo Domingo Motors — AI voice agent for car dealership
+  # Image: santo-domingo-motors-agent  |  Dockerfile: santo-domingo-motors/Dockerfile
+  # Entrypoint: python -m app.main start
+  # ---------------------------------------------------------------------------
+  santo_domingo_motors:
+    build:
+      context: ./santo-domingo-motors
+      dockerfile: Dockerfile
+    image: santo-domingo-motors-agent
+    env_file: .env.santo-domingo-motors
+    volumes:
+      - ./santo-domingo-motors/mock_data:/app/mock_data
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # JMMB — AI voice banking assistant
+  # Image: jmmb-agent  |  Dockerfile: jmmb/Dockerfile
+  # Entrypoint: python -m app.main start
+  # ---------------------------------------------------------------------------
+  jmmb:
+    build:
+      context: ./jmmb
+      dockerfile: Dockerfile
+    image: jmmb-agent
+    env_file: .env.jmmb
+    volumes:
+      - ./jmmb/mock_data:/app/mock_data
+    restart: unless-stopped

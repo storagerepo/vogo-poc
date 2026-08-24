@@ -1,0 +1,65 @@
+{
+  "loan_products": [
+    {
+      "product_type": "personal_loan",
+      "display_name": "Personal Loan",
+      "min_amount": 50000,
+      "max_amount": 3000000,
+      "min_tenure_months": 12,
+      "max_tenure_months": 60,
+      "annual_interest_rate": 0.145,
+      "min_monthly_income": 40000
+    },
+    {
+      "product_type": "new_auto_loan",
+      "display_name": "New Vehicle Loan",
+      "min_amount": 300000,
+      "max_amount": 8000000,
+      "min_tenure_months": 12,
+      "max_tenure_months": 84,
+      "annual_interest_rate": 0.115,
+      "min_monthly_income": 60000
+    },
+    {
+      "product_type": "used_auto_loan",
+      "display_name": "Used Vehicle Loan",
+      "min_amount": 200000,
+      "max_amount": 5000000,
+      "min_tenure_months": 12,
+      "max_tenure_months": 60,
+      "annual_interest_rate": 0.135,
+      "min_monthly_income": 50000
+    },
+    {
+      "product_type": "educational_loan",
+      "display_name": "Educational Loan",
+      "min_amount": 50000,
+      "max_amount": 1500000,
+      "min_tenure_months": 6,
+      "max_tenure_months": 48,
+      "annual_interest_rate": 0.125,
+      "min_monthly_income": 40000
+    },
+    {
+      "product_type": "debt_consolidation_loan",
+      "display_name": "Debt Consolidation Loan",
+      "min_amount": 100000,
+      "max_amount": 4000000,
+      "min_tenure_months": 12,
+      "max_tenure_months": 72,
+      "annual_interest_rate": 0.155,
+      "min_monthly_income": 50000
+    },
+    {
+      "product_type": "mortgage",
+      "display_name": "Mortgage Loan",
+      "min_amount": 1000000,
+      "max_amount": 60000000,
+      "min_tenure_months": 60,
+      "max_tenure_months": 360,
+      "annual_interest_rate": 0.085,
+      "min_monthly_income": 100000
+    }
+  ],
+  "leads": []
+}

@@ -1,0 +1,88 @@
+[
+  {
+    "id": "kennedy",
+    "name": "Kennedy Branch",
+    "city": "Santo Domingo",
+    "address": "Av. John F. Kennedy, Esq. Abraham Lincoln",
+    "phone": "809-540-3800",
+    "services": [
+      "sales",
+      "service",
+      "parts"
+    ],
+    "brands": [
+      "Nissan",
+      "Chevrolet",
+      "Suzuki",
+      "Yamaha",
+      "Infiniti"
+    ],
+    "sales_hours": "8:00 AM - 7:00 PM",
+    "service_hours": "7:30 AM - 6:00 PM",
+    "booking_supported": true,
+    "active": true
+  },
+  {
+    "id": "luperon",
+    "name": "Luperón Branch",
+    "city": "Santo Domingo",
+    "address": "Av. Luperón, Zona Industrial de Herrera",
+    "phone": "809-540-3800",
+    "services": [
+      "sales",
+      "service"
+    ],
+    "brands": [
+      "Nissan",
+      "Chevrolet",
+      "Suzuki"
+    ],
+    "sales_hours": "8:00 AM - 6:00 PM",
+    "service_hours": "7:30 AM - 5:00 PM",
+    "booking_supported": true,
+    "active": true
+  },
+  {
+    "id": "santiago",
+    "name": "Santiago Branch",
+    "city": "Santiago",
+    "address": "Autopista Duarte Km 2 1/2",
+    "phone": "809-582-1144",
+    "services": [
+      "sales",
+      "service",
+      "parts"
+    ],
+    "brands": [
+      "Nissan",
+      "Chevrolet",
+      "Suzuki",
+      "Yamaha",
+      "Infiniti"
+    ],
+    "sales_hours": "8:00 AM - 6:00 PM",
+    "service_hours": "7:30 AM - 5:30 PM",
+    "booking_supported": true,
+    "active": true
+  },
+  {
+    "id": "punta_cana",
+    "name": "Punta Cana Branch",
+    "city": "Punta Cana",
+    "address": "Boulevard Turístico del Este",
+    "phone": "809-468-1111",
+    "services": [
+      "sales",
+      "service"
+    ],
+    "brands": [
+      "Nissan",
+      "Chevrolet",
+      "Infiniti"
+    ],
+    "sales_hours": "9:00 AM - 6:00 PM",
+    "service_hours": "8:00 AM - 5:00 PM",
+    "booking_supported": true,
+    "active": true
+  }
+]

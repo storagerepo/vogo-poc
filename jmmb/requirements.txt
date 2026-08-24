@@ -1,0 +1,15 @@
+
+
+# Core LiveKit Agents framework
+livekit-agents>=1.0.0
+
+# Gemini Live API plugin (native speech-to-speech)
+livekit-plugins-google>=1.0.0
+# Background voice/noise cancellation for the caller's mic (optional but recommended)
+livekit-plugins-noise-cancellation~=0.2
+# Config
+python-dotenv>=1.0.1
+
+
+# Config
+python-dotenv>=1.0.1

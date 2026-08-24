@@ -1,0 +1,8 @@
+[
+  {"service_type": "Oil Change", "duration_minutes": 45, "average_cost": 65},
+  {"service_type": "General Service / Inspection", "duration_minutes": 90, "average_cost": 120},
+  {"service_type": "Brake Service", "duration_minutes": 60, "average_cost": 150},
+  {"service_type": "Tire Rotation & Balancing", "duration_minutes": 45, "average_cost": 55},
+  {"service_type": "Diagnostic / Check Engine Light", "duration_minutes": 60, "average_cost": 90},
+  {"service_type": "AC Service", "duration_minutes": 60, "average_cost": 110}
+]
