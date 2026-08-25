@@ -25,15 +25,11 @@ class Settings:
     # Google Gemini Realtime (speech-to-speech) model
     GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
 
-    # NOTE: Gemini's realtime/live model ids change fairly often. Check
-    # LiveKit's Google plugin docs / Google AI Studio for the current id
-    # before running the POC and update this default (or the .env value)
-    # accordingly.
-    GEMINI_REALTIME_MODEL: str = os.getenv("GEMINI_REALTIME_MODEL", "gemini-2.0-flash-live-001")
-    GEMINI_VOICE: str = os.getenv("GEMINI_VOICE", "Puck")
-    GEMINI_TEMPERATURE: float = float(os.getenv("GEMINI_TEMPERATURE", "0.7"))
+    GEMINI_REALTIME_MODEL: str = "gemini-3.1-flash-live-preview"
+    GEMINI_VOICE: str = "Kore"
+    GEMINI_TEMPERATURE: float = 0.3
 
-    DEALERSHIP_NAME: str = os.getenv("DEALERSHIP_NAME", "Santo Domingo Motors")
+    DEALERSHIP_NAME: str = "Santo Domingo Motors"
 
 
 settings = Settings()
