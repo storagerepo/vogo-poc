@@ -72,5 +72,6 @@ class DepartmentAgent(Agent):
         """
         from app.agents.supervisor import SupervisorAgent
 
+        context.userdata.record_visit("supervisor")
         logger.info("Routing: %s -> Supervisor", self.department)
-        return SupervisorAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Sure, let me help you with that."
+        return SupervisorAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them with their request."

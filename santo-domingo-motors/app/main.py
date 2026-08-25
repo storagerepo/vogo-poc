@@ -42,13 +42,16 @@ from pathlib import Path
 log = get_logger("main")
 
 
+from app.core.userdata import SessionUserData
+
 async def entrypoint(ctx: JobContext) -> None:
     log.info("Job starting for room: %s", ctx.room.name)
     await ctx.connect()
 
     # Gemini Realtime handles audio-in -> understanding -> audio-out directly,
     # so this single model powers every department agent in the handoff chain.
-    session = AgentSession(
+    session = AgentSession[SessionUserData](
+        userdata=SessionUserData(),
         llm=google.beta.realtime.RealtimeModel(
             model=settings.GEMINI_REALTIME_MODEL,
             voice=settings.GEMINI_VOICE,

@@ -9,6 +9,7 @@ Supervisor hands off to it.
 from __future__ import annotations
 
 from livekit.agents import Agent, RunContext, function_tool
+from app.core.userdata import SessionUserData
 
 from app.tools import common_tools
 from app.utils.logger import get_logger
@@ -37,7 +38,7 @@ class DepartmentAgent(Agent):
     @function_tool()
     async def human_handoff(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         reason: str,
         context_summary: str,
     ):
@@ -63,7 +64,7 @@ class DepartmentAgent(Agent):
         )
 
     @function_tool()
-    async def return_to_supervisor(self, context: RunContext):
+    async def return_to_supervisor(self, context: RunContext[SessionUserData]):
         """Hand the conversation back to the Supervisor to re-route.
 
         Call this when the customer's need is now clearly in a different
@@ -72,5 +73,6 @@ class DepartmentAgent(Agent):
         """
         from app.agents.supervisor import SupervisorAgent
 
+        context.userdata.record_visit("supervisor")
         log.info("Routing: %s -> Supervisor", self.department)
-        return SupervisorAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Let me bring you back to our main assistant to redirect you."
+        return SupervisorAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them with their request."

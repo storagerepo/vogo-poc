@@ -13,6 +13,7 @@ bank rates, and terms come from data sources — the LLM never invents them.
 from __future__ import annotations
 
 from livekit.agents import RunContext, function_tool, llm
+from app.core.userdata import SessionUserData
 
 from app.agents.base import DepartmentAgent
 from app.tools import finance_tools
@@ -21,7 +22,7 @@ from app.utils.logger import get_logger
 log = get_logger("agents.finance")
 
 FINANCE_INSTRUCTIONS = """
-You are the AI assistant for Santo Domingo Motors, speaking with a
+You are the MAYA, assistant for Santo Domingo Motors, speaking with a
 customer over a live voice call. Do NOT introduce yourself or greet the customer,
 as they are already in the middle of a conversation with you. Seamlessly continue
 the conversation based on the context.
@@ -118,12 +119,20 @@ IMPORTANT RULES:
   call human_handoff or return_to_supervisor as appropriate.
 
 # Multi-language instructions
-        "Detect the user's language automatically from their speech.",
-        "Always reply in the same language used by the user.",
-        "If the user mixes languages, respond naturally in the same mixed style.",
-        "If the user switches languages during the conversation, immediately switch to that language.",
-        
-        "Never translate the user's language unless explicitly requested.",
+- Detect the user's language automatically from their speech.
+- Always reply in the same language used by the user.
+- If the user mixes languages, respond naturally in the same mixed style.
+- If the user switches languages during the conversation, immediately switch to that language.
+
+LANGUAGE CONTINUITY (CRITICAL):
+- Always continue in the customer's current language.
+- After a handoff, use the language already established in the conversation history.
+- Do not wait for another user message to detect the language.
+- Do not default to English.
+- The first response after handoff must be in the customer's current language.
+- If the customer changes language, switch immediately.
+- If the customer mixes languages, respond naturally in the same style.
+- Never translate unless explicitly requested.,
 """
 
 
@@ -134,26 +143,28 @@ class FinanceAgent(DepartmentAgent):
         super().__init__(instructions=FINANCE_INSTRUCTIONS, chat_ctx=chat_ctx)
 
     @function_tool()
-    async def transfer_to_sales(self, context: RunContext):
+    async def transfer_to_sales(self, context: RunContext[SessionUserData]):
         """Access sales tools for vehicle sales, test drives, or other vehicle details."""
         from app.agents.sales_agent import SalesAgent
 
+        context.userdata.last_intent = "sales"
+        context.userdata.record_visit("sales")
         log.info("Routing: Finance -> Sales")
         agent = SalesAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True))
        
-        return agent, "Let's go back to the vehicle details."
+        return agent, "Continue seamlessly in the same language the customer has been using. Help them with their vehicle inquiry."
 
     # ------------------------------------------------------------------
     # Vehicle lookup tools
     # ------------------------------------------------------------------
 
     @function_tool()
-    async def get_vehicle_brands(self, context: RunContext):
+    async def get_vehicle_brands(self, context: RunContext[SessionUserData]):
         """Get all available vehicle brands."""
         return finance_tools.get_vehicle_brands()
 
     @function_tool()
-    async def get_vehicle_models(self, context: RunContext, brand: str):
+    async def get_vehicle_models(self, context: RunContext[SessionUserData], brand: str):
         """Get available models for a vehicle brand.
 
         Args:
@@ -163,7 +174,7 @@ class FinanceAgent(DepartmentAgent):
 
     @function_tool()
     async def get_vehicle_details(
-        self, context: RunContext, brand: str, model: str
+        self, context: RunContext[SessionUserData], brand: str, model: str
     ):
         """Get full details and price for a specific vehicle.
 
@@ -178,14 +189,14 @@ class FinanceAgent(DepartmentAgent):
     # ------------------------------------------------------------------
 
     @function_tool()
-    async def get_financing_banks(self, context: RunContext):
+    async def get_financing_banks(self, context: RunContext[SessionUserData]):
         """Get the list of available financing banks."""
         return finance_tools.get_financing_banks()
 
     @function_tool()
     async def get_financing_plans(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         bank_id: str,
         vehicle_type: str = "new",
         usage: str = "personal",
@@ -208,7 +219,7 @@ class FinanceAgent(DepartmentAgent):
     @function_tool()
     async def calculate_financing(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         vehicle_price_usd: float,
         initial_payment_percent: int,
         interest_rate: float,
@@ -238,7 +249,7 @@ class FinanceAgent(DepartmentAgent):
     @function_tool()
     async def create_finance_lead(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         customer_name: str,
         phone: str,
         email: str | None,

@@ -33,12 +33,20 @@ Voice style rules (always follow these):
   that this is a demo assistant.
 
 # Multi-language instructions
-        "Detect the user's language automatically from their speech.",
-        "Always reply in the same language used by the user.",
-        "If the user mixes languages, respond naturally in the same mixed style.",
-        "If the user switches languages during the conversation, immediately switch to that language.",
-        
-        "Never translate the user's language unless explicitly requested.",
+- Detect the user's language automatically from their speech.
+- Always reply in the same language used by the user.
+- If the user mixes languages, respond naturally in the same mixed style.
+- If the user switches languages during the conversation, immediately switch to that language.
+
+LANGUAGE CONTINUITY (CRITICAL):
+- Always continue in the customer's current language.
+- After a handoff, use the language already established in the conversation history.
+- Do not wait for another user message to detect the language.
+- Do not default to English.
+- The first response after handoff must be in the customer's current language.
+- If the customer changes language, switch immediately.
+- If the customer mixes languages, respond naturally in the same style.
+- Never translate unless explicitly requested.
 """
 
 BANK_CONTEXT = """

@@ -26,6 +26,7 @@ can transfer back to the supervisor or to a human when needed.
 from __future__ import annotations
 
 from livekit.agents import Agent, RunContext, function_tool, llm
+from app.core.userdata import SessionUserData
 
 from app.config import settings
 from app.utils.logger import get_logger
@@ -33,7 +34,7 @@ from app.utils.logger import get_logger
 log = get_logger("agents.supervisor")
 
 SUPERVISOR_INSTRUCTIONS = f"""
-You are the AI assistant for {settings.DEALERSHIP_NAME}, answering an
+You are the MAYA assistant for {settings.DEALERSHIP_NAME}, answering an
 inbound voice call on the website. Be warm, brief, and natural — this is a
 spoken conversation, not a chat window.
 
@@ -52,19 +53,29 @@ Your job is to:
    for a human directly, call human_handoff.
 
 Do NOT attempt to answer detailed vehicle, service, or finance questions
-yourself — always use the tools to transition the flow. NEVER tell the user
-you are transferring them or routing them to a specialist. To the user, you are a
-single unified assistant.
+yourself — always use the tools to transition the flow.
 If it's unclear what the customer needs, ask ONE short
 clarifying question before continuing.
 
+IMPORTANT: Never tell the customer you are "transferring" or "connecting"
+them to anyone. You are MAYA the whole time. Just smoothly shift to
+helping them with the new topic.
+
 # Multi-language instructions
-        "Detect the user's language automatically from their speech.",
-        "Always reply in the same language used by the user.",
-        "If the user mixes languages, respond naturally in the same mixed style.",
-        "If the user switches languages during the conversation, immediately switch to that language.",
-        
-        "Never translate the user's language unless explicitly requested.",
+- Detect the user's language automatically from their speech.
+- Always reply in the same language used by the user.
+- If the user mixes languages, respond naturally in the same mixed style.
+- If the user switches languages during the conversation, immediately switch to that language.
+
+LANGUAGE CONTINUITY (CRITICAL):
+- Always continue in the customer's current language.
+- After a handoff, use the language already established in the conversation history.
+- Do not wait for another user message to detect the language.
+- Do not default to English.
+- The first response after handoff must be in the customer's current language.
+- If the customer changes language, switch immediately.
+- If the customer mixes languages, respond naturally in the same style.
+- Never translate unless explicitly requested.,
 """
 
 
@@ -79,7 +90,7 @@ class SupervisorAgent(Agent):
 
     @function_tool()
     async def send_customer_otp(
-        self, context: RunContext, phone: str, email: str | None = None
+        self, context: RunContext[SessionUserData], phone: str, email: str | None = None
     ):
         """Send a verification code to the customer's phone number.
 
@@ -93,18 +104,25 @@ class SupervisorAgent(Agent):
         return common_tools.send_customer_otp(phone=phone, email=email)
 
     @function_tool()
-    async def verify_customer_otp(self, context: RunContext, phone: str, otp: str):
+    async def verify_customer_otp(self, context: RunContext[SessionUserData], phone: str, otp: str):
         """Verify the code the customer provides.
 
         Args:
             phone: The phone number the code was sent to.
             otp: The verification code the customer said.
         """
+        if context.userdata.verified:
+            return {"verified": True, "message": "Phone number is already verified."}
+
         from app.tools import common_tools
-        return common_tools.verify_customer_otp(phone=phone, otp=otp)
+        result = common_tools.verify_customer_otp(phone=phone, otp=otp)
+        if result.get("verified"):
+            context.userdata.verified = True
+            
+        return result
 
     @function_tool()
-    async def transfer_to_sales(self, context: RunContext):
+    async def transfer_to_sales(self, context: RunContext[SessionUserData]):
         """Transfer the customer to the Sales specialist.
 
         Use for: finding a vehicle, comparing models, pricing, test drives,
@@ -112,11 +130,13 @@ class SupervisorAgent(Agent):
         """
         from app.agents.sales_agent import SalesAgent
 
+        context.userdata.last_intent = "sales"
+        context.userdata.record_visit("sales")
         log.info("Routing: Supervisor -> Sales")
-        return SalesAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Let me pull up that information for you."
+        return SalesAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them with their vehicle inquiry."
 
     @function_tool()
-    async def transfer_to_service(self, context: RunContext):
+    async def transfer_to_service(self, context: RunContext[SessionUserData]):
         """Transfer the customer to the Service specialist.
 
         Use for: maintenance, repairs, oil changes, or booking a service
@@ -124,22 +144,26 @@ class SupervisorAgent(Agent):
         """
         from app.agents.service_agent import ServiceAgent
 
+        context.userdata.last_intent = "service"
+        context.userdata.record_visit("service")
         log.info("Routing: Supervisor -> Service")
-        return ServiceAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "I can help you with your service needs. Let me check the details."
+        return ServiceAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them with their service needs."
 
     @function_tool()
-    async def transfer_to_finance(self, context: RunContext):
+    async def transfer_to_finance(self, context: RunContext[SessionUserData]):
         """Transfer the customer to the Finance specialist.
 
         Use for: financing options, loan eligibility, or payment estimates.
         """
         from app.agents.finance_agent import FinanceAgent
 
+        context.userdata.last_intent = "finance"
+        context.userdata.record_visit("finance")
         log.info("Routing: Supervisor -> Finance")
-        return FinanceAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Let's look at the financing options together."
+        return FinanceAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them with financing options."
 
     @function_tool()
-    async def human_handoff(self, context: RunContext, reason: str, context_summary: str):
+    async def human_handoff(self, context: RunContext[SessionUserData], reason: str, context_summary: str):
         """Escalate directly to a human when the request is outside Sales,
         Service, and Finance, or the customer explicitly asks for a person.
 

@@ -7,6 +7,7 @@ Compare Models, Price Information, Test Drive Booking, Create Sales Lead.
 from __future__ import annotations
 
 from livekit.agents import RunContext, function_tool, llm
+from app.core.userdata import SessionUserData
 
 from app.agents.base import DepartmentAgent
 from app.tools import sales_tools, branch_tools
@@ -15,7 +16,7 @@ from app.utils.logger import get_logger
 log = get_logger("agents.sales")
 
 SALES_INSTRUCTIONS = """
-You are the AI assistant for Santo Domingo Motors, speaking with a customer
+You are the MAYA assistant for Santo Domingo Motors, speaking with a customer
 over a live voice call. Do NOT introduce yourself or greet the customer, as they
 are already in the middle of a conversation with you. Seamlessly continue the
 conversation based on the context.
@@ -55,12 +56,20 @@ chat window. Ask one question at a time when collecting details. Do not read out
 long branch addresses unless asked.
 
 # Multi-language instructions
-        "Detect the user's language automatically from their speech.",
-        "Always reply in the same language used by the user.",
-        "If the user mixes languages, respond naturally in the same mixed style.",
-        "If the user switches languages during the conversation, immediately switch to that language.",
-        
-        "Never translate the user's language unless explicitly requested.",
+- Detect the user's language automatically from their speech.
+- Always reply in the same language used by the user.
+- If the user mixes languages, respond naturally in the same mixed style.
+- If the user switches languages during the conversation, immediately switch to that language.
+
+LANGUAGE CONTINUITY (CRITICAL):
+- Always continue in the customer's current language.
+- After a handoff, use the language already established in the conversation history.
+- Do not wait for another user message to detect the language.
+- Do not default to English.
+- The first response after handoff must be in the customer's current language.
+- If the customer changes language, switch immediately.
+- If the customer mixes languages, respond naturally in the same style.
+- Never translate unless explicitly requested.,
 """
 
 
@@ -71,17 +80,19 @@ class SalesAgent(DepartmentAgent):
         super().__init__(instructions=SALES_INSTRUCTIONS, chat_ctx=chat_ctx)
 
     @function_tool()
-    async def transfer_to_finance(self, context: RunContext):
+    async def transfer_to_finance(self, context: RunContext[SessionUserData]):
         """Access financing tools for loans or payment estimates."""
         from app.agents.finance_agent import FinanceAgent
 
+        context.userdata.last_intent = "finance"
+        context.userdata.record_visit("finance")
         log.info("Routing: Sales -> Finance")
         agent = FinanceAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True))
-        return agent, "Let's look at the financing options."
+        return agent, "Continue seamlessly in the same language the customer has been using. Help them with financing options."
 
     @function_tool()
     async def send_test_drive_otp(
-        self, context: RunContext, phone: str, email: str | None = None
+        self, context: RunContext[SessionUserData], phone: str, email: str | None = None
     ):
         """Send a verification code to confirm a test drive booking. ONLY call this
         when the customer has selected a test drive slot and is ready to confirm.
@@ -90,15 +101,22 @@ class SalesAgent(DepartmentAgent):
         return common_tools.send_customer_otp(phone=phone, email=email)
 
     @function_tool()
-    async def verify_test_drive_otp(self, context: RunContext, phone: str, otp: str):
+    async def verify_test_drive_otp(self, context: RunContext[SessionUserData], phone: str, otp: str):
         """Verify the code the customer provides to confirm their test drive booking.
         ONLY call this after send_test_drive_otp, during the test drive booking flow."""
+        if context.userdata.verified:
+            return {"verified": True, "message": "Phone number is already verified."}
+
         from app.tools import common_tools
-        return common_tools.verify_customer_otp(phone=phone, otp=otp)
+        result = common_tools.verify_customer_otp(phone=phone, otp=otp)
+        if result.get("verified"):
+            context.userdata.verified = True
+            
+        return result
 
     @function_tool()
     async def find_branch(
-        self, context: RunContext, city: str | None = None, area: str | None = None, service: str | None = None, brand: str | None = None
+        self, context: RunContext[SessionUserData], city: str | None = None, area: str | None = None, service: str | None = None, brand: str | None = None
     ):
         """Find the most appropriate Santo Domingo Motors branch.
         Args:
@@ -110,7 +128,7 @@ class SalesAgent(DepartmentAgent):
         return branch_tools.find_branch(city=city, area=area, service=service, brand=brand)
 
     @function_tool()
-    async def get_branch_details(self, context: RunContext, branch_id: str):
+    async def get_branch_details(self, context: RunContext[SessionUserData], branch_id: str):
         """Get details about a specific branch.
         Args:
             branch_id: The ID of the branch.
@@ -120,7 +138,7 @@ class SalesAgent(DepartmentAgent):
     @function_tool()
     async def search_vehicles(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         vehicle_type: str | None = None,
         max_budget: float | None = None,
         min_budget: float | None = None,
@@ -142,12 +160,12 @@ class SalesAgent(DepartmentAgent):
         return {"count": len(results), "vehicles": results}
 
     @function_tool()
-    async def compare_vehicles(self, context: RunContext, identifiers: list[str]):
+    async def compare_vehicles(self, context: RunContext[SessionUserData], identifiers: list[str]):
         """Compare two or more vehicles by ID or model name."""
         return sales_tools.compare_vehicles(identifiers)
 
     @function_tool()
-    async def get_vehicle_price(self, context: RunContext, identifier: str):
+    async def get_vehicle_price(self, context: RunContext[SessionUserData], identifier: str):
         """Get the authoritative price for a vehicle by ID or model name."""
         result = sales_tools.get_vehicle_price(identifier)
         if not result:
@@ -156,7 +174,7 @@ class SalesAgent(DepartmentAgent):
 
     @function_tool()
     async def check_test_drive_availability(
-        self, context: RunContext, location_id: str, date: str
+        self, context: RunContext[SessionUserData], location_id: str, date: str
     ):
         """Check available test drive slots at a location/branch for a given date.
         Args:
@@ -169,7 +187,7 @@ class SalesAgent(DepartmentAgent):
     @function_tool()
     async def book_test_drive(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         customer_name: str,
         phone: str,
         vehicle: str,
@@ -207,7 +225,7 @@ class SalesAgent(DepartmentAgent):
     @function_tool()
     async def create_sales_lead(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         customer_name: str,
         phone: str,
         interested_vehicle: str,

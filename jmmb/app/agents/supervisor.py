@@ -126,7 +126,7 @@ class SupervisorAgent(Agent):
         logger.info("send_otp result for phone=%r: %s", userdata.phone, result)
         if result.get("success"):
             debug_otp = result.get("_debug_otp", "1234")
-            return f"Saved details. A verification code has been sent. (For this demo, tell the customer the code is {debug_otp}). Ask the customer to read it back."
+            return f"Saved details. A verification code has been sent.  Ask the customer to read it back."
         return result.get("message", "Failed to send OTP.")
 
     @function_tool()
@@ -176,8 +176,9 @@ class SupervisorAgent(Agent):
         from app.agents.financial_guidance import FinancialGuidanceAgent
 
         context.userdata.last_intent = "financial_guidance"
+        context.userdata.record_visit("financial_guidance")
         logger.info("Routing: Supervisor -> Finance")
-        return FinancialGuidanceAgent(), "Sure, I can help you explore your financial options."
+        return FinancialGuidanceAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them explore their financial options."
 
     @function_tool()
     async def route_to_loan(self, context: RunContext[SessionUserData]):
@@ -190,8 +191,9 @@ class SupervisorAgent(Agent):
         from app.agents.loan import LoanAgent
 
         context.userdata.last_intent = "loan"
+        context.userdata.record_visit("loan")
         logger.info("Routing: Supervisor -> Loan")
-        return LoanAgent(), "Absolutely, let me help you with your loan inquiry."
+        return LoanAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them with their loan inquiry."
 
     # @function_tool()
     # async def route_to_service(self, context: RunContext[SessionUserData]):
@@ -205,7 +207,7 @@ class SupervisorAgent(Agent):
 
     #     context.userdata.last_intent = "service"
     #     logger.info("Routing: Supervisor -> Service")
-    #     return ServiceAgent(), "I can certainly help you with your service request."
+    #     return ServiceAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Help them with their service request."
 
     # @function_tool()
     # async def route_to_security(self, context: RunContext[SessionUserData]):
@@ -219,4 +221,4 @@ class SupervisorAgent(Agent):
 
     #     context.userdata.last_intent = "Security"
     #     logger.info("Routing: Supervisor -> Security")
-    #     return SecurityAgent(), "I understand this is concerning. Let me look into this security matter for you."
+    #     return SecurityAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), "Continue seamlessly in the same language the customer has been using. Look into this security matter for them."

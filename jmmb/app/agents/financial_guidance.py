@@ -553,9 +553,10 @@ class FinancialGuidanceAgent(DepartmentAgent):
         from app.agents.loan import LoanAgent
 
         context.userdata.last_intent = "loan"
+        context.userdata.record_visit("loan")
         logger.info("Routing: Financial Guidance -> Loan")
-        return LoanAgent(chat_ctx=self.chat_ctx), (
-            "Absolutely, let me help you with the loan details."
+        return LoanAgent(chat_ctx=self.chat_ctx.copy(exclude_instructions=True)), (
+            "Continue seamlessly in the same language the customer has been using. Help them with their loan inquiry."
         )
 
     # The transfer_to_supervisor and human_handoff tools are inherited from DepartmentAgent

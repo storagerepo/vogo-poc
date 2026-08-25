@@ -7,6 +7,7 @@ Check Availability, Book Appointment, Confirm Appointment, Service Details.
 from __future__ import annotations
 
 from livekit.agents import RunContext, function_tool, llm
+from app.core.userdata import SessionUserData
 
 from app.agents.base import DepartmentAgent
 from app.tools import service_tools, branch_tools
@@ -15,7 +16,7 @@ from app.utils.logger import get_logger
 log = get_logger("agents.service")
 
 SERVICE_INSTRUCTIONS = """
-You are the AI assistant for Santo Domingo Motors, speaking with a
+You are the MAYA assistant for Santo Domingo Motors, speaking with a
 customer over a live voice call. Do NOT introduce yourself or greet the customer,
 as they are already in the middle of a conversation with you. Seamlessly continue
 the conversation based on the context.
@@ -39,12 +40,20 @@ Keep responses short and conversational — this is a spoken conversation.
 Ask one question at a time when collecting details.
 
 # Multi-language instructions
-        "Detect the user's language automatically from their speech.",
-        "Always reply in the same language used by the user.",
-        "If the user mixes languages, respond naturally in the same mixed style.",
-        "If the user switches languages during the conversation, immediately switch to that language.",
-        
-        "Never translate the user's language unless explicitly requested.",
+- Detect the user's language automatically from their speech.
+- Always reply in the same language used by the user.
+- If the user mixes languages, respond naturally in the same mixed style.
+- If the user switches languages during the conversation, immediately switch to that language.
+
+LANGUAGE CONTINUITY (CRITICAL):
+- Always continue in the customer's current language.
+- After a handoff, use the language already established in the conversation history.
+- Do not wait for another user message to detect the language.
+- Do not default to English.
+- The first response after handoff must be in the customer's current language.
+- If the customer changes language, switch immediately.
+- If the customer mixes languages, respond naturally in the same style.
+- Never translate unless explicitly requested.,
 """
 
 
@@ -55,7 +64,7 @@ class ServiceAgent(DepartmentAgent):
         super().__init__(instructions=SERVICE_INSTRUCTIONS, chat_ctx=chat_ctx)
 
     @function_tool()
-    async def get_service_details(self, context: RunContext, service_type: str | None = None):
+    async def get_service_details(self, context: RunContext[SessionUserData], service_type: str | None = None):
         """Get details about a service type (duration, average cost), or list all types.
 
         Args:
@@ -65,7 +74,7 @@ class ServiceAgent(DepartmentAgent):
 
     @function_tool()
     async def find_branch(
-        self, context: RunContext, city: str | None = None, area: str | None = None, service: str | None = None, brand: str | None = None
+        self, context: RunContext[SessionUserData], city: str | None = None, area: str | None = None, service: str | None = None, brand: str | None = None
     ):
         """Find the most appropriate Santo Domingo Motors branch.
         Args:
@@ -77,13 +86,13 @@ class ServiceAgent(DepartmentAgent):
         return branch_tools.find_branch(city=city, area=area, service=service, brand=brand)
 
     @function_tool()
-    async def get_service_locations(self, context: RunContext):
+    async def get_service_locations(self, context: RunContext[SessionUserData]):
         """List available service center locations."""
         return {"locations": service_tools.get_service_locations()}
 
     @function_tool()
     async def check_service_availability(
-        self, context: RunContext, location_id: str, date: str
+        self, context: RunContext[SessionUserData], location_id: str, date: str
     ):
         """Check available service appointment slots at a location for a date.
 
@@ -97,7 +106,7 @@ class ServiceAgent(DepartmentAgent):
     @function_tool()
     async def book_service_appointment(
         self,
-        context: RunContext,
+        context: RunContext[SessionUserData],
         customer_name: str,
         phone: str,
         vehicle: str,
@@ -128,7 +137,7 @@ class ServiceAgent(DepartmentAgent):
         )
 
     @function_tool()
-    async def get_appointment_details(self, context: RunContext, appointment_id: str):
+    async def get_appointment_details(self, context: RunContext[SessionUserData], appointment_id: str):
         """Look up an existing appointment by its ID.
 
         Args:
