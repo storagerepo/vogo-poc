@@ -28,21 +28,23 @@ def search_vehicles(
     """Search the mock vehicle catalog by loose, optional filters."""
 
     def matches(v: dict) -> bool:
-        if vehicle_type and v["type"].lower() != vehicle_type.lower():
+        if vehicle_type and v.get("type", "").lower() != vehicle_type.lower():
             return False
-        if model and model.lower() not in v["model"].lower():
+        if model and model.lower() not in v.get("model", "").lower():
             return False
-        if max_budget is not None and v["price"] > max_budget:
+        if max_budget is not None:
+            if v.get("price") is None or v["price"] > max_budget:
+                return False
+        if min_budget is not None:
+            if v.get("price") is None or v["price"] < min_budget:
+                return False
+        if min_seating is not None and v.get("seating_capacity", 0) < min_seating:
             return False
-        if min_budget is not None and v["price"] < min_budget:
+        if fuel_type and v.get("fuel_type", "").lower() != fuel_type.lower():
             return False
-        if min_seating is not None and v["seating_capacity"] < min_seating:
+        if transmission and v.get("transmission", "").lower() != transmission.lower():
             return False
-        if fuel_type and v["fuel_type"].lower() != fuel_type.lower():
-            return False
-        if transmission and v["transmission"].lower() != transmission.lower():
-            return False
-        if in_stock_only and not v["in_stock"]:
+        if in_stock_only and not v.get("in_stock"):
             return False
         return True
 

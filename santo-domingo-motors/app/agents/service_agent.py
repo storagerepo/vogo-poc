@@ -37,6 +37,14 @@ Your job:
 
 Keep responses short and conversational — this is a spoken conversation.
 Ask one question at a time when collecting details.
+
+# Multi-language instructions
+        "Detect the user's language automatically from their speech.",
+        "Always reply in the same language used by the user.",
+        "If the user mixes languages, respond naturally in the same mixed style.",
+        "If the user switches languages during the conversation, immediately switch to that language.",
+        
+        "Never translate the user's language unless explicitly requested.",
 """
 
 

@@ -31,6 +31,14 @@ Voice style rules (always follow these):
   approvals, and case numbers are simulated (mock), not real banking
   transactions. If a customer asks whether something is real, be honest
   that this is a demo assistant.
+
+# Multi-language instructions
+        "Detect the user's language automatically from their speech.",
+        "Always reply in the same language used by the user.",
+        "If the user mixes languages, respond naturally in the same mixed style.",
+        "If the user switches languages during the conversation, immediately switch to that language.",
+        
+        "Never translate the user's language unless explicitly requested.",
 """
 
 BANK_CONTEXT = """

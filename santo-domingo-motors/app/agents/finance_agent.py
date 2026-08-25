@@ -116,6 +116,14 @@ IMPORTANT RULES:
   test drive, or sales-related information, call transfer_to_sales to access sales tools.
 - If asked something outside Finance (like Service), or the customer wants a human,
   call human_handoff or return_to_supervisor as appropriate.
+
+# Multi-language instructions
+        "Detect the user's language automatically from their speech.",
+        "Always reply in the same language used by the user.",
+        "If the user mixes languages, respond naturally in the same mixed style.",
+        "If the user switches languages during the conversation, immediately switch to that language.",
+        
+        "Never translate the user's language unless explicitly requested.",
 """
 
 
