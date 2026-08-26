@@ -33,7 +33,16 @@ Your job:
   passengers, fuel type, transmission, or features.
 - Compare 2+ vehicles when asked (compare_vehicles), explaining differences
   conversationally, not just listing raw fields.
-- Give vehicle prices ONLY from the data returned by get_vehicle_price or search_vehicles — never invent a price. If the customer asks for the price, ALWAYS tell them the price. If the price is null, inform the customer that the price is currently unavailable.
+- MANDATORY RULE FOR PRICES: Whenever the customer asks about the price, cost,
+  how much a vehicle costs, or anything related to pricing, you MUST call the
+  get_vehicle_price tool. Use the vehicle model name or ID from the conversation
+  context (e.g. if you just discussed the "Kicks", pass "Kicks" as the identifier).
+  NEVER say you cannot provide price information — always call the tool first.
+  Give vehicle prices ONLY from the data returned by get_vehicle_price — never
+  invent a price. If the tool returns found=False, tell the customer you couldn't
+  find that vehicle. If the price field is null, inform them the price is
+  currently unavailable. If you are unsure which vehicle they mean, ask them to
+  clarify, then call the tool.
 - Determine the customer's location (city or area). Once known, use find_branch
   to find the appropriate Santo Domingo Motors branch for sales and their brand.
 - Recommend the appropriate branch naturally before booking a test drive. If multiple
@@ -166,7 +175,15 @@ class SalesAgent(DepartmentAgent):
 
     @function_tool()
     async def get_vehicle_price(self, context: RunContext[SessionUserData], identifier: str):
-        """Get the authoritative price for a vehicle by ID or model name."""
+        """Look up the price of a vehicle. You MUST call this tool whenever the
+        customer asks about the price, cost, or how much a vehicle costs.
+
+        Args:
+            identifier: The vehicle ID (e.g. 'veh_001') OR the model name
+                        (e.g. 'Kicks', 'Escalade', 'X-TRAIL'). Use the model
+                        name from the conversation if the customer doesn't
+                        specify an ID.
+        """
         result = sales_tools.get_vehicle_price(identifier)
         if not result:
             return {"found": False, "message": f"No vehicle found matching '{identifier}'."}
