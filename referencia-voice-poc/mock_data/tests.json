@@ -1,0 +1,94 @@
+[
+  {
+    "test_id": "hemograma",
+    "name_es": "Hemograma completo",
+    "name_en": "Complete Blood Count (CBC)",
+    "type": "LAB",
+    "fasting_hours": 0,
+    "id_required": true,
+    "prep_notes_es": "No requiere ayuno. Traer cédula o pasaporte.",
+    "prep_notes_en": "No fasting required. Bring ID or passport.",
+    "turnaround_hours": 24
+  },
+  {
+    "test_id": "glucosa",
+    "name_es": "Glucosa en ayunas",
+    "name_en": "Fasting Glucose",
+    "type": "LAB",
+    "fasting_hours": 8,
+    "id_required": true,
+    "prep_notes_es": "8 horas de ayuno. Solo se permite agua.",
+    "prep_notes_en": "8 hours fasting required. Water only.",
+    "turnaround_hours": 12
+  },
+  {
+    "test_id": "perfil_lipidico",
+    "name_es": "Perfil lipídico",
+    "name_en": "Lipid Profile",
+    "type": "LAB",
+    "fasting_hours": 9,
+    "id_required": true,
+    "prep_notes_es": "8-10 horas de ayuno. Evitar alcohol 24 horas antes.",
+    "prep_notes_en": "8-10 hours fasting. Avoid alcohol for 24 hours before.",
+    "turnaround_hours": 24
+  },
+  {
+    "test_id": "orina",
+    "name_es": "Examen general de orina",
+    "name_en": "Urinalysis",
+    "type": "LAB",
+    "fasting_hours": 0,
+    "id_required": true,
+    "prep_notes_es": "No requiere ayuno. Muestra de primera orina de la mañana preferible.",
+    "prep_notes_en": "No fasting required. First morning sample preferred.",
+    "turnaround_hours": 6
+  },
+  {
+    "test_id": "resonancia",
+    "name_es": "Resonancia Magnética",
+    "name_en": "MRI / Magnetic Resonance",
+    "type": "IMAGING",
+    "fasting_hours": 4,
+    "id_required": true,
+    "duration_minutes": 45,
+    "prep_notes_es": "4 horas de ayuno si se usa contraste. No usar objetos metálicos. Informar si tiene implantes metálicos o marcapasos.",
+    "prep_notes_en": "4 hours fasting if contrast is used. No metallic objects. Inform staff of any metal implants or pacemakers.",
+    "turnaround_hours": 48
+  },
+  {
+    "test_id": "tomografia",
+    "name_es": "Tomografía Computarizada (CT)",
+    "name_en": "CT Scan / Computed Tomography",
+    "type": "IMAGING",
+    "fasting_hours": 4,
+    "id_required": true,
+    "duration_minutes": 30,
+    "prep_notes_es": "4 horas de ayuno si se requiere contraste. Informar sobre alergias al yodo.",
+    "prep_notes_en": "4 hours fasting if contrast is needed. Inform staff of any iodine allergies.",
+    "turnaround_hours": 48
+  },
+  {
+    "test_id": "sonografia",
+    "name_es": "Sonografía / Ultrasonido",
+    "name_en": "Sonography / Ultrasound",
+    "type": "IMAGING",
+    "fasting_hours": 0,
+    "id_required": true,
+    "duration_minutes": 30,
+    "prep_notes_es": "Depende del área: sonografía abdominal requiere 6-8 horas de ayuno. Sonografía pélvica requiere vejiga llena.",
+    "prep_notes_en": "Depends on area: abdominal ultrasound requires 6-8 hours fasting. Pelvic ultrasound requires a full bladder.",
+    "turnaround_hours": 24
+  },
+  {
+    "test_id": "radiografia",
+    "name_es": "Radiografía (Rayos X)",
+    "name_en": "X-Ray",
+    "type": "IMAGING",
+    "fasting_hours": 0,
+    "id_required": true,
+    "duration_minutes": 15,
+    "prep_notes_es": "No requiere preparación especial. Retirar objetos metálicos de la zona a radiografiar. Informar si está embarazada.",
+    "prep_notes_en": "No special preparation. Remove metallic objects from the area. Inform staff if pregnant.",
+    "turnaround_hours": 24
+  }
+]

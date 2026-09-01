@@ -1,0 +1,100 @@
+[
+  {
+    "appointment_id": "A-5001",
+    "patient_id": "P-1001",
+    "branch_id": "naco",
+    "relative_weekday": "friday",
+    "time": "14:00",
+    "tests": [
+      "hemograma"
+    ],
+    "status": "cancelled",
+    "fasting_required": false
+  },
+  {
+    "appointment_id": "A-5002",
+    "patient_id": "P-1004",
+    "branch_id": "piantini",
+    "relative_weekday": "monday",
+    "time": "09:00",
+    "tests": [
+      "glucosa"
+    ],
+    "status": "booked",
+    "fasting_required": true
+  },
+  {
+    "appointment_id": "A-5003",
+    "patient_id": "P-1006",
+    "branch_id": "santiago_agora",
+    "relative_weekday": "wednesday",
+    "time": "10:30",
+    "tests": [
+      "orina"
+    ],
+    "status": "completed",
+    "fasting_required": false
+  },
+  {
+    "appointment_id": "A-C46CA3",
+    "patient_id": "P-1001",
+    "branch_id": "naco",
+    "date": "2026-08-28",
+    "time": "07:30",
+    "tests": [
+      "hemograma",
+      "glucosa"
+    ],
+    "status": "cancelled",
+    "fasting_required": true
+  },
+  {
+    "appointment_id": "A-E8EBDC",
+    "patient_id": "new",
+    "branch_id": "piantini",
+    "date": "2026-08-31",
+    "time": "07:00",
+    "tests": [
+      "resonancia"
+    ],
+    "status": "booked",
+    "fasting_required": true
+  },
+  {
+    "appointment_id": "A-62E234",
+    "patient_id": "temp_patient_id",
+    "branch_id": "piantini",
+    "date": "2026-08-28",
+    "time": "11:00",
+    "tests": [
+      "radiografia"
+    ],
+    "status": "booked",
+    "fasting_required": false
+  },
+  {
+    "appointment_id": "A-327A02",
+    "patient_id": "P-79D2",
+    "branch_id": "piantini",
+    "date": "2026-09-02",
+    "time": "07:00",
+    "tests": [
+      "perfil_lipidico"
+    ],
+    "status": "booked",
+    "fasting_required": true
+  },
+  {
+    "appointment_id": "A-7E99FD",
+    "patient_id": "P-1001",
+    "branch_id": "naco",
+    "date": "2026-09-02",
+    "time": "07:30",
+    "tests": [
+      "hemograma",
+      "glucosa"
+    ],
+    "status": "booked",
+    "fasting_required": true
+  }
+]

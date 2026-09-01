@@ -1,0 +1,29 @@
+[
+  {
+    "patient_id": "P-1006",
+    "test_id": "orina",
+    "status": "ready",
+    "ready_date": "2026-08-25",
+    "raw_summary": "Examen de orina dentro de parámetros normales. Sin evidencia de infección.",
+    "plain_explanation_es": "Tus resultados de orina salieron normales. No se encontraron señales de infección ni otros problemas. No necesitas hacer nada adicional, pero puedes comentarlo con tu médico si tenías alguna molestia.",
+    "plain_explanation_en": "Your urine test came back normal. No signs of infection or other issues were found. You don't need to do anything further, but you can still discuss it with your doctor if you had symptoms."
+  },
+  {
+    "patient_id": "P-1003",
+    "test_id": "hemograma",
+    "status": "ready",
+    "ready_date": "2026-08-24",
+    "raw_summary": "Hemograma con leve leucocitosis. Resto de valores dentro de rango normal.",
+    "plain_explanation_es": "Tu hemograma muestra un ligero aumento en los glóbulos blancos, el resto de los valores está normal. Esto a veces pasa por una infección leve o inflamación reciente. Te recomendamos comentarlo con tu médico para que decida si hace falta algo más.",
+    "plain_explanation_en": "Your blood count shows a slightly elevated white blood cell count, with everything else in the normal range. This can happen with a mild infection or recent inflammation. We recommend discussing it with your doctor to see if anything further is needed."
+  },
+  {
+    "patient_id": "P-1005",
+    "test_id": "glucosa",
+    "status": "processing",
+    "ready_date": null,
+    "raw_summary": null,
+    "plain_explanation_es": null,
+    "plain_explanation_en": null
+  }
+]

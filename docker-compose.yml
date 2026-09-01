@@ -2,7 +2,7 @@
 # Docker Compose — Dominican Republic Voice Agents
 # =============================================================================
 #
-# Orchestrates three fully independent LiveKit voice agents.
+# Orchestrates four fully independent LiveKit voice agents.
 # Each service builds its OWN Docker image from its OWN Dockerfile and loads
 # its OWN .env file.  No images, dependencies, or secrets are shared.
 #
@@ -11,12 +11,13 @@
 #   Build & start one agent:      docker compose up --build vogo
 #                                 docker compose up --build santo_domingo_motors
 #                                 docker compose up --build jmmb
-
-#   Stop one agent:                 docker compose stop jmmb
-#   Start one agent:                 docker compose start jmmb
-#   Restart one agent:               docker compose restart jmmb
-#   Restart all agents:              docker compose restart
-#   Stop all:                        docker compose down
+#                                 docker compose up --build referencia
+#
+#   Stop one agent:                 docker compose stop referencia
+#   Start one agent:                docker compose start referencia
+#   Restart one agent:              docker compose restart referencia
+#   Restart all agents:             docker compose restart
+#   Stop all:                       docker compose down
 # =============================================================================
 
 services:
@@ -64,4 +65,19 @@ services:
     env_file: .env.jmmb
     volumes:
       - ./jmmb/mock_data:/app/mock_data
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Referencia Laboratorio Clínico — AI voice agent for clinical lab & diagnostics
+  # Image: referencia-agent  |  Dockerfile: referencia-voice-poc/Dockerfile
+  # Entrypoint: python -m agent.main start
+  # ---------------------------------------------------------------------------
+  referencia:
+    build:
+      context: ./referencia-voice-poc
+      dockerfile: Dockerfile
+    image: referencia-agent
+    env_file: .env.referencia
+    volumes:
+      - ./referencia-voice-poc/mock_data:/app/mock_data
     restart: unless-stopped

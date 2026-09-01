@@ -1,0 +1,59 @@
+[
+  {
+    "branch_id": "naco",
+    "name": "Centro HS Medical Center (Naco)",
+    "address": "C/ Florence Terry Griswold No.7, Ensanche Naco, Santo Domingo",
+    "zone": "Santo Domingo",
+    "opens": "06:00",
+    "closes": "17:00",
+    "open_sundays_holidays": true,
+    "services_offered": ["hemograma", "glucosa", "orina", "radiografia", "sonografia"],
+    "unavailable_this_week": {
+      "perfil_lipidico": "Fuera de servicio por mantenimiento de equipo esta semana"
+    }
+  },
+  {
+    "branch_id": "piantini",
+    "name": "Centro Piantini",
+    "address": "Av. Roberto Pastoriza esq. Federico Geraldino, Santo Domingo",
+    "zone": "Santo Domingo",
+    "opens": "06:00",
+    "closes": "18:00",
+    "open_sundays_holidays": true,
+    "services_offered": ["hemograma", "glucosa", "perfil_lipidico", "orina", "resonancia", "tomografia", "sonografia", "radiografia"],
+    "unavailable_this_week": {}
+  },
+  {
+    "branch_id": "bella_vista",
+    "name": "Punto Médico Red Médica (Bella Vista)",
+    "address": "Av. Sarasota esq. C. Bohechío, Bella Piazza, Bella Vista, Santo Domingo",
+    "zone": "Santo Domingo",
+    "opens": "07:00",
+    "closes": "16:00",
+    "open_sundays_holidays": false,
+    "services_offered": ["hemograma", "glucosa", "orina", "radiografia"],
+    "unavailable_this_week": {}
+  },
+  {
+    "branch_id": "santiago_agora",
+    "name": "Centro Santiago Ágora",
+    "address": "Av. Salvador Estrella Sadhalá, Ágora Santiago Center, Santiago",
+    "zone": "Norte",
+    "opens": "06:00",
+    "closes": "18:00",
+    "open_sundays_holidays": true,
+    "services_offered": ["hemograma", "glucosa", "perfil_lipidico", "orina", "resonancia", "tomografia", "sonografia", "radiografia"],
+    "unavailable_this_week": {}
+  },
+  {
+    "branch_id": "la_vega",
+    "name": "Centro La Vega",
+    "address": "C/ Gral. Juan Rodríguez #81-A, La Vega",
+    "zone": "Norte",
+    "opens": "06:00",
+    "closes": "17:00",
+    "open_sundays_holidays": false,
+    "services_offered": ["hemograma", "glucosa", "orina", "sonografia", "radiografia"],
+    "unavailable_this_week": {}
+  }
+]
