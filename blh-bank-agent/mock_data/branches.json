@@ -1,0 +1,201 @@
+{
+  "source_note": "Branch data compiled from the public BLH branch directory at https://www.blh.com.do/sucursales-cajeros/ as of the POC build date. Verify current details with the Bank before production use.",
+  "general_contact": {
+    "phone": "809-535-8994",
+    "whatsapp": "809-535-8994"
+  },
+  "branches": [
+    {
+      "id": "main-office",
+      "name_es": "Oficina Principal",
+      "name_en": "Main Office",
+      "zone": "Santo Domingo",
+      "city": "Santo Domingo",
+      "address": "Av. Sarasota No. 20, La Julia, Santo Domingo, D.N.",
+      "phone": "(809) 535-8994",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 5:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 5:00 PM",
+      "contact_person": "Sr. David Lougedo Castillo – VP de Negocios"
+    },
+    {
+      "id": "naco",
+      "name_es": "Sucursal Naco",
+      "name_en": "Naco Branch",
+      "zone": "Santo Domingo",
+      "city": "Santo Domingo",
+      "address": "Av. Tiradentes, Plaza Galerías de Naco, Local #20, Ensanche Naco, Santo Domingo, D.N.",
+      "phone": "(809) 549-4011",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sra. Carmen Acosta Herasme – Gerente"
+    },
+    {
+      "id": "spring-center",
+      "name_es": "Sucursal Spring Center",
+      "name_en": "Spring Center Branch",
+      "zone": "Santo Domingo",
+      "city": "Santo Domingo",
+      "address": "Calle Luis Amiama Tío, No. 80, Plaza Spring Center, Arroyo Hondo, Santo Domingo, D.N.",
+      "phone": "(809) 567-2334",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sra. Teresa Báez – Gerente"
+    },
+    {
+      "id": "acropolis-center",
+      "name_es": "Sucursal Acrópolis Center",
+      "name_en": "Acrópolis Center Branch",
+      "zone": "Santo Domingo",
+      "city": "Santo Domingo",
+      "address": "Av. Winston Churchill Esq. Andrés Julio Aybar, 1er. piso, Ensanche Piantini, Santo Domingo, D.N.",
+      "phone": "(809) 565-4498",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sra. Anny Massiel Benzán – Gerente"
+    },
+    {
+      "id": "almacenes-unidos-sarasota",
+      "name_es": "Sucursal Almacenes Unidos",
+      "name_en": "Almacenes Unidos Branch",
+      "zone": "Santo Domingo",
+      "city": "Santo Domingo",
+      "address": "Almacenes Unidos, 1er piso, Av. Sarasota, Esq. Pedro A. Bobea, Santo Domingo, D.N.",
+      "phone": "(809) 738-2323",
+      "hours_es": "Lunes a viernes de 9:00 a.m. a 6:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 9:00 AM to 6:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sra. Skaroline Rojas – Subgerente"
+    },
+    {
+      "id": "almacenes-unidos-kennedy",
+      "name_es": "Agencia Almacenes Unidos Kennedy",
+      "name_en": "Almacenes Unidos Kennedy Agency",
+      "zone": "Santo Domingo",
+      "city": "Santo Domingo",
+      "address": "Av. John F. Kennedy, Autopista Duarte, km. 6 1/2, Almacenes Unidos Kennedy, Santo Domingo, D.N.",
+      "phone": "(809) 518-7775",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sra. Skaroline Rojas – Subgerente"
+    },
+    {
+      "id": "megacentro",
+      "name_es": "Sucursal Megacentro",
+      "name_en": "Megacentro Branch",
+      "zone": "Santo Domingo",
+      "city": "Santo Domingo Este",
+      "address": "Av. San Vicente de Paúl, Megacentro, Santo Domingo Este.",
+      "phone": "(809) 373-0808",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sr. José Miguel Maldonado – Gerente"
+    },
+    {
+      "id": "punta-cana",
+      "name_es": "Sucursal Punta Cana",
+      "name_en": "Punta Cana Branch",
+      "zone": "Zona Este",
+      "city": "Punta Cana",
+      "address": "Boulevard 1ero. de Noviembre No. 303, Edif. Las Arenas, Suite 1-A, Punta Cana Village, Punta Cana.",
+      "phone": "(809) 959-8008",
+      "hours_es": "Lunes a viernes de 9:00 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 9:00 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sr. Bolívar Batista – VP de Negocios"
+    },
+    {
+      "id": "bavaro",
+      "name_es": "Sucursal Bávaro",
+      "name_en": "Bávaro Branch",
+      "zone": "Zona Este",
+      "city": "Bávaro",
+      "address": "Av. Barceló, No. 23000, Downtown Mall, 1er piso, Bávaro.",
+      "phone": "(809) 468-1690",
+      "hours_es": "Lunes a viernes de 9:00 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 9:00 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sr. Diego Rodríguez Rodríguez – Gerente"
+    },
+    {
+      "id": "almacenes-unidos-punta-cana",
+      "name_es": "Almacenes Unidos Punta Cana",
+      "name_en": "Almacenes Unidos Punta Cana Branch",
+      "zone": "Zona Este",
+      "city": "Punta Cana",
+      "address": "Almacenes Unidos, 1er piso, Boulevard Turístico del Este, Esq. Domingo Maíz, Punta Cana, La Altagracia.",
+      "phone": "(809) 552-8655",
+      "hours_es": "Lunes a viernes de 9:00 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 9:00 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sr. Bolívar Batista – VP de Negocios"
+    },
+    {
+      "id": "vista-cana",
+      "name_es": "Sucursal Vista Cana",
+      "name_en": "Vista Cana Branch",
+      "zone": "Zona Este",
+      "city": "Bávaro",
+      "address": "Boulevard Turístico del Este, km 12.5, Edificio Vista Cana Business Center, Bávaro, La Altagracia.",
+      "phone": "(809) 552-8606",
+      "hours_es": "Lunes a viernes de 9:00 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 9:00 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sr. Franklin Veloz – Gerente"
+    },
+    {
+      "id": "juan-dolio",
+      "name_es": "Sucursal Juan Dolio",
+      "name_en": "Juan Dolio Branch",
+      "zone": "Zona Este",
+      "city": "San Pedro de Macorís",
+      "address": "Plaza Castilla, Carretera Nueva, Juan Dolio, San Pedro de Macorís.",
+      "phone": "(809) 553-9606",
+      "hours_es": "Lunes a viernes de 9:00 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 9:00 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sra. Tanya Maciel Morales – Oficial de Negocios"
+    },
+    {
+      "id": "casa-de-campo",
+      "name_es": "Sucursal La Marina Casa de Campo",
+      "name_en": "La Marina Casa de Campo Branch",
+      "zone": "Zona Este",
+      "city": "La Romana",
+      "address": "Calle Barlovento No. 9 y 10, Casa de Campo, La Romana.",
+      "phone": "(809) 523-7098",
+      "hours_es": "Lunes a viernes de 9:00 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 9:00 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sr. Pedro Bogaert – Gerente"
+    },
+    {
+      "id": "la-romana",
+      "name_es": "Sucursal La Romana",
+      "name_en": "La Romana Branch",
+      "zone": "Zona Este",
+      "city": "La Romana",
+      "address": "Av. Libertad No. 45, La Romana.",
+      "phone": "(809) 535-0616",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 4:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 4:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sr. Julio Rosario de Aza – Gerente"
+    },
+    {
+      "id": "santiago",
+      "name_es": "Sucursal Santiago",
+      "name_en": "Santiago Branch",
+      "zone": "Zona Norte",
+      "city": "Santiago de los Caballeros",
+      "address": "Av. 27 de Febrero, Esq. Av. Padre Ramón Dubert, Jardín Plaza, Local 113, Los Jardines, Santiago de los Caballeros.",
+      "phone": "(809) 894-5910",
+      "hours_es": "Lunes a viernes de 8:30 a.m. a 5:00 p.m. y sábados de 9:00 a.m. a 1:00 p.m.",
+      "hours_en": "Monday to Friday, 8:30 AM to 5:00 PM, and Saturdays 9:00 AM to 1:00 PM",
+      "contact_person": "Sra. Giselle Sánchez Almanzar – VP de Negocios, Zona Norte"
+    }
+  ],
+  "atms": [
+    { "location_es": "Oficina Principal", "address": "Ave. Sarasota No. 20, La Julia, Santo Domingo" },
+    { "location_es": "Sucursal Naco", "address": "Av. Tiradentes, Plaza comercial Naco II, Santo Domingo" },
+    { "location_es": "Sucursal Punta Cana", "address": "Edif. Las Arenas, Boulevard 1ro. de noviembre No. 303, Punta Cana" },
+    { "location_es": "Sucursal Acrópolis", "address": "Av. Winston Churchill, Plaza Acrópolis Center, 1er piso, Santo Domingo" },
+    { "location_es": "Sucursal Santiago", "address": "Plaza del Jardín, Av. 27 de Febrero, Santiago" },
+    { "location_es": "Club Hemingway", "address": "Av. Boulevard, Juan Dolio, San Pedro de Macorís" },
+    { "location_es": "Sucursal Spring Center", "address": "Local No. 112, Calle Luis Amiama Tío, Esq. Héctor García Godoy, Arroyo Hondo, Santo Domingo" },
+    { "location_es": "Sucursal Almacenes Unidos Sarasota", "address": "Av. Sarasota esquina Pedro A. Bobea, Santo Domingo" },
+    { "location_es": "Sucursal Almacenes Unidos Kennedy", "address": "Av. John F. Kennedy, Autopista Duarte km. 6 1/2, Santo Domingo" },
+    { "location_es": "Sucursal Megacentro", "address": "Av. San Vicente de Paúl, Megacentro, Santo Domingo Este" }
+  ]
+}

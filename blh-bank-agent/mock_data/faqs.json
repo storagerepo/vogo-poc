@@ -1,0 +1,55 @@
+{
+  "faq_categories": [
+    {
+      "category": "Internet Banking",
+      "questions": [
+        {
+          "question": "What do I need to have access to Internet Banking?",
+          "answer": "You only need a computer or electronic device with an Internet connection."
+        },
+        {
+          "question": "How do I sign up for Internet Banking?",
+          "answer": "Access blh.com.do from your computer or electronic device's browser and visit our \"Request access password\" section to sign up for Internet Banking."
+        },
+        {
+          "question": "What type of operations can I perform through Internet Banking?",
+          "answer": "Through our Internet Banking you can perform: transfers between accounts or to other financial institutions, loan payments, credit card payments, payment of Claro, Edesur, and La Colonial insurance services, payment of DGA and DGII taxes, checkbook requests, check stop-payment requests, tax receipt inquiries, \"Instant\" payments to third parties within the national banking system, balance inquiries, etc."
+        }
+      ]
+    },
+    {
+      "category": "Visa Debit",
+      "questions": [
+        {
+          "question": "Can I use my Visa Debit Card abroad?",
+          "answer": "Yes, you can use your VISA Debit Card at all establishments in the VISA network, both nationally and abroad. Before traveling, you only need to notify the bank of your trip."
+        },
+        {
+          "question": "What is the maximum withdrawal amount at ATMs?",
+          "answer": "The maximum daily withdrawal amount through ATMs is 10,000.00 pesos."
+        },
+        {
+          "question": "What can I do to protect the magnetic stripe of my VISA Debit Card?",
+          "answer": "Ideally, protect it by keeping it inside a card holder and avoid letting it come into contact with metal or magnets."
+        }
+      ]
+    },
+    {
+      "category": "Credit Cards",
+      "questions": [
+        {
+          "question": "If I make a cash payment, will it be available immediately on my card?",
+          "answer": "Yes, the amount will be available immediately; however, it will be reflected within the next 24 hours."
+        },
+        {
+          "question": "If I pay my card by check, will it be available immediately?",
+          "answer": "The amount will not be available immediately; it will be reflected within the next 24 hours."
+        },
+        {
+          "question": "Where can I check my Account Statement?",
+          "answer": "The account statement will be sent monthly to the email address provided by the customer, or it can be accessed through our Internet Banking."
+        }
+      ]
+    }
+  ]
+}

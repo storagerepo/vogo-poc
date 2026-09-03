@@ -12,6 +12,7 @@
 #                                 docker compose up --build santo_domingo_motors
 #                                 docker compose up --build jmmb
 #                                 docker compose up --build referencia
+#                                 docker compose up --build blh-bank
 #
 #   Stop one agent:                 docker compose stop referencia
 #   Start one agent:                docker compose start referencia
@@ -80,4 +81,19 @@ services:
     env_file: .env.referencia
     volumes:
       - ./referencia-voice-poc/mock_data:/app/mock_data
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # BLH Bank — AI voice agent for BLH Bank
+  # Image: blh-bank-agent  |  Dockerfile: blh-bank/Dockerfile
+  # Entrypoint: python -m app.main start
+  # ---------------------------------------------------------------------------
+  blh_bank:
+    build:
+      context: ./blh-bank-agent
+      dockerfile: Dockerfile
+    image: blh-bank-agent
+    env_file: .env.blh
+    volumes:
+      - ./blh-bank-agent/mock_data:/app/mock_data
     restart: unless-stopped

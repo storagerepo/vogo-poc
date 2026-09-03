@@ -1,0 +1,179 @@
+{
+  "source_note": "Mock POC data inspired by publicly listed loan categories and general terms at https://www.blh.com.do/prestamos-personas/. Interest rates and calculator parameters are illustrative placeholders for demo purposes only — not official BLH rates.",
+  "general_benefits": {
+    "es": [
+      "Pagos en cuotas mensuales iguales y sucesivas de capital e intereses",
+      "Plan de pagos extraordinarios",
+      "Opción a elegir el día que le conviene realizar su pago mensual",
+      "Consultas y pagos a través de canales electrónicos",
+      "Emisión gratuita de tarjeta de crédito",
+      "Período de gracia de hasta 6 meses para el pago de capital",
+      "Plazo de hasta 20 años para préstamo de vivienda"
+    ],
+    "en": [
+      "Equal, successive monthly installments of principal and interest",
+      "Extraordinary payment plan option",
+      "Choose the monthly payment date that works best for you",
+      "Manage payments through electronic channels",
+      "Free credit card issuance",
+      "Grace period of up to 6 months on principal payments",
+      "Terms up to 20 years for home loans"
+    ]
+  },
+  "loans": [
+    {
+      "id": "loan-mortgage",
+      "type": "mortgage",
+      "name_es": "Préstamo Hipotecario",
+      "name_en": "Mortgage Loan",
+      "purpose_es": "Financiamiento para compra, construcción o remodelación de vivienda.",
+      "purpose_en": "Financing for purchasing, building, or remodeling a home.",
+      "eligibility_es": "Personas físicas con ingresos demostrables y capacidad de pago aprobada por el Banco.",
+      "eligibility_en": "Individuals with demonstrable income and payment capacity approved by the Bank.",
+      "requirements_es": [
+        "Copia de cédula de identidad",
+        "Comprobantes de ingresos de los últimos 3 meses",
+        "Tasación del inmueble",
+        "Historial crediticio favorable"
+      ],
+      "requirements_en": [
+        "Copy of national ID",
+        "Proof of income for the last 3 months",
+        "Property appraisal",
+        "Favorable credit history"
+      ],
+      "documents_es": ["Cédula de identidad", "Certificación de ingresos", "Estados bancarios recientes"],
+      "documents_en": ["National ID", "Income certification", "Recent bank statements"],
+      "terms": {
+        "min_amount_dop": 500000,
+        "max_amount_dop": 15000000,
+        "max_term_months": 240,
+        "min_down_payment_pct": 20,
+        "annual_interest_rate_pct": 11.5,
+        "grace_period_months": 6
+      }
+    },
+    {
+      "id": "loan-immediate",
+      "type": "immediate",
+      "name_es": "Préstamo Inmediato",
+      "name_en": "Immediate / Fast Disbursement Loan",
+      "purpose_es": "Financiamiento rápido para necesidades urgentes de liquidez.",
+      "purpose_en": "Fast financing for urgent liquidity needs.",
+      "eligibility_es": "Clientes existentes de BLH con historial de cuenta activo.",
+      "eligibility_en": "Existing BLH clients with an active account history.",
+      "requirements_es": [
+        "Ser cliente activo del Banco",
+        "Cédula de identidad vigente",
+        "Comprobante de ingresos"
+      ],
+      "requirements_en": [
+        "Be an active Bank customer",
+        "Valid national ID",
+        "Proof of income"
+      ],
+      "documents_es": ["Cédula de identidad", "Estado de cuenta reciente"],
+      "documents_en": ["National ID", "Recent account statement"],
+      "terms": {
+        "min_amount_dop": 20000,
+        "max_amount_dop": 300000,
+        "max_term_months": 36,
+        "min_down_payment_pct": 0,
+        "annual_interest_rate_pct": 16.0,
+        "grace_period_months": 0
+      }
+    },
+    {
+      "id": "loan-foreign-currency",
+      "type": "foreign_currency",
+      "name_es": "Préstamo en Moneda Extranjera",
+      "name_en": "Foreign Currency Loan",
+      "purpose_es": "Financiamiento denominado en dólares estadounidenses para clientes con ingresos en divisas.",
+      "purpose_en": "US dollar-denominated financing for clients with income in foreign currency.",
+      "eligibility_es": "Personas físicas o jurídicas con ingresos comprobables en moneda extranjera.",
+      "eligibility_en": "Individuals or businesses with verifiable income in foreign currency.",
+      "requirements_es": [
+        "Comprobante de ingresos en divisas",
+        "Cédula o documento de identidad",
+        "Historial crediticio favorable"
+      ],
+      "requirements_en": [
+        "Proof of foreign currency income",
+        "National ID or equivalent",
+        "Favorable credit history"
+      ],
+      "documents_es": ["Cédula de identidad", "Certificación de ingresos en USD"],
+      "documents_en": ["National ID", "USD income certification"],
+      "terms": {
+        "min_amount_usd": 5000,
+        "max_amount_usd": 200000,
+        "max_term_months": 180,
+        "min_down_payment_pct": 20,
+        "annual_interest_rate_pct": 9.5,
+        "grace_period_months": 3
+      }
+    },
+    {
+      "id": "loan-consumer",
+      "type": "consumer",
+      "name_es": "Préstamo de Consumo",
+      "name_en": "Consumer Loan",
+      "purpose_es": "Financiamiento de libre destino para gastos personales, educación, salud u otros.",
+      "purpose_en": "General-purpose financing for personal expenses, education, healthcare, or other needs.",
+      "eligibility_es": "Personas físicas mayores de 21 años con ingresos fijos demostrables.",
+      "eligibility_en": "Individuals over 21 years old with demonstrable fixed income.",
+      "requirements_es": [
+        "Cédula de identidad",
+        "Comprobante de ingresos",
+        "Referencias personales"
+      ],
+      "requirements_en": [
+        "National ID",
+        "Proof of income",
+        "Personal references"
+      ],
+      "documents_es": ["Cédula de identidad", "Carta de trabajo", "Últimos 3 volantes de pago"],
+      "documents_en": ["National ID", "Employment letter", "Last 3 pay stubs"],
+      "terms": {
+        "min_amount_dop": 30000,
+        "max_amount_dop": 1000000,
+        "max_term_months": 60,
+        "min_down_payment_pct": 0,
+        "annual_interest_rate_pct": 15.0,
+        "grace_period_months": 1
+      }
+    },
+    {
+      "id": "loan-vehicle",
+      "type": "vehicle",
+      "name_es": "Préstamo de Vehículo",
+      "name_en": "Vehicle Loan",
+      "purpose_es": "Financiamiento para la compra de vehículos nuevos o usados.",
+      "purpose_en": "Financing for the purchase of new or used vehicles.",
+      "eligibility_es": "Personas físicas con ingresos demostrables y capacidad de pago aprobada.",
+      "eligibility_en": "Individuals with demonstrable income and approved payment capacity.",
+      "requirements_es": [
+        "Cédula de identidad",
+        "Comprobante de ingresos",
+        "Cotización o factura proforma del vehículo",
+        "Cuota inicial mínima según tipo de vehículo"
+      ],
+      "requirements_en": [
+        "National ID",
+        "Proof of income",
+        "Vehicle quote or pro-forma invoice",
+        "Minimum down payment depending on vehicle type"
+      ],
+      "documents_es": ["Cédula de identidad", "Certificación de ingresos", "Cotización del vehículo"],
+      "documents_en": ["National ID", "Income certification", "Vehicle quote"],
+      "terms": {
+        "min_amount_dop": 200000,
+        "max_amount_dop": 4000000,
+        "max_term_months": 72,
+        "min_down_payment_pct": 20,
+        "annual_interest_rate_pct": 12.5,
+        "grace_period_months": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "source_note": "Mock POC data inspired by publicly listed product categories at https://www.blh.com.do/. Not official rates or terms — for demo purposes only.",
+  "bank_name": "Banco López de Haro (BLH)",
+  "products": [
+    {
+      "id": "savings-accounts",
+      "category": "savings_accounts",
+      "name_es": "Cuentas de Ahorro",
+      "name_en": "Savings Accounts",
+      "description_es": "Cuenta de ahorro flexible en pesos dominicanos, dólares o euros, con acceso a banca en línea y app móvil.",
+      "description_en": "Flexible savings account available in Dominican pesos, US dollars, or euros, with online and mobile banking access.",
+      "highlights": [
+        "Disponible en DOP, USD y EUR",
+        "Acceso a Internet Banking y App BLH",
+        "Sin monto mínimo de apertura para cuenta básica",
+        "Tarjeta de débito incluida"
+      ],
+      "related_products": ["alcancia-digital"]
+    },
+    {
+      "id": "alcancia-digital",
+      "category": "savings_accounts",
+      "name_es": "Alcancía Digital",
+      "name_en": "Digital Piggy Bank",
+      "description_es": "Cuenta de ahorro programado 100% digital disponible en pesos, dólares y euros con tasa de interés preferencial de hasta 7% anual.",
+      "description_en": "A fully digital goal-based savings product available in pesos, dollars, and euros with a preferential interest rate of up to 7% annually.",
+      "highlights": [
+        "Apertura 100% digital",
+        "Tasa de interés de hasta 7% anual",
+        "Disponible en pesos, dólares y euros",
+        "Ideal para metas de ahorro a corto y mediano plazo"
+      ]
+    },
+    {
+      "id": "current-accounts",
+      "category": "current_accounts",
+      "name_es": "Cuentas Corrientes",
+      "name_en": "Current / Checking Accounts",
+      "description_es": "Cuenta corriente para el manejo diario de sus finanzas personales o empresariales, con talonario de cheques y banca digital.",
+      "description_en": "A checking account for everyday personal or business finances, including checkbook access and digital banking.",
+      "highlights": [
+        "Disponible para personas y empresas",
+        "Talonario de cheques",
+        "Acceso a Internet Banking y App BLH",
+        "Estados de cuenta digitales"
+      ]
+    },
+    {
+      "id": "credit-cards",
+      "category": "credit_cards",
+      "name_es": "Tarjetas de Crédito",
+      "name_en": "Credit Cards",
+      "description_es": "Tarjetas Visa emitidas por BLH, incluyendo la línea Visa Iberia Platinum e Infinite, con acumulación de Avios y beneficios exclusivos.",
+      "description_en": "Visa credit cards issued by BLH, including the Visa Iberia Platinum and Infinite lines, offering Avios point accumulation and exclusive benefits.",
+      "highlights": [
+        "Visa Iberia Platinum",
+        "Visa Infinite Iberia",
+        "15,000 Avios de bienvenida al alcanzar consumo mínimo de US$1,000",
+        "20% de descuento en restaurantes seleccionados con tarjetas VISA"
+      ]
+    },
+    {
+      "id": "debit-cards",
+      "category": "debit_cards",
+      "name_es": "Tarjetas de Débito",
+      "name_en": "Debit Cards",
+      "description_es": "Tarjeta de débito vinculada a su cuenta de ahorro o corriente para compras y retiros en cajeros automáticos.",
+      "description_en": "A debit card linked to your savings or checking account for purchases and ATM withdrawals.",
+      "highlights": [
+        "Compras nacionales e internacionales",
+        "Retiros en red de cajeros BLH y aliados",
+        "Notificaciones de transacciones vía app"
+      ]
+    },
+    {
+      "id": "term-deposits",
+      "category": "term_deposits",
+      "name_es": "Depósitos a Plazo",
+      "name_en": "Term Deposits (CDs)",
+      "description_es": "Certificados de depósito a plazo con tasa fija, disponibles para personas y empresas.",
+      "description_en": "Fixed-rate certificates of deposit available for individuals and businesses.",
+      "highlights": [
+        "Tasa fija garantizada",
+        "Plazos flexibles",
+        "Disponible en pesos y divisas"
+      ]
+    },
+    {
+      "id": "loans",
+      "category": "loans",
+      "name_es": "Préstamos",
+      "name_en": "Loans",
+      "description_es": "Portafolio de préstamos personales para vivienda, vehículo, consumo, moneda extranjera y desembolso inmediato.",
+      "description_en": "A portfolio of personal loans covering mortgages, vehicles, consumer needs, foreign currency, and immediate disbursement.",
+      "highlights": [
+        "Pagos en cuotas mensuales fijas de capital e interés",
+        "Período de gracia de hasta 6 meses para el pago de capital",
+        "Plazo de hasta 20 años para préstamos de vivienda",
+        "Emisión gratuita de tarjeta de crédito con algunos préstamos"
+      ],
+      "related_products": ["loan-mortgage", "loan-immediate", "loan-foreign-currency", "loan-consumer", "loan-vehicle"]
+    },
+    {
+      "id": "safe-deposit-boxes",
+      "category": "safe_deposit_boxes",
+      "name_es": "Cajas de Seguridad",
+      "name_en": "Safe Deposit Boxes",
+      "description_es": "Cajas de seguridad disponibles en sucursales seleccionadas para resguardo de documentos y objetos de valor.",
+      "description_en": "Safe deposit boxes available at select branches for safeguarding documents and valuables.",
+      "highlights": [
+        "Disponible en sucursales seleccionadas",
+        "Distintos tamaños disponibles",
+        "Acceso controlado y seguro"
+      ]
+    },
+    {
+      "id": "foreign-exchange",
+      "category": "foreign_exchange",
+      "name_es": "Compra y Venta de Divisas",
+      "name_en": "Foreign Exchange",
+      "description_es": "Servicio de compra y venta de dólares y euros a tasas de referencia actualizadas.",
+      "description_en": "Buy and sell US dollars and euros at updated reference rates.",
+      "highlights": [
+        "Dólar: compra 56.80 / venta 59.80 (referencial)",
+        "Euro: compra 66.20 / venta 70.50 (referencial)",
+        "Tasas sujetas a cambio diario, consulte en sucursal"
+      ]
+    }
+  ]
+}
