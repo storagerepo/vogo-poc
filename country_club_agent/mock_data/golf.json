@@ -1,0 +1,57 @@
+{
+  "course": {
+    "name_en": "Santo Domingo Country Club Golf Course",
+    "name_es": "Campo de Golf del Santo Domingo Country Club",
+    "holes": 18,
+    "designer": "Bowman Design",
+    "description_en": "A rebuilt and redesigned 18-hole course, considered one of the best golf courses in the Caribbean, located inside the city of Santo Domingo.",
+    "description_es": "Un campo de 18 hoyos reconstruido y rediseñado, considerado uno de los mejores campos de golf del Caribe, ubicado dentro de la ciudad de Santo Domingo."
+  },
+  "services": [
+    {
+      "id": "golf_carts",
+      "name_en": "Golf Carts",
+      "name_es": "Carros de Golf",
+      "description_en": "Golf carts are available for rent to get around the course.",
+      "description_es": "Carros de golf disponibles en alquiler para recorrer el campo."
+    },
+    {
+      "id": "caddies",
+      "name_en": "Caddies",
+      "name_es": "Caddies",
+      "description_en": "Caddie service is available to assist players during their round.",
+      "description_es": "Servicio de caddie disponible para asistir a los jugadores durante su ronda."
+    },
+    {
+      "id": "golf_shop",
+      "name_en": "Golf Shop",
+      "name_es": "Tienda de Golf",
+      "description_en": "A pro shop with golf equipment and accessories.",
+      "description_es": "Tienda especializada con equipos y accesorios de golf."
+    }
+  ],
+  "on_course_dining": [
+    {
+      "name": "Hoyo 19",
+      "note_en": "Bar/restaurant spot associated with the golf course, typically for after your round.",
+      "note_es": "Bar/restaurante asociado al campo de golf, ideal para después de la ronda."
+    },
+    {
+      "name": "Mirador 18",
+      "note_en": "Dining spot overlooking hole 18.",
+      "note_es": "Área de comida con vista al hoyo 18."
+    },
+    {
+      "name": "Carro Bar",
+      "note_en": "On-course cart bar service.",
+      "note_es": "Servicio de bar sobre ruedas en el campo."
+    }
+  ],
+  "reservations": {
+    "available_online": true,
+    "platform": "Golfmanager",
+    "url": "https://countryclub.golfmanager.com/system/page/landing",
+    "note_en": "Tee times and golf activities can be booked online through the club's reservation platform.",
+    "note_es": "Los horarios de salida y actividades de golf pueden reservarse en línea a través de la plataforma de reservas del club."
+  }
+}

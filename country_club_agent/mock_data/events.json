@@ -1,0 +1,38 @@
+{
+  "venues": [
+    {
+      "id": "sala_de_fiestas",
+      "name": "Sala de Fiestas",
+      "capacity": 300,
+      "event_types_en": ["Weddings", "Galas", "Large celebrations"],
+      "event_types_es": ["Bodas", "Galas", "Celebraciones grandes"],
+      "facilities_en": ["Dance floor", "Stage area", "Catering service"],
+      "facilities_es": ["Pista de baile", "Área de escenario", "Servicio de catering"]
+    },
+    {
+      "id": "salon_cristal",
+      "name": "Salón Cristal",
+      "capacity": 225,
+      "event_types_en": ["Corporate events", "Social gatherings", "Banquets"],
+      "event_types_es": ["Eventos corporativos", "Reuniones sociales", "Banquetes"],
+      "facilities_en": ["AV equipment", "Flexible seating", "Catering service"],
+      "facilities_es": ["Equipo audiovisual", "Distribución flexible de asientos", "Servicio de catering"]
+    },
+    {
+      "id": "comedor_privado",
+      "name": "Comedor Privado",
+      "capacity": 40,
+      "event_types_en": ["Private dinners", "Small business meetings"],
+      "event_types_es": ["Cenas privadas", "Reuniones de negocios pequeñas"],
+      "facilities_en": ["Private dining service", "Intimate setting"],
+      "facilities_es": ["Servicio de comedor privado", "Ambiente íntimo"]
+    }
+  ],
+  "note_en": "Venue names and capacities are placeholder/mock data for this POC and should be confirmed with the club's events team before production use.",
+  "note_es": "Los nombres y capacidades de los salones son datos de referencia (mock) para este POC y deben confirmarse con el equipo de eventos del club antes de usarse en producción.",
+  "contact": {
+    "email": "info@countryclub.do",
+    "phone": "(809) 530-6606",
+    "salones_page": "https://countryclub.do/actividades/nuestros-salones/"
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "availability": [
+    {
+      "service": "golf",
+      "date": "2026-09-26",
+      "time": "09:00",
+      "available_slots": 2
+    },
+    {
+      "service": "golf",
+      "date": "2026-09-26",
+      "time": "10:00",
+      "available_slots": 2
+    },
+    {
+      "service": "golf",
+      "date": "2026-09-26",
+      "time": "11:00",
+      "available_slots": 4
+    },
+    {
+      "service": "golf",
+      "date": "2026-09-27",
+      "time": "08:00",
+      "available_slots": 4
+    },
+    {
+      "service": "golf",
+      "date": "2026-09-27",
+      "time": "09:00",
+      "available_slots": 0
+    },
+    {
+      "service": "golf",
+      "date": "2026-09-27",
+      "time": "10:00",
+      "available_slots": 3
+    },
+    {
+      "service": "golf",
+      "date": "2026-09-28",
+      "time": "09:00",
+      "available_slots": 4
+    },
+    {
+      "service": "golf",
+      "date": "2026-09-28",
+      "time": "10:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Hoyo 19",
+      "date": "2026-09-26",
+      "time": "12:00",
+      "available_slots": 6
+    },
+    {
+      "service": "restaurant",
+      "location": "Hoyo 19",
+      "date": "2026-09-26",
+      "time": "19:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Hoyo 19",
+      "date": "2026-09-26",
+      "time": "20:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Hoyo 19",
+      "date": "2026-09-27",
+      "time": "12:00",
+      "available_slots": 6
+    },
+    {
+      "service": "restaurant",
+      "location": "Hoyo 19",
+      "date": "2026-09-27",
+      "time": "19:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Hoyo 19",
+      "date": "2026-09-27",
+      "time": "20:00",
+      "available_slots": 2
+    },
+    {
+      "service": "restaurant",
+      "location": "Restaurante 1920",
+      "date": "2026-09-26",
+      "time": "19:00",
+      "available_slots": 6
+    },
+    {
+      "service": "restaurant",
+      "location": "Restaurante 1920",
+      "date": "2026-09-26",
+      "time": "20:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Restaurante 1920",
+      "date": "2026-09-27",
+      "time": "19:00",
+      "available_slots": 6
+    },
+    {
+      "service": "restaurant",
+      "location": "Restaurante 1920",
+      "date": "2026-09-27",
+      "time": "20:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "SportsBar",
+      "date": "2026-09-26",
+      "time": "12:00",
+      "available_slots": 8
+    },
+    {
+      "service": "restaurant",
+      "location": "SportsBar",
+      "date": "2026-09-26",
+      "time": "18:00",
+      "available_slots": 6
+    },
+    {
+      "service": "restaurant",
+      "location": "SportsBar",
+      "date": "2026-09-27",
+      "time": "12:00",
+      "available_slots": 8
+    },
+    {
+      "service": "restaurant",
+      "location": "SportsBar",
+      "date": "2026-09-27",
+      "time": "18:00",
+      "available_slots": 6
+    },
+    {
+      "service": "restaurant",
+      "location": "Casa Tenis",
+      "date": "2026-09-26",
+      "time": "12:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Casa Tenis",
+      "date": "2026-09-26",
+      "time": "19:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Casa Tenis",
+      "date": "2026-09-27",
+      "time": "12:00",
+      "available_slots": 4
+    },
+    {
+      "service": "restaurant",
+      "location": "Casa Tenis",
+      "date": "2026-09-27",
+      "time": "19:00",
+      "available_slots": 4
+    },
+    {
+      "service": "tennis",
+      "date": "2026-09-26",
+      "time": "08:00",
+      "available_slots": 0
+    },
+    {
+      "service": "tennis",
+      "date": "2026-09-26",
+      "time": "10:00",
+      "available_slots": 2
+    },
+    {
+      "service": "tennis",
+      "date": "2026-09-26",
+      "time": "16:00",
+      "available_slots": 4
+    },
+    {
+      "service": "tennis",
+      "date": "2026-09-27",
+      "time": "08:00",
+      "available_slots": 4
+    },
+    {
+      "service": "tennis",
+      "date": "2026-09-27",
+      "time": "10:00",
+      "available_slots": 2
+    },
+    {
+      "service": "tennis",
+      "date": "2026-09-27",
+      "time": "16:00",
+      "available_slots": 4
+    },
+    {
+      "service": "padel",
+      "date": "2026-09-26",
+      "time": "09:00",
+      "available_slots": 4
+    },
+    {
+      "service": "padel",
+      "date": "2026-09-26",
+      "time": "17:00",
+      "available_slots": 4
+    },
+    {
+      "service": "padel",
+      "date": "2026-09-27",
+      "time": "09:00",
+      "available_slots": 4
+    },
+    {
+      "service": "padel",
+      "date": "2026-09-27",
+      "time": "17:00",
+      "available_slots": 4
+    },
+    {
+      "service": "event",
+      "location": "Sala de Fiestas",
+      "date": "2026-09-26",
+      "time": "18:00",
+      "available_slots": 300
+    },
+    {
+      "service": "event",
+      "location": "Sala de Fiestas",
+      "date": "2026-10-10",
+      "time": "18:00",
+      "available_slots": 220
+    },
+    {
+      "service": "event",
+      "location": "Salón Cristal",
+      "date": "2026-09-26",
+      "time": "18:00",
+      "available_slots": 225
+    },
+    {
+      "service": "event",
+      "location": "Salón Cristal",
+      "date": "2026-10-10",
+      "time": "18:00",
+      "available_slots": 225
+    },
+    {
+      "service": "event",
+      "location": "Comedor Privado",
+      "date": "2026-09-26",
+      "time": "19:00",
+      "available_slots": 40
+    },
+    {
+      "service": "event",
+      "location": "Comedor Privado",
+      "date": "2026-10-10",
+      "time": "19:00",
+      "available_slots": 40
+    }
+  ],
+  "reservations": [
+    {
+      "reservation_id": "CC-10001",
+      "service": "tennis",
+      "location": null,
+      "date": "2026-09-26",
+      "time": "08:00",
+      "guests": 4,
+      "customer_name": "[Customer Name]",
+      "status": "confirmed"
+    },
+    {
+      "reservation_id": "CC-10002",
+      "service": "event",
+      "location": null,
+      "date": "2026-10-10",
+      "time": "18:00",
+      "guests": 80,
+      "customer_name": "Arish",
+      "status": "confirmed"
+    },
+    {
+      "reservation_id": "CC-10003",
+      "service": "tennis",
+      "location": null,
+      "date": "2026-09-26",
+      "time": "10:00",
+      "guests": 2,
+      "customer_name": "Manish",
+      "status": "confirmed"
+    },
+    {
+      "reservation_id": "CC-10004",
+      "service": "golf",
+      "location": null,
+      "date": "2026-09-26",
+      "time": "09:00",
+      "guests": 2,
+      "customer_name": "Harris",
+      "status": "confirmed",
+      "phone": "822111",
+      "email": "harris@club.com"
+    },
+    {
+      "reservation_id": "CC-10005",
+      "service": "golf",
+      "location": null,
+      "date": "2026-09-27",
+      "time": "09:00",
+      "guests": 4,
+      "customer_name": "James",
+      "status": "confirmed",
+      "phone": "22222456",
+      "email": "james@teams.ai"
+    },
+    {
+      "reservation_id": "CC-10006",
+      "service": "golf",
+      "location": null,
+      "date": "2026-09-26",
+      "time": "15:00",
+      "guests": 3,
+      "customer_name": "Nathan",
+      "status": "confirmed",
+      "phone": "22211",
+      "email": "nathan@gmail.com"
+    }
+  ],
+  "next_id": 10007
+}

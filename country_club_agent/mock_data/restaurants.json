@@ -1,0 +1,94 @@
+{
+  "restaurants": [
+    {
+      "id": "restaurante_1920",
+      "name": "Restaurante 1920",
+      "location_en": "Main clubhouse (Casa Club)",
+      "location_es": "Casa Club principal",
+      "description_en": "The club's signature formal restaurant, named after the club's founding year.",
+      "description_es": "Restaurante principal e insignia del club, nombrado en honor al año de fundación del club."
+    },
+    {
+      "id": "sportsbar",
+      "name": "SportsBar",
+      "location_en": "Casa Club",
+      "location_es": "Casa Club",
+      "description_en": "Casual sports bar with food and drinks, good for watching games.",
+      "description_es": "Bar deportivo casual con comidas y bebidas, ideal para ver juegos."
+    },
+    {
+      "id": "hoyo_19",
+      "name": "Hoyo 19",
+      "location_en": "Golf course area",
+      "location_es": "Área del campo de golf",
+      "description_en": "Popular spot for golfers to relax after finishing their round.",
+      "description_es": "Lugar popular para que los golfistas se relajen después de terminar su ronda."
+    },
+    {
+      "id": "mirador_18",
+      "name": "Mirador 18",
+      "location_en": "Overlooking hole 18",
+      "location_es": "Con vista al hoyo 18",
+      "description_en": "Scenic dining area overlooking the 18th hole.",
+      "description_es": "Área de comida panorámica con vista al hoyo 18."
+    },
+    {
+      "id": "carro_bar",
+      "name": "Carro Bar",
+      "location_en": "On the golf course",
+      "location_es": "En el campo de golf",
+      "description_en": "Mobile bar service that moves around the golf course.",
+      "description_es": "Servicio de bar móvil que recorre el campo de golf."
+    },
+    {
+      "id": "piscina",
+      "name": "Piscina (Pool Bar & Grill)",
+      "location_en": "Pool area",
+      "location_es": "Área de piscina",
+      "description_en": "Poolside food and drink service.",
+      "description_es": "Servicio de comidas y bebidas junto a la piscina."
+    },
+    {
+      "id": "casa_tenis",
+      "name": "Casa Tenis",
+      "location_en": "Tennis courts area",
+      "location_es": "Área de canchas de tenis",
+      "description_en": "Dining spot next to the tennis courts.",
+      "description_es": "Área de comida junto a las canchas de tenis."
+    },
+    {
+      "id": "deli_gelato",
+      "name": "Deli Gelato",
+      "location_en": "Casa Club",
+      "location_es": "Casa Club",
+      "description_en": "Deli and gelato / ice cream counter.",
+      "description_es": "Deli y heladería."
+    },
+    {
+      "id": "caseta_6",
+      "name": "Caseta 6",
+      "location_en": "Golf course, hole 6 area",
+      "location_es": "Campo de golf, área del hoyo 6",
+      "description_en": "On-course refreshment station near hole 6.",
+      "description_es": "Estación de refrigerios en el campo, cerca del hoyo 6."
+    },
+    {
+      "id": "caseta_12",
+      "name": "Caseta 12",
+      "location_en": "Golf course, hole 12 area",
+      "location_es": "Campo de golf, área del hoyo 12",
+      "description_en": "On-course refreshment station near hole 12.",
+      "description_es": "Estación de refrigerios en el campo, cerca del hoyo 12."
+    },
+    {
+      "id": "cigar_lounge",
+      "name": "Cigar Lounge",
+      "location_en": "Casa Club",
+      "location_es": "Casa Club",
+      "description_en": "Lounge for cigars and relaxed socializing.",
+      "description_es": "Salón para fumar cigarros y compartir de manera relajada."
+    }
+  ],
+  "note_en": "Opening hours per venue are not published individually; general club hours are 6:00 AM - 12:00 AM daily. For exact venue hours, contact the club directly.",
+  "note_es": "El horario individual de cada área no está publicado; el horario general del club es de 6:00am a 12:00am todos los días. Para horarios exactos, contactar al club."
+}

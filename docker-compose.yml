@@ -97,3 +97,18 @@ services:
     volumes:
       - ./blh-bank-agent/mock_data:/app/mock_data
     restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Country Club — AI voice agent for country club
+  # Image: country-club-agent  |  Dockerfile: country_club_agent/Dockerfile
+  # Entrypoint: python -m app.main start
+  # ---------------------------------------------------------------------------
+  country_club:
+    build:
+      context: ./country_club_agent
+      dockerfile: Dockerfile
+    image: country-club-agent
+    env_file: .env.club
+    volumes:
+      - ./country_club_agent/mock_data:/app/mock_data
+    restart: unless-stopped

@@ -1,0 +1,68 @@
+{
+  "club_name": "Santo Domingo Country Club",
+  "tagline": "Club y campo de golf en la ciudad de Santo Domingo",
+  "founded_years_ago": 100,
+  "areas": {
+    "casa_club": "Main clubhouse building with restaurants, event salons and social spaces.",
+    "pabellon_recreativo": "Recreational Pavilion with family-oriented recreational facilities, in addition to the Casa Club."
+  },
+  "activities": [
+    {
+      "id": "golf",
+      "name_en": "Golf",
+      "name_es": "Golf",
+      "description_en": "18-hole golf course redesigned by Bowman Design, considered one of the best in the Caribbean.",
+      "description_es": "Campo de golf de 18 hoyos rediseñado por Bowman Design, considerado uno de los mejores del Caribe."
+    },
+    {
+      "id": "tennis",
+      "name_en": "Tennis",
+      "name_es": "Tenis",
+      "description_en": "Tennis courts available for members, with the Casa Tenis dining spot nearby.",
+      "description_es": "Canchas de tenis disponibles para socios, con el área de Casa Tenis cerca."
+    },
+    {
+      "id": "padel",
+      "name_en": "Padel",
+      "name_es": "Pádel",
+      "description_en": "Padel courts available as part of the club's racquet sports offering.",
+      "description_es": "Canchas de pádel disponibles como parte de la oferta de deportes de raqueta del club."
+    },
+    {
+      "id": "swimming",
+      "name_en": "Swimming",
+      "name_es": "Natación",
+      "description_en": "Swimming pool area with poolside food and drink service (Piscina menu).",
+      "description_es": "Área de piscina con servicio de comidas y bebidas (menú de Piscina)."
+    },
+    {
+      "id": "fitness",
+      "name_en": "Fitness (FitCorner)",
+      "name_es": "FitCorner",
+      "description_en": "FitCorner gym facilities for members.",
+      "description_es": "Instalaciones de gimnasio FitCorner para socios."
+    },
+    {
+      "id": "racquetball",
+      "name_en": "Racquetball",
+      "name_es": "Racquetball",
+      "description_en": "Racquetball courts available at the club.",
+      "description_es": "Canchas de racquetball disponibles en el club."
+    }
+  ],
+  "hours": {
+    "days": "Monday-Sunday",
+    "open": "06:00",
+    "close": "00:00",
+    "note_en": "General club hours; individual venues and sports may have their own schedules.",
+    "note_es": "Horario general del club; áreas y deportes individuales pueden tener su propio horario."
+  },
+  "contact": {
+    "email": "info@countryclub.do",
+    "phone": "(809) 530-6606",
+    "address": "Av. Isabel Aguiar 262, Santo Domingo",
+    "website": "https://countryclub.do/",
+    "facebook": "https://www.facebook.com/santodomingocountryclub",
+    "instagram": "https://instagram.com/sdcountryclub/"
+  }
+}

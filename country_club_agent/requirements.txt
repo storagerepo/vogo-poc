@@ -1,0 +1,4 @@
+livekit-agents>=1.0.0
+livekit-plugins-google>=1.8.2 
+livekit-plugins-noise-cancellation>=0.1.0
+python-dotenv>=1.0.1
