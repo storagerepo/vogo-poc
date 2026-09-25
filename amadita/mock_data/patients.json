@@ -1,0 +1,90 @@
+[
+  {
+    "patient_id": "P-1001",
+    "full_name": "Maria",
+    "phone": "5551001",
+    "email": "maria@example.com",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-1002",
+    "full_name": "John",
+    "phone": "5551002",
+    "email": "john@example.com",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-1003",
+    "full_name": "Anna",
+    "phone": "5551003",
+    "email": "anna@example.com",
+    "preferred_language": null,
+    "notes": [
+      {
+        "type": "complaint",
+        "date": "2026-06-02",
+        "summary": "Lab results were delivered with another patient's name. Previous complaint was registered but not fully resolved."
+      }
+    ]
+  },
+  {
+    "patient_id": "P-1004",
+    "full_name": "Robert",
+    "phone": "5551004",
+    "email": "robert@example.com",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-1005",
+    "full_name": "Carmen",
+    "phone": "5551005",
+    "email": "carmen@example.com",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-1006",
+    "full_name": "Luis",
+    "phone": "5551006",
+    "email": "luis@example.com",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-1007",
+    "full_name": "Sofia",
+    "phone": "5551007",
+    "email": "sofia@example.com",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-1008",
+    "full_name": "Peter",
+    "phone": "5551008",
+    "email": "peter@example.com",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-79D2",
+    "full_name": "James",
+    "phone": "5551009",
+    "email": "james@example.com",
+    "date_of_birth": "",
+    "preferred_language": null,
+    "notes": []
+  },
+  {
+    "patient_id": "P-2D91",
+    "full_name": "Harish",
+    "phone": "555-55-22",
+    "email": "",
+    "date_of_birth": "",
+    "preferred_language": null,
+    "notes": []
+  }
+]

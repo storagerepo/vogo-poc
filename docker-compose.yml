@@ -112,3 +112,18 @@ services:
     volumes:
       - ./country_club_agent/mock_data:/app/mock_data
     restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Amadita — AI voice agent for clinical lab & diagnostics
+  # Image: amadita-agent  |  Dockerfile: amadita/Dockerfile
+  # Entrypoint: python -m app.main start
+  # ---------------------------------------------------------------------------
+  amadita:
+    build:
+      context: ./amadita
+      dockerfile: Dockerfile
+    image: amadita-agent
+    env_file: .env.amadita
+    volumes:
+      - ./amadita/mock_data:/app/mock_data
+    restart: unless-stopped
