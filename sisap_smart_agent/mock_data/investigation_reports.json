@@ -1,0 +1,340 @@
+[
+  {
+    "report_id": "RPT-001",
+    "alert_id": "ALT-001",
+    "created_at": "2026-10-28T12:00:01Z",
+    "alert_summary": {
+      "type": "Suspicious Login",
+      "severity": "High",
+      "username": "user101",
+      "source_ip": "198.51.100.25",
+      "timestamp": "2026-10-27T09:10:00Z",
+      "description": "A failed login followed by a successful login for the same account from an IP address not seen before."
+    },
+    "observed_facts": [
+      "2026-10-27T09:05:00Z - EP-001: Screen unlocked by local user on LAPTOP-GT-014",
+      "2026-10-27T09:10:00Z - AUTH-001: Login Failed from 198.51.100.25",
+      "2026-10-27T09:12:00Z - AUTH-002: Login Success from 198.51.100.25"
+    ],
+    "timeline": [
+      {
+        "timestamp": "2026-10-27T09:05:00Z",
+        "event_id": "EP-001",
+        "source": "endpoint",
+        "description": "Screen unlocked by local user",
+        "source_ip": null,
+        "device": "LAPTOP-GT-014",
+        "country": null,
+        "notes": []
+      },
+      {
+        "timestamp": "2026-10-27T09:10:00Z",
+        "event_id": "AUTH-001",
+        "source": "auth",
+        "description": "Login Failed",
+        "source_ip": "198.51.100.25",
+        "device": null,
+        "country": "Brazil",
+        "notes": [
+          "5 min after EP-001"
+        ]
+      },
+      {
+        "timestamp": "2026-10-27T09:12:00Z",
+        "event_id": "AUTH-002",
+        "source": "auth",
+        "description": "Login Success",
+        "source_ip": "198.51.100.25",
+        "device": null,
+        "country": "Brazil",
+        "notes": [
+          "2 min after AUTH-001",
+          "same source IP as previous event"
+        ]
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "finding": "1 failed login(s) from 198.51.100.25 followed by a successful login (AUTH-002). This pattern is worth investigating but does not prove compromise.",
+        "evidence_ids": [
+          "AUTH-001",
+          "AUTH-002"
+        ]
+      },
+      {
+        "finding": "Successful login from 198.51.100.25 (Brazil), which is not in the known IPs for user101.",
+        "evidence_ids": [
+          "AUTH-002"
+        ]
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "finding": "Benign activity on registered device LAPTOP-GT-014: Screen unlocked by local user (EP-001).",
+        "evidence_ids": [
+          "EP-001"
+        ]
+      }
+    ],
+    "missing_evidence": [
+      {
+        "finding": "MFA result is not recorded for successful login AUTH-002.",
+        "evidence_ids": [
+          "AUTH-002"
+        ]
+      },
+      {
+        "finding": "No endpoint telemetry after the first successful login, so post-login activity is unknown.",
+        "evidence_ids": []
+      }
+    ],
+    "uncertainties": [
+      "Correlation shows patterns in the retrieved records only. It does not by itself prove an account is compromised.",
+      "MFA result is not recorded for successful login AUTH-002.",
+      "No endpoint telemetry after the first successful login, so post-login activity is unknown."
+    ],
+    "recommended_next_checks": [
+      "Confirm with the account owner, through a verified channel, whether they attempted these logins.",
+      "Check the reputation and ownership of the new source IP and whether it is a corporate VPN or proxy.",
+      "Retrieve MFA provider logs to see whether MFA was challenged and who approved it.",
+      "Pull endpoint telemetry after the login time to check post-login activity.",
+      "A human analyst decides on any containment (password reset, session revocation, device isolation). The copilot takes no response actions."
+    ],
+    "evidence_event_ids": [
+      "EP-001",
+      "AUTH-001",
+      "AUTH-002"
+    ],
+    "agent_notes": "Failed login followed by success from unknown IP. Screen unlocked locally prior to failed login. No MFA recorded.",
+    "review_status": "Handed Off - Awaiting Analyst",
+    "handoff": {
+      "to": "SISAP SOC human analyst",
+      "note": null,
+      "handed_off_at": "2026-10-28T12:00:31Z"
+    }
+  },
+  {
+    "report_id": "RPT-002",
+    "alert_id": "ALT-001",
+    "created_at": "2026-10-28T12:33:33Z",
+    "alert_summary": {
+      "type": "Suspicious Login",
+      "severity": "High",
+      "username": "user101",
+      "source_ip": "198.51.100.25",
+      "timestamp": "2026-10-27T09:10:00Z",
+      "description": "A failed login followed by a successful login for the same account from an IP address not seen before."
+    },
+    "observed_facts": [
+      "2026-10-27T09:05:00Z - EP-001: Screen unlocked by local user on LAPTOP-GT-014",
+      "2026-10-27T09:10:00Z - AUTH-001: Login Failed from 198.51.100.25",
+      "2026-10-27T09:12:00Z - AUTH-002: Login Success from 198.51.100.25"
+    ],
+    "timeline": [
+      {
+        "timestamp": "2026-10-27T09:05:00Z",
+        "event_id": "EP-001",
+        "source": "endpoint",
+        "description": "Screen unlocked by local user",
+        "source_ip": null,
+        "device": "LAPTOP-GT-014",
+        "country": null,
+        "notes": []
+      },
+      {
+        "timestamp": "2026-10-27T09:10:00Z",
+        "event_id": "AUTH-001",
+        "source": "auth",
+        "description": "Login Failed",
+        "source_ip": "198.51.100.25",
+        "device": null,
+        "country": "Brazil",
+        "notes": [
+          "5 min after EP-001"
+        ]
+      },
+      {
+        "timestamp": "2026-10-27T09:12:00Z",
+        "event_id": "AUTH-002",
+        "source": "auth",
+        "description": "Login Success",
+        "source_ip": "198.51.100.25",
+        "device": null,
+        "country": "Brazil",
+        "notes": [
+          "2 min after AUTH-001",
+          "same source IP as previous event"
+        ]
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "finding": "1 failed login(s) from 198.51.100.25 followed by a successful login (AUTH-002). This pattern is worth investigating but does not prove compromise.",
+        "evidence_ids": [
+          "AUTH-001",
+          "AUTH-002"
+        ]
+      },
+      {
+        "finding": "Successful login from 198.51.100.25 (Brazil), which is not in the known IPs for user101.",
+        "evidence_ids": [
+          "AUTH-002"
+        ]
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "finding": "Benign activity on registered device LAPTOP-GT-014: Screen unlocked by local user (EP-001).",
+        "evidence_ids": [
+          "EP-001"
+        ]
+      }
+    ],
+    "missing_evidence": [
+      {
+        "finding": "MFA result is not recorded for successful login AUTH-002.",
+        "evidence_ids": [
+          "AUTH-002"
+        ]
+      },
+      {
+        "finding": "No endpoint telemetry after the first successful login, so post-login activity is unknown.",
+        "evidence_ids": []
+      }
+    ],
+    "uncertainties": [
+      "Correlation shows patterns in the retrieved records only. It does not by itself prove an account is compromised.",
+      "MFA result is not recorded for successful login AUTH-002.",
+      "No endpoint telemetry after the first successful login, so post-login activity is unknown."
+    ],
+    "recommended_next_checks": [
+      "Confirm with the account owner, through a verified channel, whether they attempted these logins.",
+      "Check the reputation and ownership of the new source IP and whether it is a corporate VPN or proxy.",
+      "Retrieve MFA provider logs to see whether MFA was challenged and who approved it.",
+      "Pull endpoint telemetry after the login time to check post-login activity.",
+      "A human analyst decides on any containment (password reset, session revocation, device isolation). The copilot takes no response actions."
+    ],
+    "evidence_event_ids": [
+      "EP-001",
+      "AUTH-001",
+      "AUTH-002"
+    ],
+    "agent_notes": null,
+    "review_status": "Handed Off - Awaiting Analyst",
+    "handoff": {
+      "to": "SISAP SOC human analyst",
+      "note": null,
+      "handed_off_at": "2026-10-28T12:33:52Z"
+    }
+  },
+  {
+    "report_id": "RPT-003",
+    "alert_id": "ALT-001",
+    "created_at": "2026-10-29T05:53:26Z",
+    "alert_summary": {
+      "type": "Suspicious Login",
+      "severity": "High",
+      "username": "user101",
+      "source_ip": "198.51.100.25",
+      "timestamp": "2026-10-27T09:10:00Z",
+      "description": "A failed login followed by a successful login for the same account from an IP address not seen before."
+    },
+    "observed_facts": [
+      "2026-10-27T09:05:00Z - EP-001: Screen unlocked by local user on LAPTOP-GT-014",
+      "2026-10-27T09:10:00Z - AUTH-001: Login Failed from 198.51.100.25",
+      "2026-10-27T09:12:00Z - AUTH-002: Login Success from 198.51.100.25"
+    ],
+    "timeline": [
+      {
+        "timestamp": "2026-10-27T09:05:00Z",
+        "event_id": "EP-001",
+        "source": "endpoint",
+        "description": "Screen unlocked by local user",
+        "source_ip": null,
+        "device": "LAPTOP-GT-014",
+        "country": null,
+        "notes": []
+      },
+      {
+        "timestamp": "2026-10-27T09:10:00Z",
+        "event_id": "AUTH-001",
+        "source": "auth",
+        "description": "Login Failed",
+        "source_ip": "198.51.100.25",
+        "device": null,
+        "country": "Brazil",
+        "notes": [
+          "5 min after EP-001"
+        ]
+      },
+      {
+        "timestamp": "2026-10-27T09:12:00Z",
+        "event_id": "AUTH-002",
+        "source": "auth",
+        "description": "Login Success",
+        "source_ip": "198.51.100.25",
+        "device": null,
+        "country": "Brazil",
+        "notes": [
+          "2 min after AUTH-001",
+          "same source IP as previous event"
+        ]
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "finding": "1 failed login(s) from 198.51.100.25 followed by a successful login (AUTH-002). This pattern is worth investigating but does not prove compromise.",
+        "evidence_ids": [
+          "AUTH-001",
+          "AUTH-002"
+        ]
+      },
+      {
+        "finding": "Successful login from 198.51.100.25 (Brazil), which is not in the known IPs for user101.",
+        "evidence_ids": [
+          "AUTH-002"
+        ]
+      }
+    ],
+    "conflicting_evidence": [
+      {
+        "finding": "Benign activity on registered device LAPTOP-GT-014: Screen unlocked by local user (EP-001).",
+        "evidence_ids": [
+          "EP-001"
+        ]
+      }
+    ],
+    "missing_evidence": [
+      {
+        "finding": "MFA result is not recorded for successful login AUTH-002.",
+        "evidence_ids": [
+          "AUTH-002"
+        ]
+      },
+      {
+        "finding": "No endpoint telemetry after the first successful login, so post-login activity is unknown.",
+        "evidence_ids": []
+      }
+    ],
+    "uncertainties": [
+      "Correlation shows patterns in the retrieved records only. It does not by itself prove an account is compromised.",
+      "MFA result is not recorded for successful login AUTH-002.",
+      "No endpoint telemetry after the first successful login, so post-login activity is unknown."
+    ],
+    "recommended_next_checks": [
+      "Confirm with the account owner, through a verified channel, whether they attempted these logins.",
+      "Check the reputation and ownership of the new source IP and whether it is a corporate VPN or proxy.",
+      "Retrieve MFA provider logs to see whether MFA was challenged and who approved it.",
+      "Pull endpoint telemetry after the login time to check post-login activity.",
+      "A human analyst decides on any containment (password reset, session revocation, device isolation). The copilot takes no response actions."
+    ],
+    "evidence_event_ids": [
+      "EP-001",
+      "AUTH-001",
+      "AUTH-002"
+    ],
+    "agent_notes": "User101 was pinged on Slack.",
+    "review_status": "Pending Analyst Review",
+    "handoff": null
+  }
+]

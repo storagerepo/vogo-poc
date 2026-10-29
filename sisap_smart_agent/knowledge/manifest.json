@@ -1,0 +1,9 @@
+{
+  "sisap_company_profile.md": {"category": "company", "title": "SISAP company profile"},
+  "vpn_troubleshooting.md": {"category": "support", "title": "VPN troubleshooting guide"},
+  "firewall_troubleshooting.md": {"category": "support", "title": "Firewall troubleshooting guide"},
+  "network_troubleshooting.md": {"category": "support", "title": "Network troubleshooting guide"},
+  "support_escalation_policy.md": {"category": "support", "title": "Support escalation policy"},
+  "incident_response.md": {"category": "soc", "title": "Incident response investigation guide"},
+  "suspicious_login_playbook.md": {"category": "soc", "title": "Suspicious login playbook"}
+}

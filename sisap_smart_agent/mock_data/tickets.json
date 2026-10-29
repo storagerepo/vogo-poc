@@ -1,0 +1,108 @@
+[
+  {
+    "ticket_id": "TKT-001",
+    "issue": "VPN not connecting",
+    "device": "Windows laptop",
+    "error": "Connection timed out",
+    "steps_tried": [
+      "Restarted VPN application"
+    ],
+    "priority": "High",
+    "status": "Open",
+    "assigned_team": "SISAP Technical Support",
+    "requester": "user101",
+    "created_at": "2026-10-26T15:20:00Z",
+    "diagnostics": [],
+    "handoff": null
+  },
+  {
+    "ticket_id": "TKT-002",
+    "issue": "Cannot reach intranet portal from Panama office",
+    "device": "Office desktop",
+    "error": "ERR_CONNECTION_TIMED_OUT",
+    "steps_tried": [
+      "Rebooted router",
+      "Tried a different browser"
+    ],
+    "priority": "Medium",
+    "status": "In Progress",
+    "assigned_team": "SISAP Network Engineering (Tier 2)",
+    "requester": "user202",
+    "created_at": "2026-10-25T10:05:00Z",
+    "diagnostics": [],
+    "handoff": null
+  },
+  {
+    "ticket_id": "TKT-003",
+    "issue": "DNS resolution failing for internal hosts",
+    "device": "macOS laptop",
+    "error": "DNS_PROBE_FINISHED_NXDOMAIN",
+    "steps_tried": [
+      "Flushed DNS cache",
+      "Switched DNS server"
+    ],
+    "priority": "Low",
+    "status": "Resolved",
+    "assigned_team": "SISAP Technical Support",
+    "requester": "user303",
+    "created_at": "2026-10-20T08:45:00Z",
+    "diagnostics": [],
+    "handoff": null
+  },
+  {
+    "ticket_id": "TKT-004",
+    "issue": "VPN connection timed out on UDP 4500, user needs to present in 20 mins",
+    "device": "Cisco AnyConnect",
+    "error": "Connection timed out on UDP 4500",
+    "steps_tried": [
+      "Restarted Cisco AnyConnect twice"
+    ],
+    "priority": "High",
+    "status": "Open",
+    "assigned_team": "SISAP Technical Support",
+    "requester": null,
+    "created_at": "2026-10-28T04:19:18Z",
+    "diagnostics": [],
+    "handoff": null
+  },
+  {
+    "ticket_id": "TKT-005",
+    "issue": "VPN connection timed out on UDP 4500 on home network",
+    "device": "laptop",
+    "error": "Connection timed out on UDP 4500",
+    "steps_tried": [
+      "Restarted Cisco AnyConnect twice"
+    ],
+    "priority": "High",
+    "status": "Escalated",
+    "assigned_team": "SISAP Network Engineering (Tier 2)",
+    "requester": null,
+    "created_at": "2026-10-28T11:57:54Z",
+    "diagnostics": [
+      {
+        "check_type": "port_check",
+        "target": "vpn.mock-sisap.test:4500",
+        "simulated": true,
+        "status": "fail",
+        "detail": "UDP 4500 filtered (no response). Possible local firewall or network block."
+      }
+    ],
+    "handoff": {
+      "summary": "VPN connection timed out on UDP 4500. User restarted Cisco AnyConnect twice. Diagnostic shows UDP 4500 filtered. Issue confirmed to be with home network as VPN works on mobile hotspot.",
+      "escalated_at": "2026-10-28T11:58:12Z",
+      "to_team": "SISAP Network Engineering (Tier 2)",
+      "steps_tried": [
+        "Restarted Cisco AnyConnect twice"
+      ],
+      "diagnostics": [
+        {
+          "check_type": "port_check",
+          "target": "vpn.mock-sisap.test:4500",
+          "simulated": true,
+          "status": "fail",
+          "detail": "UDP 4500 filtered (no response). Possible local firewall or network block."
+        }
+      ]
+    }
+  }
+]

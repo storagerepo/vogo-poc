@@ -1,0 +1,35 @@
+[
+  {
+    "alert_id": "ALT-001",
+    "type": "Suspicious Login",
+    "description": "A failed login followed by a successful login for the same account from an IP address not seen before.",
+    "username": "user101",
+    "source_ip": "198.51.100.25",
+    "device": "LAPTOP-GT-014",
+    "severity": "High",
+    "timestamp": "2026-10-27T09:10:00Z",
+    "status": "New"
+  },
+  {
+    "alert_id": "ALT-002",
+    "type": "Impossible Travel / Privileged Account",
+    "description": "Privileged account signed in from two countries within a few minutes, then a role change occurred.",
+    "username": "user303",
+    "source_ip": "192.0.2.88",
+    "device": "LAPTOP-MX-007",
+    "severity": "Critical",
+    "timestamp": "2026-10-27T11:40:00Z",
+    "status": "New"
+  },
+  {
+    "alert_id": "ALT-003",
+    "type": "Suspicious Endpoint Activity",
+    "description": "Encoded PowerShell launched after an Office document was opened, followed by an outbound connection.",
+    "username": "user202",
+    "source_ip": "203.0.113.40",
+    "device": "LAPTOP-CO-221",
+    "severity": "Medium",
+    "timestamp": "2026-10-27T13:05:00Z",
+    "status": "New"
+  }
+]

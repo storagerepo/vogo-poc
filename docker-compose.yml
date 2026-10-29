@@ -127,3 +127,18 @@ services:
     volumes:
       - ./amadita/mock_data:/app/mock_data
     restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Sisap Smart Agent — AI voice agent for Sisap Smart Agent
+  # Image: sisap-smart-agent  |  Dockerfile: sisap_smart_agent/Dockerfile
+  # Entrypoint: python -m agent.main start
+  # ---------------------------------------------------------------------------
+  sisap_smart_agent:
+    build:
+      context: ./sisap_smart_agent
+      dockerfile: Dockerfile
+    image: sisap-smart-agent
+    env_file: .env.sisap
+    volumes:
+      - ./sisap_smart_agent/mock_data:/app/mock_data
+    restart: unless-stopped

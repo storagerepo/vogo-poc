@@ -1,0 +1,5 @@
+[
+  {"username": "user101", "full_name": "Maria Lopez", "office": "Guatemala", "role": "Finance analyst", "privileged": false, "known_ips": ["203.0.113.10", "203.0.113.11"], "usual_country": "Guatemala", "registered_devices": ["LAPTOP-GT-014"], "mfa_enrolled": true},
+  {"username": "user202", "full_name": "Carlos Ramirez", "office": "Colombia", "role": "Sales engineer", "privileged": false, "known_ips": ["203.0.113.40"], "usual_country": "Colombia", "registered_devices": ["LAPTOP-CO-221"], "mfa_enrolled": true},
+  {"username": "user303", "full_name": "Ana Torres", "office": "Mexico", "role": "IAM administrator", "privileged": true, "known_ips": ["203.0.113.70"], "usual_country": "Mexico", "registered_devices": ["LAPTOP-MX-007"], "mfa_enrolled": true}
+]

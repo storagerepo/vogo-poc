@@ -1,0 +1,6 @@
+[
+  {"event_id": "EP-001", "device": "LAPTOP-GT-014", "username": "user101", "activity": "Screen unlocked by local user", "process": "winlogon.exe", "risk": "benign", "timestamp": "2026-10-27T09:05:00Z"},
+  {"event_id": "EP-010", "device": "LAPTOP-CO-221", "username": "user202", "activity": "Office document with macros opened (invoice.docm)", "process": "winword.exe", "risk": "suspicious", "timestamp": "2026-10-27T12:58:00Z"},
+  {"event_id": "EP-011", "device": "LAPTOP-CO-221", "username": "user202", "activity": "PowerShell started with an encoded command", "process": "powershell.exe", "risk": "suspicious", "timestamp": "2026-10-27T13:02:00Z"},
+  {"event_id": "EP-012", "device": "LAPTOP-CO-221", "username": "user202", "activity": "Outbound HTTPS connection to an unfamiliar host", "process": "powershell.exe", "risk": "suspicious", "remote_ip": "198.51.100.77", "timestamp": "2026-10-27T13:05:00Z"}
+]

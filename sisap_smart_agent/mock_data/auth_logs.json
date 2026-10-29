@@ -1,0 +1,9 @@
+[
+  {"event_id": "AUTH-000", "username": "user101", "source_ip": "203.0.113.10", "event": "Login Success", "country": "Guatemala", "mfa_result": "Approved", "timestamp": "2026-10-26T14:02:00Z"},
+  {"event_id": "AUTH-001", "username": "user101", "source_ip": "198.51.100.25", "event": "Login Failed", "country": "Brazil", "mfa_result": "Not Applicable", "timestamp": "2026-10-27T09:10:00Z"},
+  {"event_id": "AUTH-002", "username": "user101", "source_ip": "198.51.100.25", "event": "Login Success", "country": "Brazil", "mfa_result": "Not Recorded", "timestamp": "2026-10-27T09:12:00Z"},
+  {"event_id": "AUTH-010", "username": "user303", "source_ip": "203.0.113.70", "event": "Login Success", "country": "Mexico", "mfa_result": "Approved", "timestamp": "2026-10-27T11:35:00Z"},
+  {"event_id": "AUTH-011", "username": "user303", "source_ip": "192.0.2.88", "event": "Login Success", "country": "Singapore", "mfa_result": "Approved", "timestamp": "2026-10-27T11:40:00Z"},
+  {"event_id": "AUTH-012", "username": "user303", "source_ip": "192.0.2.88", "event": "Privileged Role Assigned", "country": "Singapore", "mfa_result": "Not Applicable", "timestamp": "2026-10-27T11:44:00Z"},
+  {"event_id": "AUTH-020", "username": "user202", "source_ip": "203.0.113.40", "event": "Login Success", "country": "Colombia", "mfa_result": "Approved", "timestamp": "2026-10-27T08:30:00Z"}
+]

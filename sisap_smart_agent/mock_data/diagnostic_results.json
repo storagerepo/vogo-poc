@@ -1,0 +1,24 @@
+{
+  "_note": "Synthetic results for repeatable demos. Only allow-listed targets can be checked.",
+  "allowed_targets": [
+    "vpn.mock-sisap.test",
+    "gw-gt-01.mock-sisap.test",
+    "intranet.mock-sisap.test",
+    "dns.mock-sisap.test",
+    "8.8.8.8"
+  ],
+  "check_types": ["connectivity", "vpn_service", "dns_resolution", "port_check"],
+  "results": {
+    "connectivity:vpn.mock-sisap.test": {"status": "pass", "detail": "Host reachable. Average latency 48 ms, 0% packet loss."},
+    "connectivity:gw-gt-01.mock-sisap.test": {"status": "pass", "detail": "Gateway reachable. Average latency 12 ms."},
+    "connectivity:intranet.mock-sisap.test": {"status": "fail", "detail": "Request timed out. 100% packet loss."},
+    "connectivity:8.8.8.8": {"status": "pass", "detail": "Internet reachable. Average latency 31 ms."},
+    "vpn_service:vpn.mock-sisap.test": {"status": "fail", "detail": "VPN gateway answers, but the tunnel handshake times out (no reply on UDP 4500)."},
+    "dns_resolution:dns.mock-sisap.test": {"status": "pass", "detail": "Resolved vpn.mock-sisap.test to 192.0.2.10 in 22 ms."},
+    "dns_resolution:intranet.mock-sisap.test": {"status": "fail", "detail": "NXDOMAIN: the internal name did not resolve."},
+    "port_check:vpn.mock-sisap.test:443": {"status": "pass", "detail": "TCP 443 is open."},
+    "port_check:vpn.mock-sisap.test:4500": {"status": "fail", "detail": "UDP 4500 filtered (no response). Possible local firewall or network block."},
+    "port_check:vpn.mock-sisap.test:500": {"status": "pass", "detail": "UDP 500 responded."}
+  },
+  "default_pass": {"status": "pass", "detail": "Check completed with no problems found (synthetic result)."}
+}

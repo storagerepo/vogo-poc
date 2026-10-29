@@ -1,0 +1,15 @@
+# Core LiveKit Agents framework
+livekit-agents>=1.0.0
+
+# Gemini Live API plugin (native speech-to-speech)
+livekit-plugins-google>=1.8.2 
+
+# Background noise cancellation
+livekit-plugins-noise-cancellation>=0.1.0
+
+# LiveKit server SDK
+livekit-api>=0.8.0
+
+# Config & testing
+python-dotenv>=1.0.1
+pytest>=8.0
